@@ -8,10 +8,10 @@
   <style>
     :root{--cream:#F5F2ED;--cream-dark:#EDE9E2;--charcoal:#1E1E1E;--gold:#C4972A;--gold-light:#D4A843;--gold-bright:#E8BC50;--gold-dim:#8B6914;--muted:#7A7A72;--border-light:rgba(196,151,42,0.15);--border-cream:rgba(196,151,42,0.25);}
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);}
-    .sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--border-cream);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
+    body{font-family:'DM Sans',sans-serif;background:#0D0D0D;color:#F5F2ED;}
+    .sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,67,0.2);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
     .sos-nav-brand{text-decoration:none;}
-    .sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--charcoal);}
+    .sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#F5F2ED;}
     .sos-nav-brand-main span{color:var(--gold);font-style:italic;}
     .sos-nav-brand-sub{font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem;}
     .sos-nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
@@ -20,40 +20,40 @@
     .sos-nav-links a.active{border-bottom:2px solid var(--gold);}
     .sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;letter-spacing:0.2em;background:var(--gold);color:var(--charcoal);text-decoration:none;padding:0.45rem 1.25rem;}
     .sos-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-    .sos-hamburger span{display:block;width:22px;height:2px;background:var(--charcoal);}
-    .sos-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border-cream);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
+    .sos-hamburger span{display:block;width:22px;height:2px;background:#F5F2ED;}
+    .sos-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,67,0.2);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
     .sos-mobile-menu.open{display:flex;}
     .sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border-light);}
     /* PAGE */
-    .page-hero{background:var(--charcoal);padding:120px 3rem 5rem;text-align:center;position:relative;overflow:hidden;}
+    .page-hero{background:#F5F2ED;padding:120px 3rem 5rem;text-align:center;position:relative;overflow:hidden;}
     .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(196,151,42,0.1) 0%,transparent 60%);pointer-events:none;}
     .page-hero-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
     .page-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;color:var(--cream);line-height:1.05;margin-bottom:1rem;}
     .page-hero-title em{font-style:italic;color:var(--gold-light);}
     .page-hero-body{font-size:0.9rem;font-weight:300;color:rgba(245,242,237,0.65);max-width:540px;margin:0 auto 2.5rem;line-height:1.75;}
     .platform-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-    .platform-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;padding:0.65rem 1.5rem;border:1px solid rgba(196,151,42,0.4);color:var(--cream);transition:all 0.2s;}
+    .platform-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;padding:0.65rem 1.5rem;border:1px solid rgba(212,168,67,0.4);color:#F5F2ED;transition:all 0.2s;}
     .platform-btn:hover{border-color:var(--gold);color:var(--gold);}
     .platform-btn.primary{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
     .platform-btn.primary:hover{background:var(--gold-bright);}
     /* EPISODES */
-    .episodes-section{padding:4rem 3rem;background:var(--cream);}
+    .episodes-section{padding:4rem 3rem;background:#0D0D0D;}
     .episodes-inner{max-width:860px;margin:0 auto;}
-    .episodes-tier-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;margin-top:3rem;padding-bottom:0.75rem;border-bottom:2px solid var(--gold);}
+    .episodes-tier-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;margin-top:3rem;padding-bottom:0.75rem;border-bottom:2px solid #D4A843;}
     .episodes-tier-header:first-child{margin-top:0;}
     .episodes-tier-letter{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;padding:0.2rem 0.6rem;border:2px solid;}
-    .episodes-tier-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;}
+    .episodes-tier-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#F5F2ED;}
     .episodes-tier-tagline{font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;margin-left:auto;}
-    .episode-row{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;padding:1.25rem 0;border-bottom:1px solid var(--border-light);}
+    .episode-row{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(212,168,67,0.15);}
     .episode-row:last-child{border-bottom:none;}
     .episode-thumb{width:80px;height:56px;background-size:cover;background-position:center;background-color:var(--charcoal);flex-shrink:0;}
     .episode-num{font-family:'Bebas Neue',sans-serif;font-size:0.62rem;letter-spacing:0.25em;color:var(--gold);margin-bottom:0.3rem;}
-    .episode-name{font-weight:700;font-size:0.95rem;color:var(--charcoal);margin-bottom:0.2rem;}
-    .episode-transform{font-size:0.7rem;color:var(--muted);}
+    .episode-name{font-weight:700;font-size:0.95rem;color:#F5F2ED;margin-bottom:0.2rem;}
+    .episode-transform{font-size:0.7rem;color:#888880;}
     .episode-btns{display:flex;gap:0.4rem;flex-shrink:0;}
-    .ep-btn{font-size:0.52rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.3rem 0.65rem;border:1px solid var(--border-cream);color:var(--muted);transition:all 0.2s;}
-    .ep-btn:hover{border-color:var(--gold);color:var(--charcoal);}
-    .ep-btn.yt{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal);}
+    .ep-btn{font-size:0.52rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.3rem 0.65rem;border:1px solid rgba(212,168,67,0.25);color:#888880;transition:all 0.2s;}
+    .ep-btn:hover{border-color:#D4A843;color:#F5F2ED;}
+    .ep-btn.yt{background:#F5F2ED;color:var(--cream);border-color:var(--charcoal);}
     .ep-btn.yt:hover{background:#333;}
     /* FOOTER */
     .sos-footer{background:#111;border-top:3px solid var(--gold);padding:3rem;}
@@ -96,23 +96,7 @@
   <ul class="sos-nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About SOS</a></li>
-    <li class="sos-has-dropdown">
-      <button class="sos-drop-btn">Seekers <span class="sos-drop-arrow">▼</span></button>
-      <div class="sos-dropdown">
-        <a href="listen.html#founders">
-          <span class="sos-drop-tier">C · Founders</span>
-          <span class="sos-drop-name">From Lost to Launched</span>
-        </a>
-        <a href="listen.html#highway">
-          <span class="sos-drop-tier">B · Highway Hustle</span>
-          <span class="sos-drop-name">Real people. Real roads.</span>
-        </a>
-        <a href="listen.html#homefree">
-          <span class="sos-drop-tier">A · Home Free</span>
-          <span class="sos-drop-name">The Unseen. About to be seen.</span>
-        </a>
-      </div>
-    </li>
+    <li><a href="listen.html">Listen</a></li>
     <li><a href="fund.html">Fuel the Mission</a></li>
   </ul>
   <a href="fund.html" class="sos-nav-cta">Fuel the Mission</a>
