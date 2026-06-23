@@ -538,6 +538,43 @@
     else{resultsEl.innerHTML=matches.map(f=>`<a href="profile-${f.id}.html" class="sos-search-result-item"><div class="sos-result-num">${f.num}</div><div><div class="sos-result-name">${f.name}</div><div class="sos-result-co">${f.company} · ${f.transform}</div></div><div class="sos-result-match">Blueprint Found</div></a>`).join('');}
     resultsEl.classList.add('active');
   }
+  const founders = [
+    {id:"susy-gordon",num:"C·1020",name:"Susy Gordon",company:"Mega Mission Media",transform:"Corporate IT → Faith-Based Media Founder",tags:["media","tech","consulting","corporate","strategy","founder","director","agile","scrum","broadcast"]},
+    {id:"carrie-carter",num:"C·1021",name:"Carrie Carter",company:"Cowtown Tour Company",transform:"Travel Tech → Tour Company Founder",tags:["travel","tech","expedia","sabre","tour","hospitality","layoff","tourism","fort worth"]},
+    {id:"yoel-zehaie",num:"C·1018",name:"Yoel Zehaie",company:"Zehaie Law",transform:"Law School → Law Firm Founder",tags:["attorney","lawyer","law","legal","criminal","family","civil","court","zehaie"]},
+    {id:"lena-killion",num:"C·1019",name:"Lena Killion",company:"MLK Pre Arrangements",transform:"Aerospace Sales → Funeral Pre-Planning",tags:["aerospace","sales","funeral","health","entrepreneur","bell helicopter","pre-planning","death"]},
+    {id:"michael",num:"B·1008",name:"Michael",company:"Fort Worth, TX",transform:"Crossroads → Evidence Found",tags:["faith","evidence","crossroads","testimony","god","highway hustle"]},
+    {id:"rodney",num:"B·1017",name:"Rodney",company:"Fort Worth, TX",transform:"Prison → Free & Called to Mentor",tags:["prison","transformation","mentor","faith","freedom","blueprint","highway hustle"]},
+    {id:"ashlan",num:"B·1010",name:"Ashlan",company:"Fort Worth, TX",transform:"Breast Cancer → Healed & Testifying",tags:["cancer","breast cancer","healing","faith","psalm","testimony","highway hustle"]},
+    {id:"ellie-zuniga",num:"B·1007",name:"Ellie Zuniga",company:"Fort Worth, TX",transform:"30-Day Coma → Living Evidence",tags:["coma","miracle","evidence","healing","faith","highway hustle"]},
+    {id:"rodney",num:"B·1017",name:"Rodney",company:"Fort Worth, TX",transform:"Prison → Free & Called to Mentor",tags:["prison","incarcerated","mentor","blueprint","highway hustle"]},
+    {id:"cowboy",num:"A·1001",name:"Cowboy",company:"Fort Worth Streets",transform:"Streets → Seeking & Rebuilding",tags:["homeless","home free","father","faith","survival","fort worth","streets"]},
+    {id:"brenda",num:"A·1002",name:"Brenda",company:"Fort Worth Streets",transform:"Homeless → Faith & Restoration",tags:["homeless","home free","faith","birthday","loss","restoration","streets"]}
+  ];
+
+  function runSearch(){
+    const from=document.getElementById('search-from').value.trim().toLowerCase();
+    const to=document.getElementById('search-to').value.trim().toLowerCase();
+    const resultsEl=document.getElementById('search-results');
+    if(!to&&!from){
+      resultsEl.innerHTML='<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">Enter what you want to become to search.</p>';
+      resultsEl.classList.add('active');
+      return;
+    }
+    const combined=(from+' '+to).toLowerCase();
+    const keywords=combined.split(' ').filter(w=>w.length>2);
+    const matches=founders.filter(f=>{
+      const haystack=(f.name+' '+f.company+' '+f.transform+' '+f.tags.join(' ')).toLowerCase();
+      return keywords.some(w=>haystack.includes(w));
+    });
+    if(matches.length===0){
+      resultsEl.innerHTML='<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">No exact matches yet — <a href="listen.html" style="color:#D4A843;">browse all blueprints →</a></p>';
+    } else {
+      resultsEl.innerHTML=matches.map(f=>`<a href="profile-${f.id}.html" class="sos-search-result-item"><div class="sos-result-num">${f.num}</div><div><div class="sos-result-name">${f.name}</div><div class="sos-result-co">${f.company} · ${f.transform}</div></div><div class="sos-result-match">Blueprint Found</div></a>`).join('');
+    }
+    resultsEl.classList.add('active');
+  }
+
   ['search-from','search-to'].forEach(id=>{document.getElementById(id).addEventListener('keypress',e=>{if(e.key==='Enter')runSearch();});});
 </script>
 </body>
