@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fuel the Mission — Seeker of Story</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     :root{--charcoal:#0A0A0A;--charcoal-mid:#111;--charcoal-soft:#161616;--gold:#D4A843;--gold-light:#E8BC50;--gold-dim:#8B6914;--muted:#888880;--border:rgba(212,168,67,0.2);--white:#F5F2ED;--red:#C0392B;}
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -29,10 +29,10 @@
     /* MASTHEAD */
     .ftm-masthead{max-width:1200px;margin:0 auto;padding:5rem 3rem 2rem;border-bottom:3px solid var(--gold);margin-top:64px;}
     .ftm-masthead-inner{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
-    .ftm-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,6rem);letter-spacing:0.04em;color:var(--white);line-height:0.95;margin-bottom:0.5rem;}
-    .ftm-title em{color:var(--gold);font-style:normal;}
+    .ftm-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:700;color:var(--white);line-height:1.0;margin-bottom:0.5rem;}
+    .ftm-title em{color:var(--gold);font-style:italic;}
     .ftm-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--muted);}
-    .give-btn{background:var(--red);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.25em;padding:0.9rem 2.5rem;text-decoration:none;display:inline-block;transition:background 0.2s;white-space:nowrap;align-self:center;}
+    .give-btn{background:var(--red);color:#fff;font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.9rem 2.5rem;text-decoration:none;display:inline-block;transition:background 0.2s;white-space:nowrap;align-self:center;}
     .give-btn:hover{background:#E74C3C;}
 
     .ftm-chrome{max-width:1200px;margin:0 auto;padding:4rem 3rem;}
@@ -41,7 +41,7 @@
     .ftm-northstar{margin-bottom:4rem;border:1px solid rgba(212,168,67,0.3);background:var(--charcoal-mid);overflow:hidden;}
     .ftm-ns-header{background:var(--gold);padding:1.25rem 2.5rem;display:flex;align-items:center;gap:1rem;}
     .ftm-ns-header-label{font-family:'Bebas Neue',sans-serif;font-size:0.7rem;letter-spacing:0.3em;color:rgba(0,0,0,0.55);}
-    .ftm-ns-header-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.08em;color:var(--charcoal);}
+    .ftm-ns-header-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--charcoal);}
     .ftm-ns-body{padding:2.5rem;}
     .ftm-ns-vision{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1.5rem;}
     .ftm-ns-vision em{font-style:italic;color:var(--gold);}
@@ -59,12 +59,12 @@
     .ftm-ecosystem{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,168,67,0.15);}
     .ftm-eco{background:#141414;padding:1.75rem 2rem;}
     .ftm-eco-tag{font-size:0.55rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
-    .ftm-eco-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--white);margin-bottom:0.5rem;}
+    .ftm-eco-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
     .ftm-eco-desc{font-size:0.78rem;font-weight:300;line-height:1.7;color:#666;}
 
     /* SECTION LABEL */
-    .ftm-section-label{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--white);border-bottom:2px solid var(--gold);padding-bottom:0.75rem;margin-bottom:2rem;}
-    .ftm-section-label em{color:var(--gold);font-style:normal;}
+    .ftm-section-label{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--white);border-bottom:2px solid var(--gold);padding-bottom:0.75rem;margin-bottom:2rem;}
+    .ftm-section-label em{color:var(--gold);font-style:italic;}
 
     /* THE ASK */
     .ftm-ask{margin-bottom:4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:4rem;}
@@ -92,7 +92,7 @@
     /* CONNECT */
     .ftm-connect{background:var(--gold);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-bottom:0;}
     .ftm-connect-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--charcoal);line-height:1.5;}
-    .ftm-connect-text strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.1em;color:var(--charcoal);font-style:normal;margin-bottom:0.25rem;}
+    .ftm-connect-text strong{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--charcoal);font-style:normal;margin-bottom:0.25rem;}
     .ftm-connect-right{display:flex;flex-direction:column;gap:0.75rem;align-items:flex-end;}
     .ftm-connect-phone{font-size:0.85rem;font-weight:700;color:var(--charcoal);text-decoration:none;letter-spacing:0.05em;}
     .ftm-connect-btn{background:var(--charcoal);color:var(--gold);padding:0.85rem 2rem;font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
