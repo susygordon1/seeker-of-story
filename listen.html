@@ -3,91 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seekers — Seeker of Story</title>
+  <title>Listen — Seeker of Story</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
-    :root{--cream:#F5F2ED;--cream-dark:#EDE9E2;--charcoal:#1E1E1E;--gold:#C4972A;--gold-light:#D4A843;--gold-bright:#E8BC50;--gold-dim:#8B6914;--muted:#7A7A72;--border-light:rgba(196,151,42,0.15);--border-cream:rgba(196,151,42,0.25);}
+    :root{--charcoal:#0D0D0D;--charcoal-mid:#1A1A1A;--charcoal-soft:#252525;--gold:#D4A843;--gold-light:#E8BC50;--gold-dim:#8B6914;--muted:#888880;--border:rgba(212,168,67,0.2);--white:#F5F2ED;}
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'DM Sans',sans-serif;background:#0D0D0D;color:#F5F2ED;}
-    .sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,67,0.2);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
+    body{font-family:'DM Sans',sans-serif;background:#0D0D0D;color:#F5F2ED;overflow-x:hidden;}
+    .sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 3rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
     .sos-nav-brand{text-decoration:none;}
     .sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#F5F2ED;}
     .sos-nav-brand-main span{color:var(--gold);font-style:italic;}
     .sos-nav-brand-sub{font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem;}
     .sos-nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
-    .sos-nav-links a{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.4rem 0.85rem;}
-    .sos-nav-links a:hover,.sos-nav-links a.active{color:var(--charcoal);}
-    .sos-nav-links a.active{border-bottom:2px solid var(--gold);}
-    .sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;letter-spacing:0.2em;background:var(--gold);color:var(--charcoal);text-decoration:none;padding:0.45rem 1.25rem;}
+    .sos-nav-links a{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.4rem 0.85rem;transition:color 0.2s;}
+    .sos-nav-links a:hover,.sos-nav-links a.active{color:var(--gold);}
+    .sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;background:var(--gold);color:#0D0D0D;text-decoration:none;padding:0.45rem 1.25rem;transition:background 0.2s;}
+    .sos-nav-cta:hover{background:var(--gold-light);}
     .sos-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
     .sos-hamburger span{display:block;width:22px;height:2px;background:#F5F2ED;}
-    .sos-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,67,0.2);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
+    .sos-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,13,13,0.99);border-bottom:1px solid var(--border);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
     .sos-mobile-menu.open{display:flex;}
-    .sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border-light);}
-    /* PAGE */
-    .page-hero{background:#F5F2ED;padding:120px 3rem 5rem;text-align:center;position:relative;overflow:hidden;}
-    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(196,151,42,0.1) 0%,transparent 60%);pointer-events:none;}
+    .sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border);transition:color 0.2s;}
+    .sos-mobile-menu a:hover{color:var(--gold);}
+
+    /* HERO */
+    .page-hero{background:#0D0D0D;padding:110px 3rem 5rem;text-align:center;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,168,67,0.08) 0%,transparent 60%);pointer-events:none;}
     .page-hero-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-    .page-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;color:var(--cream);line-height:1.05;margin-bottom:1rem;}
-    .page-hero-title em{font-style:italic;color:var(--gold-light);}
-    .page-hero-body{font-size:0.9rem;font-weight:300;color:rgba(245,242,237,0.65);max-width:540px;margin:0 auto 2.5rem;line-height:1.75;}
+    .page-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:700;color:#F5F2ED;line-height:1.0;margin-bottom:1.25rem;}
+    .page-hero-title em{font-style:italic;color:var(--gold);}
+    .page-hero-body{font-size:0.95rem;font-weight:300;color:rgba(245,242,237,0.6);max-width:560px;margin:0 auto 2.5rem;line-height:1.85;}
     .platform-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-    .platform-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;padding:0.65rem 1.5rem;border:1px solid rgba(212,168,67,0.4);color:#F5F2ED;background:rgba(212,168,67,0.06);transition:all 0.2s;}
-    .platform-btn:hover{border-color:#D4A843;color:#D4A843;background:rgba(212,168,67,0.1);}
-    .platform-btn.primary{background:#D4A843;color:#0D0D0D;border-color:#D4A843;}
-    .platform-btn.primary:hover{background:#E8BC50;color:#0D0D0D;}
+    .platform-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;padding:0.65rem 1.5rem;border:1px solid rgba(212,168,67,0.4);color:#F5F2ED;background:rgba(212,168,67,0.06);transition:all 0.2s;display:inline-block;}
+    .platform-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .platform-btn.primary{background:var(--gold);color:#0D0D0D;border-color:var(--gold);}
+    .platform-btn.primary:hover{background:var(--gold-light);}
+
+    /* GOLD DIVIDER */
+    .gold-divider{height:3px;background:var(--gold);width:100%;}
+
     /* EPISODES */
     .episodes-section{padding:4rem 3rem;background:#0D0D0D;}
     .episodes-inner{max-width:860px;margin:0 auto;}
-    .episodes-tier-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;margin-top:3rem;padding-bottom:0.75rem;border-bottom:2px solid #D4A843;}
-    .episodes-tier-header:first-child{margin-top:0;}
-    .episodes-tier-letter{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;padding:0.2rem 0.6rem;border:2px solid;}
-    .episodes-tier-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#F5F2ED;}
-    .episodes-tier-tagline{font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;margin-left:auto;}
-    .episode-row{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(212,168,67,0.15);}
-    .episode-row:last-child{border-bottom:none;}
-    .episode-thumb{width:80px;height:56px;background-size:cover;background-position:center;background-color:#1A1A1A;flex-shrink:0;border:1px solid rgba(212,168,67,0.15);}
-    .episode-num{font-family:'Bebas Neue',sans-serif;font-size:0.62rem;letter-spacing:0.25em;color:var(--gold);margin-bottom:0.3rem;}
-    .episode-name{font-weight:700;font-size:0.95rem;color:#F5F2ED;margin-bottom:0.2rem;}
-    .episode-transform{font-size:0.7rem;color:#888880;}
-    .episode-btns{display:flex;gap:0.4rem;flex-shrink:0;}
-    .ep-btn{font-size:0.52rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.3rem 0.65rem;border:1px solid rgba(212,168,67,0.35);color:#F5F2ED;background:rgba(212,168,67,0.06);transition:all 0.2s;}
+
+    /* TIER HEADER */
+    .tier-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;margin-top:3rem;padding-bottom:0.75rem;border-bottom:2px solid var(--gold);}
+    .tier-header:first-child{margin-top:0;}
+    .tier-letter{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;padding:0.2rem 0.6rem;border:2px solid var(--gold);color:var(--gold);line-height:1;}
+    .tier-info{}
+    .tier-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#F5F2ED;}
+    .tier-tagline{font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;margin-top:0.1rem;}
+    .tier-right{margin-left:auto;font-size:0.58rem;color:var(--muted);letter-spacing:0.1em;font-style:italic;}
+
+    /* EPISODE ROW */
+    .ep-row{display:grid;grid-template-columns:80px 1fr auto;gap:1.25rem;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(212,168,67,0.1);}
+    .ep-row:last-child{border-bottom:none;}
+    .ep-thumb{width:80px;height:56px;background-size:cover;background-position:center;background-color:#1A1A1A;flex-shrink:0;border:1px solid rgba(212,168,67,0.15);}
+    .ep-num{font-size:0.55rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+    .ep-name{font-weight:700;font-size:0.95rem;color:#F5F2ED;margin-bottom:0.2rem;}
+    .ep-transform{font-size:0.7rem;color:var(--muted);}
+    .ep-btns{display:flex;gap:0.5rem;flex-shrink:0;}
+    .ep-btn{font-size:0.52rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.4rem 0.75rem;border:1px solid rgba(212,168,67,0.35);color:#F5F2ED;background:rgba(212,168,67,0.06);transition:all 0.2s;display:inline-block;white-space:nowrap;}
     .ep-btn:hover{background:var(--gold);color:#0D0D0D;border-color:var(--gold);}
-    .ep-btn.yt{background:#F5F2ED;color:var(--cream);border-color:var(--charcoal);}
-    .ep-btn.yt:hover{background:#333;}
+    .ep-btn.yt{background:rgba(212,168,67,0.12);border-color:rgba(212,168,67,0.4);}
+    .ep-btn.yt:hover{background:var(--gold);color:#0D0D0D;}
+
     /* FOOTER */
     .sos-footer{background:#111;border-top:3px solid var(--gold);padding:3rem;}
     .sos-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center;}
-    .sos-footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);}
+    .sos-footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#F5F2ED;}
     .sos-footer-brand span{font-style:italic;color:var(--gold);}
     .sos-footer-tagline{font-size:0.72rem;color:var(--muted);line-height:1.7;margin-top:0.5rem;}
-    .sos-footer-statement{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--gold-light);line-height:1.6;}
+    .sos-footer-statement{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--gold);line-height:1.6;}
     .sos-footer-social{display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;}
-    .sos-footer-social a{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid rgba(196,151,42,0.2);padding:0.35rem 0.7rem;transition:all 0.2s;}
+    .sos-footer-social a{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:0.35rem 0.7rem;transition:all 0.2s;}
     .sos-footer-social a:hover{color:var(--gold);border-color:var(--gold);}
-    .sos-footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(196,151,42,0.1);display:flex;justify-content:space-between;}
+    .sos-footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(212,168,67,0.1);display:flex;justify-content:space-between;align-items:center;}
     .sos-footer-copy{font-size:0.58rem;letter-spacing:0.1em;color:#3A3A3A;text-transform:uppercase;}
     .sos-footer-mmm{font-size:0.58rem;color:#3A3A3A;}
     .sos-footer-mmm a{color:var(--gold);text-decoration:none;}
-    @media(max-width:1024px){.sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}episodes-section{padding:3rem 1.5rem;}}
-    @media(max-width:600px){.episode-row{grid-template-columns:1fr;gap:0.75rem;}.episode-thumb{width:100%;height:160px;}.episode-btns{flex-wrap:wrap;}.sos-footer-inner{grid-template-columns:1fr;text-align:center;}.sos-footer-social{justify-content:center;}.sos-footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}}
 
-    /* DROPDOWN */
-    .sos-has-dropdown{position:relative;}
-    .sos-drop-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:0.4rem 0.85rem;display:flex;align-items:center;gap:0.3rem;font-family:'DM Sans',sans-serif;transition:color 0.2s;}
-    .sos-drop-btn:hover{color:var(--gold);}
-    .sos-drop-arrow{font-size:0.5rem;transition:transform 0.2s;}
-    .sos-has-dropdown:hover .sos-drop-arrow,.sos-has-dropdown.open .sos-drop-arrow{transform:rotate(180deg);}
-    .sos-dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:#111;border:1px solid rgba(212,168,67,0.2);z-index:300;flex-direction:column;}
-    .sos-has-dropdown:hover .sos-dropdown,.sos-has-dropdown.open .sos-dropdown{display:flex;}
-    .sos-dropdown a{display:flex;flex-direction:column;padding:0.85rem 1.25rem;border-bottom:1px solid rgba(212,168,67,0.08);text-decoration:none;transition:background 0.15s;}
-    .sos-dropdown a:last-child{border-bottom:none;}
-    .sos-dropdown a:hover{background:#1A1A1A;}
-    .sos-drop-tier{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
-    .sos-drop-name{font-size:0.78rem;color:var(--white);font-weight:400;}
+    @media(max-width:1024px){.sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}.episodes-section{padding:3rem 1.5rem;}}
+    @media(max-width:700px){.page-hero{padding:88px 1.5rem 3rem;}.ep-row{grid-template-columns:60px 1fr;}.ep-btns{display:none;}.sos-footer-inner{grid-template-columns:1fr;text-align:center;}.sos-footer-social{justify-content:center;}.sos-footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}}
   </style>
 </head>
 <body>
+
 <nav class="sos-nav">
   <a href="index.html" class="sos-nav-brand">
     <span class="sos-nav-brand-main">SEEKER <span>OF</span> STORY</span>
@@ -96,7 +97,7 @@
   <ul class="sos-nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About SOS</a></li>
-    <li><a href="listen.html">Listen</a></li>
+    <li><a href="listen.html" class="active">Listen</a></li>
     <li><a href="fund.html">Fuel the Mission</a></li>
   </ul>
   <a href="fund.html" class="sos-nav-cta">Fuel the Mission</a>
@@ -105,15 +106,14 @@
 <div class="sos-mobile-menu" id="sos-mobile-menu">
   <a href="index.html">Home</a>
   <a href="about.html">About SOS</a>
-  <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#D4A843;padding:0.85rem 0 0.35rem;border-bottom:1px solid rgba(212,168,67,0.15);">✦ Seekers</div>
-  <a href="listen.html#founders" style="padding-left:1rem;">C · Founders</a>
-  <a href="listen.html#highway" style="padding-left:1rem;">B · Highway Hustle</a>
-  <a href="listen.html#homefree" style="padding-left:1rem;">A · Home Free</a>
-  <a href="fund.html" style="background:var(--gold);color:var(--charcoal);text-align:center;margin-top:1rem;padding:0.75rem;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;">Fuel the Mission</a>
+  <a href="listen.html">Listen</a>
+  <a href="fund.html">Fuel the Mission</a>
 </div>
 
+<div class="gold-divider"></div>
+
 <section class="page-hero">
-  <div class="page-hero-eyebrow">Seekers</div>
+  <div class="page-hero-eyebrow">All Stories · Seeker of Story</div>
   <h1 class="page-hero-title">Every story is<br><em>a blueprint.</em></h1>
   <p class="page-hero-body">Real people. Real roads. Real transformation. Every story on this platform is free — always. Watch, listen, and find the blueprint that was written for you.</p>
   <div class="platform-btns">
@@ -123,117 +123,244 @@
   </div>
 </section>
 
+<div class="gold-divider"></div>
+
 <section class="episodes-section">
   <div class="episodes-inner">
 
-    <!-- C · FOUNDERS -->
-    <div id="founders"></div>
-    <div class="episodes-tier-header">
-      <div class="episodes-tier-letter" style="color:#D4A843;border-color:#D4A843;">C</div>
-      <div>
-        <div class="episodes-tier-name">Founders</div>
-        <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">From Lost to Launched.</div>
+    <!-- C FOUNDERS -->
+    <div id="founders" class="tier-header">
+      <div class="tier-letter">C</div>
+      <div class="tier-info">
+        <div class="tier-name">Founders</div>
+        <div class="tier-tagline">From Lost to Launched.</div>
       </div>
-      <div class="episodes-tier-tagline">The Keynote. Built from nothing.</div>
+      <div class="tier-right">The Keynote. Built from nothing.</div>
     </div>
 
-    <div class="episode-row">
-      <div class="episode-thumb" style="background-image:url('https://img.youtube.com/vi/3yLCLKzeSNk/hqdefault.jpg')"></div>
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/3yLCLKzeSNk/maxresdefault.jpg')"></div>
       <div>
-        <div class="episode-num">C·1020 — Founding Story</div>
-        <div class="episode-name">Susy Gordon</div>
-        <div class="episode-transform">Corporate IT Director → Faith-Based Media Founder</div>
+        <div class="ep-num">C·1020 — Founding Story</div>
+        <div class="ep-name">Susy Gordon</div>
+        <div class="ep-transform">Corporate IT Director → Faith-Based Media Founder</div>
       </div>
-      <div class="episode-btns">
+      <div class="ep-btns">
         <a href="https://youtu.be/3yLCLKzeSNk" target="_blank" class="ep-btn yt">YouTube</a>
         <a href="profile-susy-gordon.html" class="ep-btn">Full Story</a>
       </div>
     </div>
 
-    <div class="episode-row">
-      <div class="episode-thumb" style="background-image:url('https://img.youtube.com/vi/7kancj2at4s/hqdefault.jpg')"></div>
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/7kancj2at4s/maxresdefault.jpg')"></div>
       <div>
-        <div class="episode-num">C·1021 — Founding Story</div>
-        <div class="episode-name">Carrie Carter</div>
-        <div class="episode-transform">Travel Tech Executive → Cowtown Tour Company</div>
+        <div class="ep-num">C·1021 — Founding Story</div>
+        <div class="ep-name">Carrie Carter</div>
+        <div class="ep-transform">Travel Tech Executive → Cowtown Tour Company</div>
       </div>
-      <div class="episode-btns">
+      <div class="ep-btns">
         <a href="https://youtu.be/7kancj2at4s" target="_blank" class="ep-btn yt">YouTube</a>
         <a href="profile-carrie-carter.html" class="ep-btn">Full Story</a>
       </div>
     </div>
 
-    <div class="episode-row">
-      <div class="episode-thumb" style="background-image:url('https://img.youtube.com/vi/nANNiY8SsfE/hqdefault.jpg')"></div>
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/nANNiY8SsfE/maxresdefault.jpg')"></div>
       <div>
-        <div class="episode-num">C·1019 — Founding Story</div>
-        <div class="episode-name">Lena Killion</div>
-        <div class="episode-transform">Aerospace Sales → Funeral Pre-Planning Entrepreneur</div>
+        <div class="ep-num">C·1019 — Founding Story</div>
+        <div class="ep-name">Lena Killion</div>
+        <div class="ep-transform">Aerospace Sales → Funeral Pre-Planning Entrepreneur</div>
       </div>
-      <div class="episode-btns">
+      <div class="ep-btns">
         <a href="https://youtu.be/nANNiY8SsfE" target="_blank" class="ep-btn yt">YouTube</a>
         <a href="profile-lena-killion.html" class="ep-btn">Full Story</a>
       </div>
     </div>
 
-    <div class="episode-row">
-      <div class="episode-thumb" style="background-image:url('https://img.youtube.com/vi/iUCYARj7i9U/hqdefault.jpg')"></div>
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/iUCYARj7i9U/maxresdefault.jpg')"></div>
       <div>
-        <div class="episode-num">C·1018 — Founding Story</div>
-        <div class="episode-name">Yoel Zehaie</div>
-        <div class="episode-transform">Law School Graduate → Law Firm Founder</div>
+        <div class="ep-num">C·1018 — Founding Story</div>
+        <div class="ep-name">Yoel Zehaie</div>
+        <div class="ep-transform">Law School Graduate → Law Firm Founder</div>
       </div>
-      <div class="episode-btns">
+      <div class="ep-btns">
         <a href="https://youtu.be/iUCYARj7i9U" target="_blank" class="ep-btn yt">YouTube</a>
         <a href="profile-yoel-zehaie.html" class="ep-btn">Full Story</a>
       </div>
     </div>
 
-    <!-- B · HIGHWAY HUSTLE -->
-    <div id="highway"></div>
-    <div class="episodes-tier-header">
-      <div class="episodes-tier-letter" style="color:#C4972A;border-color:#C4972A;">B</div>
-      <div>
-        <div class="episodes-tier-name">Highway Hustle</div>
-        <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">Real people. Real roads. Real stories.</div>
+    <!-- B HIGHWAY HUSTLE -->
+    <div id="highway" class="tier-header">
+      <div class="tier-letter">B</div>
+      <div class="tier-info">
+        <div class="tier-name">Highway Hustle</div>
+        <div class="tier-tagline">Real people. Real roads. Real stories.</div>
       </div>
-      <div class="episodes-tier-tagline">In Motion. In Testimony.</div>
+      <div class="tier-right">In Motion. In Testimony.</div>
     </div>
 
-    <div id="b-episodes"></div>
-
-    <!-- A · HOME FREE -->
-    <div id="homefree"></div>
-    <div class="episodes-tier-header">
-      <div class="episodes-tier-letter" style="color:#8B6914;border-color:#8B6914;">A</div>
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/kgTyGsXRcmw/maxresdefault.jpg')"></div>
       <div>
-        <div class="episodes-tier-name">Home Free</div>
-        <div style="font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">The Unseen. About to be seen.</div>
+        <div class="ep-num">B·1017 — Highway Hustle</div>
+        <div class="ep-name">Rodney</div>
+        <div class="ep-transform">17 → Prison → Free at 33 → Called to Mentor</div>
       </div>
-      <div class="episodes-tier-tagline">Every story above speaks life here.</div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/kgTyGsXRcmw" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-rodney.html" class="ep-btn">Full Story</a>
+      </div>
     </div>
 
-    <div class="episode-row">
-      <div class="episode-thumb" style="background-image:url('https://img.youtube.com/vi/UpfGk7a25-E/hqdefault.jpg')"></div>
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/bQwsbG9G-xI/maxresdefault.jpg')"></div>
       <div>
-        <div class="episode-num">A·1001 — Home Free</div>
-        <div class="episode-name">Cowboy</div>
-        <div class="episode-transform">Streets of Fort Worth → Seeking & Rebuilding</div>
+        <div class="ep-num">B·1016 — Highway Hustle</div>
+        <div class="ep-name">Cameron</div>
+        <div class="ep-transform">Toxic Relationship Survivor → Rebuilding & Refining</div>
       </div>
-      <div class="episode-btns">
+      <div class="ep-btns">
+        <a href="https://youtu.be/bQwsbG9G-xI" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-cameron.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/4vHj8gaPcUI/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1015 — Highway Hustle</div>
+        <div class="ep-name">Troy, Roman & Shannon</div>
+        <div class="ep-transform">Music Industry → God's Glory Found</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/4vHj8gaPcUI" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-troy-roman-shannon.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/TL3rpHBGipg/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1014 — Highway Hustle</div>
+        <div class="ep-name">Latoya French</div>
+        <div class="ep-transform">A·Home Free → B·Highway Hustle · Elevation in Progress</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/TL3rpHBGipg" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-latoya.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/9A-4cmtnKVA/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1013 — Highway Hustle</div>
+        <div class="ep-name">Jesse & Jeremy</div>
+        <div class="ep-transform">Addiction & Darkness → Sobriety & Purpose</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/9A-4cmtnKVA" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-jesse-jeremy.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/aHWAQ1VfNJM/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1010 — Highway Hustle</div>
+        <div class="ep-name">Ashlan</div>
+        <div class="ep-transform">Breast Cancer Diagnosis → Healed & Testifying</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/aHWAQ1VfNJM" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-ashlan.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/-jm3WCRDue4/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1009 — Highway Hustle</div>
+        <div class="ep-name">Andrew</div>
+        <div class="ep-transform">Hospice as a Child → Living Miracle</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/-jm3WCRDue4" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-andrew.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/xK47esFh044/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1008 — Highway Hustle</div>
+        <div class="ep-name">Michael</div>
+        <div class="ep-transform">Caught Between Two Worlds → Evidence Found</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/xK47esFh044" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-michael.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/0lJ_Csrv31I/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1007 — Highway Hustle</div>
+        <div class="ep-name">Ellie Zuniga</div>
+        <div class="ep-transform">30-Day Coma → Living Evidence</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/0lJ_Csrv31I" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-ellie-zuniga.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/1jxc6GcMXkg/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">B·1004 — Highway Hustle</div>
+        <div class="ep-name">Ms. June</div>
+        <div class="ep-transform">Active Addiction → Recovery & Hope</div>
+      </div>
+      <div class="ep-btns">
+        <a href="https://youtu.be/1jxc6GcMXkg" target="_blank" class="ep-btn yt">YouTube</a>
+        <a href="profile-ms-june.html" class="ep-btn">Full Story</a>
+      </div>
+    </div>
+
+    <!-- A HOME FREE -->
+    <div id="homefree" class="tier-header">
+      <div class="tier-letter">A</div>
+      <div class="tier-info">
+        <div class="tier-name">Home Free</div>
+        <div class="tier-tagline">The Unseen. About to be seen.</div>
+      </div>
+      <div class="tier-right">Every story above speaks life here.</div>
+    </div>
+
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/UpfGk7a25-E/maxresdefault.jpg')"></div>
+      <div>
+        <div class="ep-num">A·1001 — Home Free</div>
+        <div class="ep-name">Cowboy</div>
+        <div class="ep-transform">Streets of Fort Worth → Seeking & Rebuilding</div>
+      </div>
+      <div class="ep-btns">
         <a href="https://youtu.be/UpfGk7a25-E" target="_blank" class="ep-btn yt">YouTube</a>
         <a href="profile-cowboy.html" class="ep-btn">Full Story</a>
       </div>
     </div>
 
-    <div class="episode-row">
-      <div class="episode-thumb" style="background-image:url('https://img.youtube.com/vi/GOYYU16XQxQ/hqdefault.jpg')"></div>
+    <div class="ep-row">
+      <div class="ep-thumb" style="background-image:url('https://img.youtube.com/vi/GOYYU16XQxQ/maxresdefault.jpg')"></div>
       <div>
-        <div class="episode-num">A·1002 — Home Free</div>
-        <div class="episode-name">Brenda</div>
-        <div class="episode-transform">Homeless on her 47th Birthday → Faith & Restoration</div>
+        <div class="ep-num">A·1002 — Home Free</div>
+        <div class="ep-name">Brenda</div>
+        <div class="ep-transform">Homeless on her 47th Birthday → Faith & Restoration</div>
       </div>
-      <div class="episode-btns">
+      <div class="ep-btns">
         <a href="https://youtu.be/GOYYU16XQxQ" target="_blank" class="ep-btn yt">YouTube</a>
         <a href="profile-brenda.html" class="ep-btn">Full Story</a>
       </div>
@@ -246,7 +373,7 @@
   <div class="sos-footer-inner">
     <div>
       <div class="sos-footer-brand">SEEKER <span>OF</span> STORY</div>
-      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.</p>
+      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.<br>Powered by Mega Mission Media.</p>
     </div>
     <div class="sos-footer-statement">"The only platform built<br>for Seekers, not followers."</div>
     <div class="sos-footer-social">
@@ -257,49 +384,13 @@
   </div>
   <div class="sos-footer-bottom">
     <div class="sos-footer-copy">© 2026 Seeker of Story · No Paywalls. Always Free.</div>
-    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a></div>
+    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a> · 817-860-8989</div>
   </div>
 </footer>
 
 <script>
   document.getElementById('sos-hamburger').addEventListener('click',function(e){e.stopPropagation();document.getElementById('sos-mobile-menu').classList.toggle('open');});
-  // Seekers dropdown
-  const dropBtn = document.querySelector('.sos-drop-btn');
-  const dropParent = document.querySelector('.sos-has-dropdown');
-  if(dropBtn){
-    dropBtn.addEventListener('click',function(e){e.stopPropagation();dropParent.classList.toggle('open');});
-    document.addEventListener('click',function(e){if(dropParent&&!dropParent.contains(e.target))dropParent.classList.remove('open');});
-  }
   document.addEventListener('click',function(e){const m=document.getElementById('sos-mobile-menu'),h=document.getElementById('sos-hamburger');if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
-
-  const bEpisodes = [
-    {num:"B·1017",name:"Rodney",transform:"17 → Prison → Free at 33 → Called to Mentor",yt:"kgTyGsXRcmw",id:"rodney"},
-    {num:"B·1016",name:"Cameron",transform:"Toxic Relationship Survivor → Rebuilding & Refining",yt:"bQwsbG9G-xI",id:"cameron"},
-    {num:"B·1015",name:"Troy, Roman & Shannon",transform:"Music Industry → God's Glory Found",yt:"4vHj8gaPcUI",id:"troy-roman-shannon"},
-    {num:"B·1014",name:"Latoya French",transform:"A·Home Free → B·Highway Hustle · Elevation in Progress",yt:"TL3rpHBGipg",id:"latoya"},
-    {num:"B·1013",name:"Jesse & Jeremy",transform:"Addiction & Darkness → Sobriety & Purpose",yt:"9A-4cmtnKVA",id:"jesse-jeremy"},
-    {num:"B·1010",name:"Ashlan",transform:"Breast Cancer Diagnosis → Healed & Testifying",yt:"aHWAQ1VfNJM",id:"ashlan"},
-    {num:"B·1009",name:"Andrew",transform:"Hospice as a Child → Living Miracle",yt:"-jm3WCRDue4",id:"andrew"},
-    {num:"B·1008",name:"Michael",transform:"Caught Between Two Worlds → Evidence Found",yt:"xK47esFh044",id:"michael"},
-    {num:"B·1007",name:"Ellie Zuniga",transform:"30-Day Coma → Living Evidence",yt:"0lJ_Csrv31I",id:"ellie-zuniga"},
-    {num:"B·1004",name:"Ms. June",transform:"Active Addiction → Recovery & Hope",yt:"1jxc6GcMXkg",id:"ms-june"},
-  ];
-
-  const container = document.getElementById('b-episodes');
-  bEpisodes.forEach(ep => {
-    container.innerHTML += `<div class="episode-row">
-      <div class="episode-thumb" style="background-image:url('https://img.youtube.com/vi/${ep.yt}/hqdefault.jpg')"></div>
-      <div>
-        <div class="episode-num">${ep.num} — Highway Hustle</div>
-        <div class="episode-name">${ep.name}</div>
-        <div class="episode-transform">${ep.transform}</div>
-      </div>
-      <div class="episode-btns">
-        <a href="https://youtu.be/${ep.yt}" target="_blank" class="ep-btn yt">YouTube</a>
-        <a href="profile-${ep.id}.html" class="ep-btn">Full Story</a>
-      </div>
-    </div>`;
-  });
 </script>
 </body>
 </html>
