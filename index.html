@@ -276,7 +276,7 @@
   <div class="sos-hero-verse">Matthew 7:7 — Ask and It Will Be Given · Seek and You Will Find</div>
 
   <div class="sos-search-box">
-    <div class="sos-search-coming">✦ Blueprint Database — Coming Soon ✦</div>
+    
     <div class="sos-search-box-label">Search the Becoming Database</div>
     <div class="sos-search-fields">
       <div>
@@ -522,60 +522,72 @@
 </footer>
 
 <script>
-  // Nav
-  document.getElementById('sos-hamburger').addEventListener('click',function(e){e.stopPropagation();document.getElementById('sos-mobile-menu').classList.toggle('open');});
-  // Seekers dropdown
-  const dropBtn = document.querySelector('.sos-drop-btn');
-  const dropParent = document.querySelector('.sos-has-dropdown');
-  if(dropBtn){
-    dropBtn.addEventListener('click',function(e){e.stopPropagation();dropParent.classList.toggle('open');});
-    document.addEventListener('click',function(e){if(dropParent&&!dropParent.contains(e.target))dropParent.classList.remove('open');});
-  }
-  document.addEventListener('click',function(e){const m=document.getElementById('sos-mobile-menu'),h=document.getElementById('sos-hamburger');if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
+// Nav hamburger
+document.getElementById('sos-hamburger').addEventListener('click', function(e) {
+  e.stopPropagation();
+  document.getElementById('sos-mobile-menu').classList.toggle('open');
+});
+document.addEventListener('click', function(e) {
+  var m = document.getElementById('sos-mobile-menu');
+  var h = document.getElementById('sos-hamburger');
+  if (!m.contains(e.target) && !h.contains(e.target)) m.classList.remove('open');
+});
 
+// Search data
+var searchData = [
+  {id:"susy-gordon", num:"C·1020", name:"Susy Gordon", company:"Mega Mission Media · Seeker of Story", transform:"Corporate IT Director → Faith-Based Media Founder", keys:"media tech consulting corporate strategy founder director agile scrum broadcast susy gordon"},
+  {id:"carrie-carter", num:"C·1021", name:"Carrie Carter", company:"Cowtown Tour Company", transform:"Travel Tech Executive → Tour Company Founder", keys:"travel tech expedia sabre tour hospitality layoff tourism fort worth carrie carter cowtown"},
+  {id:"yoel-zehaie", num:"C·1018", name:"Yoel Zehaie", company:"Zehaie Law", transform:"Law School Graduate → Law Firm Founder", keys:"attorney lawyer law legal criminal family civil court zehaie founder"},
+  {id:"lena-killion", num:"C·1019", name:"Lena Killion", company:"MLK Pre Arrangements", transform:"Aerospace Sales → Funeral Pre-Planning Entrepreneur", keys:"aerospace sales funeral health entrepreneur pre-planning bell helicopter lena killion"},
+  {id:"michael", num:"B·1008", name:"Michael", company:"Fort Worth, TX", transform:"Crossroads → Evidence Found", keys:"faith evidence crossroads testimony god passenger highway hustle"},
+  {id:"rodney", num:"B·1017", name:"Rodney", company:"Fort Worth, TX", transform:"Prison → Free at 33 → Called to Mentor", keys:"prison incarcerated mentor blueprint faith freedom transformation highway hustle"},
+  {id:"ashlan", num:"B·1010", name:"Ashlan", company:"Fort Worth, TX", transform:"Breast Cancer Diagnosis → Healed and Testifying", keys:"cancer breast cancer healing faith psalm testimony survivor highway hustle"},
+  {id:"ellie-zuniga", num:"B·1007", name:"Ellie Zuniga", company:"Fort Worth, TX", transform:"30-Day Coma → Living Evidence", keys:"coma miracle evidence healing faith halo highway hustle"},
+  {id:"cameron", num:"B·1016", name:"Cameron", company:"Fort Worth, TX", transform:"Toxic Relationship Survivor → Rebuilding Self", keys:"abuse survivor toxic relationship rebuilding refining highway hustle"},
+  {id:"ms-june", num:"B·1004", name:"Ms. June", company:"Fort Worth, TX", transform:"Active Addiction → Recovery and Hope", keys:"addiction recovery hope faith community highway hustle"},
+  {id:"andrew", num:"B·1009", name:"Andrew", company:"Fort Worth, TX", transform:"Hospice as a Child → Living Miracle", keys:"hospice coma miracle healing faith living highway hustle"},
+  {id:"latoya", num:"B·1014", name:"Latoya French", company:"Fort Worth, TX", transform:"Homeless → In Motion", keys:"homeless home free elevation testimony poem highway hustle"},
+  {id:"cowboy", num:"A·1001", name:"Cowboy", company:"Fort Worth Streets", transform:"Streets → Seeking and Rebuilding", keys:"homeless home free father silk screen survivor fort worth streets"},
+  {id:"brenda", num:"A·1002", name:"Brenda", company:"Fort Worth Streets", transform:"Homeless on her 47th Birthday → Faith and Restoration", keys:"homeless home free faith birthday loss restoration streets"}
+];
 
-    if(matches.length===0){resultsEl.innerHTML='<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">No exact matches yet — <a href="founders.html" style="color:#D4A843;">browse all blueprints →</a></p>';}
-    else{resultsEl.innerHTML=matches.map(f=>`<a href="profile-${f.id}.html" class="sos-search-result-item"><div class="sos-result-num">${f.num}</div><div><div class="sos-result-name">${f.name}</div><div class="sos-result-co">${f.company} · ${f.transform}</div></div><div class="sos-result-match">Blueprint Found</div></a>`).join('');}
+function runSearch() {
+  var from = document.getElementById('search-from').value.trim().toLowerCase();
+  var to = document.getElementById('search-to').value.trim().toLowerCase();
+  var resultsEl = document.getElementById('search-results');
+  
+  if (!to && !from) {
+    resultsEl.innerHTML = '<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">Enter what you want to become to search.</p>';
     resultsEl.classList.add('active');
+    return;
   }
-  const founders = [
-    {id:"susy-gordon",num:"C·1020",name:"Susy Gordon",company:"Mega Mission Media",transform:"Corporate IT → Faith-Based Media Founder",tags:["media","tech","consulting","corporate","strategy","founder","director","agile","scrum","broadcast"]},
-    {id:"carrie-carter",num:"C·1021",name:"Carrie Carter",company:"Cowtown Tour Company",transform:"Travel Tech → Tour Company Founder",tags:["travel","tech","expedia","sabre","tour","hospitality","layoff","tourism","fort worth"]},
-    {id:"yoel-zehaie",num:"C·1018",name:"Yoel Zehaie",company:"Zehaie Law",transform:"Law School → Law Firm Founder",tags:["attorney","lawyer","law","legal","criminal","family","civil","court","zehaie"]},
-    {id:"lena-killion",num:"C·1019",name:"Lena Killion",company:"MLK Pre Arrangements",transform:"Aerospace Sales → Funeral Pre-Planning",tags:["aerospace","sales","funeral","health","entrepreneur","bell helicopter","pre-planning","death"]},
-    {id:"michael",num:"B·1008",name:"Michael",company:"Fort Worth, TX",transform:"Crossroads → Evidence Found",tags:["faith","evidence","crossroads","testimony","god","highway hustle"]},
-    {id:"rodney",num:"B·1017",name:"Rodney",company:"Fort Worth, TX",transform:"Prison → Free & Called to Mentor",tags:["prison","transformation","mentor","faith","freedom","blueprint","highway hustle"]},
-    {id:"ashlan",num:"B·1010",name:"Ashlan",company:"Fort Worth, TX",transform:"Breast Cancer → Healed & Testifying",tags:["cancer","breast cancer","healing","faith","psalm","testimony","highway hustle"]},
-    {id:"ellie-zuniga",num:"B·1007",name:"Ellie Zuniga",company:"Fort Worth, TX",transform:"30-Day Coma → Living Evidence",tags:["coma","miracle","evidence","healing","faith","highway hustle"]},
-    {id:"rodney",num:"B·1017",name:"Rodney",company:"Fort Worth, TX",transform:"Prison → Free & Called to Mentor",tags:["prison","incarcerated","mentor","blueprint","highway hustle"]},
-    {id:"cowboy",num:"A·1001",name:"Cowboy",company:"Fort Worth Streets",transform:"Streets → Seeking & Rebuilding",tags:["homeless","home free","father","faith","survival","fort worth","streets"]},
-    {id:"brenda",num:"A·1002",name:"Brenda",company:"Fort Worth Streets",transform:"Homeless → Faith & Restoration",tags:["homeless","home free","faith","birthday","loss","restoration","streets"]}
-  ];
-
-  function runSearch(){
-    const from=document.getElementById('search-from').value.trim().toLowerCase();
-    const to=document.getElementById('search-to').value.trim().toLowerCase();
-    const resultsEl=document.getElementById('search-results');
-    if(!to&&!from){
-      resultsEl.innerHTML='<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">Enter what you want to become to search.</p>';
-      resultsEl.classList.add('active');
-      return;
-    }
-    const combined=(from+' '+to).toLowerCase();
-    const keywords=combined.split(' ').filter(w=>w.length>2);
-    const matches=founders.filter(f=>{
-      const haystack=(f.name+' '+f.company+' '+f.transform+' '+f.tags.join(' ')).toLowerCase();
-      return keywords.some(w=>haystack.includes(w));
-    });
-    if(matches.length===0){
-      resultsEl.innerHTML='<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">No exact matches yet — <a href="listen.html" style="color:#D4A843;">browse all blueprints →</a></p>';
-    } else {
-      resultsEl.innerHTML=matches.map(f=>`<a href="profile-${f.id}.html" class="sos-search-result-item"><div class="sos-result-num">${f.num}</div><div><div class="sos-result-name">${f.name}</div><div class="sos-result-co">${f.company} · ${f.transform}</div></div><div class="sos-result-match">Blueprint Found</div></a>`).join('');
-    }
-    resultsEl.classList.add('active');
+  
+  var combined = (from + ' ' + to).toLowerCase();
+  var keywords = combined.split(' ').filter(function(w) { return w.length > 2; });
+  
+  var matches = searchData.filter(function(f) {
+    var haystack = (f.name + ' ' + f.company + ' ' + f.transform + ' ' + f.keys).toLowerCase();
+    return keywords.some(function(w) { return haystack.indexOf(w) !== -1; });
+  });
+  
+  if (matches.length === 0) {
+    resultsEl.innerHTML = '<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">No exact matches yet — <a href="listen.html" style="color:#D4A843;">browse all blueprints</a></p>';
+  } else {
+    resultsEl.innerHTML = matches.map(function(f) {
+      return '<a href="profile-' + f.id + '.html" class="sos-search-result-item">' +
+        '<div class="sos-result-num">' + f.num + '</div>' +
+        '<div><div class="sos-result-name">' + f.name + '</div>' +
+        '<div class="sos-result-co">' + f.company + ' · ' + f.transform + '</div></div>' +
+        '<div class="sos-result-match">Blueprint Found</div>' +
+        '</a>';
+    }).join('');
   }
+  resultsEl.classList.add('active');
+}
 
-  ['search-from','search-to'].forEach(id=>{document.getElementById(id).addEventListener('keypress',e=>{if(e.key==='Enter')runSearch();});});
+// Enter key support
+document.getElementById('search-from').addEventListener('keypress', function(e) { if (e.key === 'Enter') runSearch(); });
+document.getElementById('search-to').addEventListener('keypress', function(e) { if (e.key === 'Enter') runSearch(); });
 </script>
 </body>
 </html>
