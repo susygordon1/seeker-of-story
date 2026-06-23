@@ -32,10 +32,10 @@
     .page-hero-title em{font-style:italic;color:var(--gold-light);}
     .page-hero-body{font-size:0.9rem;font-weight:300;color:rgba(245,242,237,0.65);max-width:540px;margin:0 auto 2.5rem;line-height:1.75;}
     .platform-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-    .platform-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;padding:0.65rem 1.5rem;border:1px solid rgba(212,168,67,0.4);color:#F5F2ED;transition:all 0.2s;}
-    .platform-btn:hover{border-color:var(--gold);color:var(--gold);}
-    .platform-btn.primary{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
-    .platform-btn.primary:hover{background:var(--gold-bright);}
+    .platform-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;padding:0.65rem 1.5rem;border:1px solid rgba(212,168,67,0.4);color:#F5F2ED;background:rgba(212,168,67,0.06);transition:all 0.2s;}
+    .platform-btn:hover{border-color:#D4A843;color:#D4A843;background:rgba(212,168,67,0.1);}
+    .platform-btn.primary{background:#D4A843;color:#0D0D0D;border-color:#D4A843;}
+    .platform-btn.primary:hover{background:#E8BC50;color:#0D0D0D;}
     /* EPISODES */
     .episodes-section{padding:4rem 3rem;background:#0D0D0D;}
     .episodes-inner{max-width:860px;margin:0 auto;}
@@ -46,13 +46,13 @@
     .episodes-tier-tagline{font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;margin-left:auto;}
     .episode-row{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(212,168,67,0.15);}
     .episode-row:last-child{border-bottom:none;}
-    .episode-thumb{width:80px;height:56px;background-size:cover;background-position:center;background-color:var(--charcoal);flex-shrink:0;}
+    .episode-thumb{width:80px;height:56px;background-size:cover;background-position:center;background-color:#1A1A1A;flex-shrink:0;border:1px solid rgba(212,168,67,0.15);}
     .episode-num{font-family:'Bebas Neue',sans-serif;font-size:0.62rem;letter-spacing:0.25em;color:var(--gold);margin-bottom:0.3rem;}
     .episode-name{font-weight:700;font-size:0.95rem;color:#F5F2ED;margin-bottom:0.2rem;}
     .episode-transform{font-size:0.7rem;color:#888880;}
     .episode-btns{display:flex;gap:0.4rem;flex-shrink:0;}
-    .ep-btn{font-size:0.52rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.3rem 0.65rem;border:1px solid rgba(212,168,67,0.25);color:#888880;transition:all 0.2s;}
-    .ep-btn:hover{border-color:#D4A843;color:#F5F2ED;}
+    .ep-btn{font-size:0.52rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.3rem 0.65rem;border:1px solid rgba(212,168,67,0.35);color:#F5F2ED;background:rgba(212,168,67,0.06);transition:all 0.2s;}
+    .ep-btn:hover{background:var(--gold);color:#0D0D0D;border-color:var(--gold);}
     .ep-btn.yt{background:#F5F2ED;color:var(--cream);border-color:var(--charcoal);}
     .ep-btn.yt:hover{background:#333;}
     /* FOOTER */
