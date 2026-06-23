@@ -7,123 +7,123 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #F5F2ED; --cream-dark: #EDE9E2; --charcoal: #1E1E1E; --charcoal-mid: #2A2A2A;
-      --gold: #C4972A; --gold-light: #D4A843; --gold-bright: #E8BC50; --gold-dim: #8B6914;
-      --muted: #7A7A72; --border-light: rgba(196,151,42,0.15); --border-cream: rgba(196,151,42,0.25); --white: #FFFFFF;
+      --cream:#F5F2ED; --charcoal:#0D0D0D; --charcoal-mid:#1A1A1A; --charcoal-soft:#252525;
+      --gold:#D4A843; --gold-light:#E8BC50; --gold-dim:#8B6914; --gold-dark:#A8842A;
+      --muted:#888880; --border:rgba(212,168,67,0.2); --white:#F5F2ED;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--charcoal);color:var(--white);overflow-x:hidden;}
 
-    .sos-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border-cream); padding: 0 3rem; height: 68px; display: flex; align-items: center; justify-content: space-between; }
-    .sos-nav-brand { text-decoration: none; }
-    .sos-nav-brand-main { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--charcoal); }
-    .sos-nav-brand-main span { color: var(--gold); font-style: italic; }
-    .sos-nav-brand-sub { font-size: 0.52rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 0.15rem; }
-    .sos-nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
-    .sos-nav-links a { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.4rem 0.85rem; }
-    .sos-nav-links a:hover { color: var(--charcoal); }
-    .sos-nav-links a.active { color: var(--charcoal); border-bottom: 2px solid var(--gold); }
-    .sos-nav-cta { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.2em; background: var(--gold); color: var(--charcoal); text-decoration: none; padding: 0.45rem 1.25rem; }
-    .sos-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .sos-hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); }
-    .sos-mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border-cream); z-index: 99; flex-direction: column; padding: 1.5rem 2rem; }
-    .sos-mobile-menu.open { display: flex; }
-    .sos-mobile-menu a { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.85rem 0; border-bottom: 1px solid var(--border-light); }
+    /* NAV */
+    .sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
+    .sos-nav-brand{text-decoration:none;}
+    .sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);}
+    .sos-nav-brand-main span{color:var(--gold);font-style:italic;}
+    .sos-nav-brand-sub{font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem;}
+    .sos-nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
+    .sos-nav-links a{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.4rem 0.85rem;transition:color 0.2s;}
+    .sos-nav-links a:hover,.sos-nav-links a.active{color:var(--gold);}
+    .sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;background:var(--gold);color:var(--charcoal);text-decoration:none;padding:0.45rem 1.25rem;transition:background 0.2s;}
+    .sos-nav-cta:hover{background:var(--gold-light);}
+    .sos-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .sos-hamburger span{display:block;width:22px;height:2px;background:var(--white);}
+    .sos-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(13,13,13,0.99);border-bottom:1px solid var(--border);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
+    .sos-mobile-menu.open{display:flex;}
+    .sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border);transition:color 0.2s;}
+    .sos-mobile-menu a:hover{color:var(--gold);}
+
+    /* GOLD DIVIDER */
+    .gold-divider{height:3px;background:var(--gold);width:100%;}
+    .gold-divider-thin{height:1px;background:rgba(212,168,67,0.25);width:100%;}
 
     /* HERO */
-    .page-hero { background: var(--charcoal); padding: 120px 3rem 5rem; text-align: center; position: relative; overflow: hidden; }
-    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(196,151,42,0.1) 0%, transparent 60%); pointer-events: none; }
-    .page-hero-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-    .page-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; color: var(--cream); line-height: 1.05; margin-bottom: 1.25rem; max-width: 800px; margin-left: auto; margin-right: auto; }
-    .page-hero-title em { font-style: italic; color: var(--gold-light); }
-    .page-hero-body { font-size: 0.95rem; font-weight: 300; color: rgba(245,242,237,0.65); max-width: 600px; margin: 0 auto; line-height: 1.85; }
+    .page-hero{background:var(--charcoal);padding:110px 3rem 5rem;text-align:center;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,168,67,0.08) 0%,transparent 60%);pointer-events:none;}
+    .page-hero-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
+    .page-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:700;color:var(--white);line-height:1.0;margin-bottom:1.25rem;}
+    .page-hero-title em{font-style:italic;color:var(--gold);}
+    .page-hero-body{font-size:1rem;font-weight:300;color:rgba(245,242,237,0.65);max-width:620px;margin:0 auto;line-height:1.85;}
+    .page-hero-body em{color:var(--gold);font-style:italic;}
 
-    /* MISSION SECTION */
-    .about-mission { padding: 5rem 3rem; background: var(--cream); }
-    .about-mission-inner { max-width: 760px; margin: 0 auto; }
-    .about-section-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-    .about-section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; }
-    .about-section-title em { font-style: italic; color: var(--gold); }
-    .about-body { font-size: 0.95rem; font-weight: 300; line-height: 2; color: #3A3A3A; }
-    .about-body p { margin-bottom: 1.5rem; }
+    /* SECTION BASE */
+    .sos-section{padding:5rem 3rem;}
+    .sos-section-inner{max-width:1000px;margin:0 auto;}
+    .sos-section-inner-narrow{max-width:760px;margin:0 auto;}
+    .sos-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
+    .sos-section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;}
+    .sos-section-title em{font-style:italic;color:var(--gold);}
+    .sos-body{font-size:0.95rem;font-weight:300;line-height:2;color:rgba(245,242,237,0.75);}
+    .sos-body p{margin-bottom:1.5rem;}
 
-    /* GOODWILL PRINCIPLE */
-    .about-goodwill { background: var(--charcoal); padding: 5rem 3rem; }
-    .about-goodwill-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
-    .about-goodwill-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--cream); margin-bottom: 1rem; }
-    .about-goodwill-title em { font-style: italic; color: var(--gold-light); }
-    .about-goodwill-sub { font-size: 0.9rem; font-weight: 300; color: rgba(245,242,237,0.6); max-width: 540px; margin: 0 auto 3.5rem; line-height: 1.8; }
-    .goodwill-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(196,151,42,0.12); margin-bottom: 3rem; }
-    .goodwill-card { background: #252525; padding: 2.5rem 2rem; text-align: left; }
-    .goodwill-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 3rem; color: var(--gold-dim); line-height: 1; margin-bottom: 1rem; }
-    .goodwill-title { font-weight: 700; font-size: 1rem; color: var(--cream); margin-bottom: 0.75rem; }
-    .goodwill-body { font-size: 0.8rem; font-weight: 300; color: var(--muted); line-height: 1.75; }
-    .goodwill-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.95rem; color: rgba(245,242,237,0.5); line-height: 1.75; max-width: 700px; margin: 0 auto; }
+    /* PERSONAL MESSAGE */
+    .personal-section{background:var(--charcoal-mid);padding:5rem 3rem;}
+    .personal-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:360px 1fr;gap:5rem;align-items:center;}
+    .personal-photo-wrap{position:relative;}
+    .personal-photo{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--charcoal-soft);display:block;background-size:cover;background-position:center top;}
+    .personal-photo-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--gold);color:var(--charcoal);font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;padding:0.5rem 1rem;}
+    .personal-content{}
+    .personal-quote-mark{font-family:'Playfair Display',serif;font-size:6rem;color:var(--gold-dim);line-height:0.5;margin-bottom:1.5rem;opacity:0.4;}
+    .personal-statement{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:2rem;}
+    .personal-statement em{font-style:italic;color:var(--gold);}
+    .personal-body{font-size:0.92rem;font-weight:300;line-height:1.95;color:rgba(245,242,237,0.7);margin-bottom:2rem;}
+    .personal-body p{margin-bottom:1.25rem;}
+    .personal-sig{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--gold);border-top:1px solid var(--border);padding-top:1.25rem;margin-top:1rem;}
 
-    /* ANTI-AA MODEL */
-    .about-anti { background: var(--cream-dark); padding: 5rem 3rem; }
-    .about-anti-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .about-anti-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; }
-    .about-anti-title em { font-style: italic; color: var(--gold); }
-    .about-anti-body { font-size: 0.9rem; font-weight: 300; line-height: 1.9; color: #3A3A3A; }
-    .about-anti-body p { margin-bottom: 1.25rem; }
-    .about-anti-right { background: var(--charcoal); padding: 2.5rem; }
-    .about-anti-contrast { display: flex; flex-direction: column; gap: 1.5rem; }
-    .contrast-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .contrast-label { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .contrast-label.old { color: var(--muted); }
-    .contrast-label.new { color: var(--gold); }
-    .contrast-value { font-family: 'Playfair Display', serif; font-size: 0.9rem; line-height: 1.5; }
-    .contrast-value.old { color: rgba(245,242,237,0.4); font-style: italic; }
-    .contrast-value.new { color: var(--cream); font-weight: 700; }
+    /* WHY SECTION */
+    .why-section{background:var(--charcoal);padding:5rem 3rem;}
+
+    /* FRAMEWORK */
+    .framework-section{background:var(--charcoal-mid);padding:5rem 3rem;}
+    .framework-three{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,168,67,0.12);margin:2.5rem 0;}
+    .framework-card{background:var(--charcoal-soft);padding:2.5rem 2rem;}
+    .framework-num{font-family:'Playfair Display',serif;font-style:italic;font-size:3rem;color:var(--gold-dim);line-height:1;margin-bottom:1rem;}
+    .framework-title{font-weight:700;font-size:1rem;color:var(--white);margin-bottom:0.75rem;}
+    .framework-body{font-size:0.82rem;font-weight:300;color:var(--muted);line-height:1.75;}
+
+    /* CONTRAST TABLE */
+    .contrast-wrap{margin-top:3rem;}
+    .contrast-header{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:1px;}
+    .contrast-col-header{padding:0.75rem 1.5rem;font-size:0.58rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;}
+    .contrast-col-header.old{background:#1A1A1A;color:var(--muted);}
+    .contrast-col-header.new{background:rgba(212,168,67,0.15);color:var(--gold);}
+    .contrast-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:1px;}
+    .contrast-cell{padding:1.25rem 1.5rem;}
+    .contrast-cell.old{background:#161616;font-style:italic;color:rgba(245,242,237,0.35);font-size:0.85rem;font-family:'Playfair Display',serif;line-height:1.5;}
+    .contrast-cell.new{background:rgba(212,168,67,0.06);color:var(--white);font-weight:600;font-size:0.85rem;line-height:1.5;}
+    .contrast-cell.new::before{content:'✦ ';color:var(--gold);font-size:0.7rem;}
 
     /* SCROLLS */
-    .about-scrolls { background: var(--cream); padding: 5rem 3rem; text-align: center; }
-    .about-scrolls-inner { max-width: 860px; margin: 0 auto; }
-    .about-scrolls-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; }
-    .about-scrolls-title em { font-style: italic; color: var(--gold); }
-    .about-scrolls-body { font-size: 0.9rem; font-weight: 300; line-height: 1.85; color: var(--muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-    .scrolls-rule { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; margin-top: 2.5rem; }
-    .scrolls-rule-body { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--charcoal); line-height: 1.65; max-width: 620px; margin: 0 auto; border-left: 3px solid var(--gold); padding-left: 1.5rem; text-align: left; }
-
-    /* CTA */
-    .about-cta { background: var(--charcoal); padding: 5rem 3rem; text-align: center; }
-    .about-cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--cream); margin-bottom: 1.25rem; }
-    .about-cta-title em { font-style: italic; color: var(--gold-light); }
-    .about-cta-body { font-size: 0.9rem; font-weight: 300; color: rgba(245,242,237,0.6); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.8; }
-    .sos-btn-primary { display: inline-block; background: var(--gold); color: var(--charcoal); text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.2em; padding: 0.75rem 2rem; transition: background 0.2s; }
-    .sos-btn-primary:hover { background: var(--gold-bright); }
-    .sos-btn-ghost { display: inline-block; background: transparent; color: var(--cream); text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.2em; padding: 0.75rem 2rem; border: 1px solid rgba(245,242,237,0.2); margin-left: 1rem; transition: all 0.2s; }
-    .sos-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .scrolls-section{background:var(--charcoal);padding:5rem 3rem;}
+    .scrolls-rule{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;margin-top:3rem;}
+    .scrolls-rule-body{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:rgba(245,242,237,0.75);line-height:1.75;max-width:680px;border-left:3px solid var(--gold);padding-left:1.5rem;}
 
     /* FOOTER */
-    .sos-footer { background: #111; border-top: 3px solid var(--gold); padding: 3rem; }
-    .sos-footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: center; }
-    .sos-footer-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--cream); }
-    .sos-footer-brand span { font-style: italic; color: var(--gold); }
-    .sos-footer-tagline { font-size: 0.72rem; color: var(--muted); line-height: 1.7; margin-top: 0.5rem; }
-    .sos-footer-statement { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.9rem; color: var(--gold-light); line-height: 1.6; }
-    .sos-footer-social { display: flex; gap: 0.75rem; justify-content: flex-end; flex-wrap: wrap; }
-    .sos-footer-social a { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; border: 1px solid rgba(196,151,42,0.2); padding: 0.35rem 0.7rem; transition: all 0.2s; }
-    .sos-footer-social a:hover { color: var(--gold); border-color: var(--gold); }
-    .sos-footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(196,151,42,0.1); display: flex; justify-content: space-between; }
-    .sos-footer-copy { font-size: 0.58rem; letter-spacing: 0.1em; color: #3A3A3A; text-transform: uppercase; }
-    .sos-footer-mmm { font-size: 0.58rem; color: #3A3A3A; }
-    .sos-footer-mmm a { color: var(--gold); text-decoration: none; }
+    .sos-footer{background:#111;border-top:3px solid var(--gold);padding:3rem;}
+    .sos-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center;}
+    .sos-footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);}
+    .sos-footer-brand span{font-style:italic;color:var(--gold);}
+    .sos-footer-tagline{font-size:0.72rem;color:var(--muted);line-height:1.7;margin-top:0.5rem;}
+    .sos-footer-statement{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--gold);line-height:1.6;}
+    .sos-footer-social{display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;}
+    .sos-footer-social a{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:0.35rem 0.7rem;transition:all 0.2s;}
+    .sos-footer-social a:hover{color:var(--gold);border-color:var(--gold);}
+    .sos-footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(212,168,67,0.1);display:flex;justify-content:space-between;align-items:center;}
+    .sos-footer-copy{font-size:0.58rem;letter-spacing:0.1em;color:#3A3A3A;text-transform:uppercase;}
+    .sos-footer-mmm{font-size:0.58rem;color:#3A3A3A;}
+    .sos-footer-mmm a{color:var(--gold);text-decoration:none;}
 
-    @media (max-width: 1024px) {
-      .sos-nav { padding: 0 1.5rem; }
-      .sos-nav-links, .sos-nav-cta { display: none; }
-      .sos-hamburger { display: flex; }
-      .about-anti-inner { grid-template-columns: 1fr; }
-      .goodwill-three { grid-template-columns: 1fr; }
+    @media(max-width:1024px){
+      .sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}
+      .personal-inner{grid-template-columns:1fr;}
+      .framework-three{grid-template-columns:1fr;}
+      .contrast-row,.contrast-header{grid-template-columns:1fr;}
     }
-    @media (max-width: 700px) {
-      .page-hero, .about-mission, .about-goodwill, .about-anti, .about-scrolls, .about-cta { padding: 3rem 1.5rem; }
-      .sos-footer-inner { grid-template-columns: 1fr; text-align: center; }
-      .sos-footer-social { justify-content: center; }
-      .sos-footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-      .contrast-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    @media(max-width:700px){
+      .page-hero,.sos-section,.personal-section,.why-section,.framework-section,.scrolls-section{padding:3rem 1.5rem;}
+      .sos-footer-inner{grid-template-columns:1fr;text-align:center;}
+      .sos-footer-social{justify-content:center;}
+      .sos-footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}
     }
   </style>
 </head>
@@ -137,9 +137,8 @@
   <ul class="sos-nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About SOS</a></li>
-    <li><a href="founders.html">Founding Stories</a></li>
+    <li><a href="founders.html">All Stories</a></li>
     <li><a href="listen.html">Listen</a></li>
-    <li><a href="blog.html">Blog</a></li>
     <li><a href="fund.html">Fund the Mission</a></li>
   </ul>
   <a href="fund.html" class="sos-nav-cta">Fund the Mission</a>
@@ -148,148 +147,102 @@
 <div class="sos-mobile-menu" id="sos-mobile-menu">
   <a href="index.html">Home</a>
   <a href="about.html">About SOS</a>
-  <a href="founders.html">Founding Stories</a>
+  <a href="founders.html">All Stories</a>
   <a href="listen.html">Listen</a>
   <a href="fund.html">Fund the Mission</a>
 </div>
 
+<!-- HERO -->
+<div class="gold-divider"></div>
 <section class="page-hero">
   <div class="page-hero-eyebrow">Our Mission</div>
   <h1 class="page-hero-title">Why <em>Seeker of Story</em> Exists</h1>
-  <p class="page-hero-body">When you're in transition, unemployed, burned out, or standing at the edge of a leap, you can't afford high, overrated, astronomical monthly subscriptions. But somewhere out there is a founder who already walked your exact path — and is ready to become your mentor.</p>
+  <p class="page-hero-body">When you're in transition, unemployed, burned out, or standing at the edge of a leap — you can't afford high, overrated, astronomical monthly subscriptions. But somewhere out there is a founder who already walked <em>your exact path</em> — and is ready to share the blueprint.</p>
 </section>
+<div class="gold-divider"></div>
 
-<section class="about-mission">
-  <div class="about-mission-inner">
-    <div class="about-section-eyebrow">The Origin</div>
-    <h2 class="about-section-title">Born on the <em>Trinity Trail</em></h2>
-    <div class="about-body">
-      <p>One morning in Fort Worth, TX, Susy Gordon was walking the Trinity Trail. Three words came. Spoken three times: <em style="color:var(--gold);">"Seek and find."</em> Matthew 7:7. She didn't ignore it.</p>
-      <p>Seeker of Story is the platform that came from that moment. A free mentor-matching database where anyone in transition can search for a founder who walked their exact path — and find them.</p>
-      <p>It is built on one conviction: that testimony is the most powerful currency on earth, and that the founder who shares their story has already spoken life into someone who needed it.</p>
+<!-- PERSONAL MESSAGE -->
+<section class="personal-section">
+  <div class="personal-inner">
+    <div class="personal-photo-wrap">
+      <div class="personal-photo" style="background-image:url('https://raw.githubusercontent.com/susygordon1/seeker-of-story/main/Susy%20Gordon.JPEG');"></div>
+      <div class="personal-photo-badge">Susy Gordon · Founder</div>
+    </div>
+    <div class="personal-content">
+      <div class="personal-quote-mark">"</div>
+      <div class="personal-statement">
+        I made a promise to God<br>that I would tell<br><em>everybody what He did.</em>
+      </div>
+      <div class="personal-body">
+        <p>Activation started for me in April 2023. Good Friday service — my second encounter with God. Then April 18th, my birthday — my third encounter with God. Then I started binge-watching The Chosen. What started in those weeks was a transformation I cannot fully explain. I can only testify to it.</p>
+        <p>Then came October 31, 2023. A day I will never forget. My fourth encounter with God — and the day addiction left my body instantly. No shakes. No shivers. No desires. Gone. In that moment I made a promise to God that I would tell every passenger, every person I came in contact with, exactly what He did in my life.</p>
+        <p>For three years I drove rideshare through Dallas and Fort Worth. Night shifts. Long stretches of highway. And in that front seat, something happened that I didn't expect — people started talking. Really talking. And I started sharing. My story. My overcoming. My blueprint.</p>
+        <p>I gave out Baggies of Hope — a little mesh bag with a mustard seed, a red marble, a small cross, and Matthew 17:21. I gave out Bibles. I gave out my 365-day devotional, the Freedom Journey. I took my morning word written on an index card and gave it out all day long in that car. I was activating the Word one passenger at a time.</p>
+        <p>I tried AA. I tried NA. I went to different groups looking for a place to share what God had done. I didn't fit — not because those communities aren't valuable, but because what God did in my life was instant. I was carrying a blueprint, and I needed somewhere to give it out.</p>
+        <p>Then I had a car wreck. I was forced to look within. I got up one day and started making calls — I didn't know what I was going to sell, but I was going to sell something. Thirty calls. Two callbacks. Two appointments. I closed a deal with my first attorney client. Then I got back in the car — wrecked and all — and met Devin, a TCU professor, who said: <em style="color:var(--gold);">"Susy, have you heard of One Million Cups? You need to come share your story there."</em></p>
+        <p>That car has been my sanctuary. My prayer closet. My connector. My studio. My platform. And when I became a founder and needed mentorship, I realized there was no searchable, real, ungated place to find someone who had already walked my exact path. LinkedIn is accolades and numbers. That's not what this needed to be.</p>
+        <p>God said: <em style="color:var(--gold);">I'm building something in you.</em> Seeker of Story is that something. Free for every seeker who needs it. Always.</p>
+      </div>
+      <div class="personal-sig">— Susy Gordon, Founder · Mega Mission Media · Seeker of Story</div>
     </div>
   </div>
 </section>
+<div class="gold-divider"></div>
 
-<section class="about-goodwill">
-  <div class="about-goodwill-inner">
-    <div class="about-section-eyebrow" style="color:var(--gold);font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;margin-bottom:1rem;">The Model</div>
-    <h2 class="about-goodwill-title">Built on <em>The Goodwill Principle</em></h2>
-    <p class="about-goodwill-sub">No revenue sharing. No accolades. Just a founder unknowingly becoming a voice of hope to someone who needed it.</p>
-    <div class="goodwill-three">
-      <div class="goodwill-card">
-        <div class="goodwill-num">01</div>
-        <div class="goodwill-title">Founders Give</div>
-        <div class="goodwill-body">Founders give because they're finally in a position to give freely. They share who they were, what they're building, why they're building it, and the lessons that shaped the journey.</div>
-      </div>
-      <div class="goodwill-card">
-        <div class="goodwill-num">02</div>
-        <div class="goodwill-title">SOS Becomes the Bridge</div>
-        <div class="goodwill-body">It carries stories, blueprints, wisdom, and lived experience from people willing to share what they've learned so someone else doesn't have to walk alone.</div>
-      </div>
-      <div class="goodwill-card">
-        <div class="goodwill-num">03</div>
-        <div class="goodwill-title">The Seeker Finds Hope</div>
-        <div class="goodwill-body">Anyone in transition can search the Becoming Database freely. No monthly subscriptions. No gatekeeping. No barriers. Just a seeker and a story.</div>
-      </div>
-    </div>
-    <p class="goodwill-quote">"There is life and death in the power of the tongue, and the founder who shares their story has already spoken life."</p>
-  </div>
-</section>
-
-<section class="about-anti">
-  <div class="about-anti-inner">
-    <div>
-      <div class="about-section-eyebrow">The Anti-AA Model</div>
-      <h2 class="about-anti-title">From <em>Anonymity</em> to Activation</h2>
-      <div class="about-anti-body">
-        <p>Traditional recovery and mentorship models are built on anonymity. What happens here stays here. The seat has no name.</p>
-        <p>Seeker of Story is the opposite. It is a culture of radical testimony. The mandate is to share loudly — to defeat the noise of the world with the sound of what God did.</p>
-        <p>Every story on this platform is a scroll. A living, digital archive of what happens when a person says yes to the becoming.</p>
-      </div>
-    </div>
-    <div class="about-anti-right">
-      <div class="about-anti-contrast">
-        <div class="contrast-row">
-          <div>
-            <div class="contrast-label old">Old Model</div>
-            <div class="contrast-value old">What happens here stays here.</div>
-          </div>
-          <div>
-            <div class="contrast-label new">SOS Model</div>
-            <div class="contrast-value new">What happened here goes everywhere.</div>
-          </div>
-        </div>
-        <div class="contrast-row">
-          <div>
-            <div class="contrast-label old">Old Model</div>
-            <div class="contrast-value old">Anonymity as safety.</div>
-          </div>
-          <div>
-            <div class="contrast-label new">SOS Model</div>
-            <div class="contrast-value new">Testimony as armor.</div>
-          </div>
-        </div>
-        <div class="contrast-row">
-          <div>
-            <div class="contrast-label old">Old Model</div>
-            <div class="contrast-value old">Keep the seat empty.</div>
-          </div>
-          <div>
-            <div class="contrast-label new">SOS Model</div>
-            <div class="contrast-value new">Fill every seat. Loudly.</div>
-          </div>
-        </div>
-      </div>
+<!-- WHY IT EXISTS -->
+<section class="why-section">
+  <div class="sos-section-inner-narrow">
+    <div class="sos-eyebrow">The Problem We're Solving</div>
+    <h2 class="sos-section-title">The Blueprint Has Always <em>Existed</em></h2>
+    <div class="sos-body">
+      <p>There are people in this world who have already done what you are trying to do. They've made the mistakes. They've found the path. They've built the thing from nothing. And they are willing — even desperate — to share what they know.</p>
+      <p>And then there are seekers. People in transition, in burnout, in the wilderness of a career change or a life collapse — who are spending money they don't have on masterminds, subscriptions, and courses that teach theory instead of testimony.</p>
+      <p>Seeker of Story is the bridge. A free, permanent, searchable archive of real founder blueprints — built from the front seat of a car, one honest conversation at a time.</p>
+      <p>We are not providing motivation. We are providing the <em style="color:var(--gold);">map.</em></p>
     </div>
   </div>
 </section>
+<div class="gold-divider"></div>
 
-<section class="about-scrolls">
-  <div class="about-scrolls-inner">
-    <div class="about-section-eyebrow">The Library of Scrolls</div>
-    <h2 class="about-scrolls-title">A Modern-Day <em>Archive of Testimony</em></h2>
-    <p class="about-scrolls-body">Every profile on this platform is cataloged as a modern scroll — a living record of God's moving hand. Not a resume. Not a LinkedIn profile. A becoming story.</p>
+<!-- LIBRARY OF SCROLLS -->
+<section class="scrolls-section">
+  <div class="sos-section-inner-narrow">
+    <div class="sos-eyebrow">The Library of Scrolls</div>
+    <h2 class="sos-section-title">A Modern-Day <em>Archive of Testimony</em></h2>
+    <div class="sos-body">
+      <p>Every profile on this platform is cataloged as a modern scroll — a living record of transformation. Not a resume. Not a LinkedIn profile. A becoming story. The raw, real, unfiltered account of what it took to get from lost to launched.</p>
+      <p>These scrolls are permanent. They are searchable. And they are free — because the person who needs them at their lowest moment should never have to pay to find hope.</p>
+    </div>
     <div class="scrolls-rule">The Rule of Alignment</div>
-    <div class="scrolls-rule-body">To speak on the platform, a leader cannot just tell a story. They must explicitly anchor their modern-day breakthrough to a matching biblical narrative — mapping their journey directly to scriptural truth. The story and the scripture become one.</div>
+    <div class="scrolls-rule-body">Every story on this platform must anchor the modern-day breakthrough to a truth that transcends it. The journey and the testimony become one. The scroll is not just a story — it is evidence of something larger at work.</div>
   </div>
 </section>
+<div class="gold-divider"></div>
 
-<section class="about-cta">
-  <h2 class="about-cta-title">Ready to <em>Seek and Find?</em></h2>
-  <p class="about-cta-body">Search the Becoming Database, browse the Founding Stories, or help keep the platform free by funding the mission.</p>
-  <a href="index.html" class="sos-btn-primary">Search the Database →</a>
-  <a href="founders.html" class="sos-btn-ghost">Browse Stories →</a>
-</section>
-
+<!-- FOOTER -->
 <footer class="sos-footer">
   <div class="sos-footer-inner">
     <div>
       <div class="sos-footer-brand">SEEKER <span>OF</span> STORY</div>
-      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.</p>
+      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.<br>Powered by Mega Mission Media.</p>
     </div>
     <div class="sos-footer-statement">"The only platform built<br>for Seekers, not followers."</div>
     <div class="sos-footer-social">
       <a href="https://www.youtube.com/@SusyGordon89" target="_blank">YouTube</a>
       <a href="#">Spotify</a>
       <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
     </div>
   </div>
   <div class="sos-footer-bottom">
-    <div class="sos-footer-copy">© 2026 Seeker of Story · No Paywalls. Always Free.</div>
-    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a></div>
+    <div class="sos-footer-copy">© 2026 Seeker of Story · Fort Worth, TX · No Paywalls. Always Free.</div>
+    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a> · 817-860-8989</div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('sos-hamburger').addEventListener('click', function(e) {
-    e.stopPropagation();
-    document.getElementById('sos-mobile-menu').classList.toggle('open');
-  });
-  document.addEventListener('click', function(e) {
-    const m = document.getElementById('sos-mobile-menu'), h = document.getElementById('sos-hamburger');
-    if (!m.contains(e.target) && !h.contains(e.target)) m.classList.remove('open');
-  });
+  document.getElementById('sos-hamburger').addEventListener('click',function(e){e.stopPropagation();document.getElementById('sos-mobile-menu').classList.toggle('open');});
+  document.addEventListener('click',function(e){const m=document.getElementById('sos-mobile-menu'),h=document.getElementById('sos-hamburger');if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
 </script>
 </body>
 </html>
