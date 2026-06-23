@@ -129,6 +129,20 @@
       .sos-footer-social { justify-content: center; }
       .sos-footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
+
+    /* DROPDOWN */
+    .sos-has-dropdown{position:relative;}
+    .sos-drop-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:0.4rem 0.85rem;display:flex;align-items:center;gap:0.3rem;font-family:'DM Sans',sans-serif;transition:color 0.2s;}
+    .sos-drop-btn:hover{color:var(--gold);}
+    .sos-drop-arrow{font-size:0.5rem;transition:transform 0.2s;}
+    .sos-has-dropdown:hover .sos-drop-arrow,.sos-has-dropdown.open .sos-drop-arrow{transform:rotate(180deg);}
+    .sos-dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:#111;border:1px solid rgba(212,168,67,0.2);z-index:300;flex-direction:column;}
+    .sos-has-dropdown:hover .sos-dropdown,.sos-has-dropdown.open .sos-dropdown{display:flex;}
+    .sos-dropdown a{display:flex;flex-direction:column;padding:0.85rem 1.25rem;border-bottom:1px solid rgba(212,168,67,0.08);text-decoration:none;transition:background 0.15s;}
+    .sos-dropdown a:last-child{border-bottom:none;}
+    .sos-dropdown a:hover{background:#1A1A1A;}
+    .sos-drop-tier{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
+    .sos-drop-name{font-size:0.78rem;color:var(--white);font-weight:400;}
   </style>
 </head>
 <body>
@@ -144,9 +158,9 @@
     <li><a href="founders.html" class="active">Founding Stories</a></li>
     <li><a href="listen.html">Listen</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="fund.html">Fund the Mission</a></li>
+    <li><a href="fund.html">Fuel the Mission</a></li>
   </ul>
-  <a href="fund.html" class="sos-nav-cta">Fund the Mission</a>
+  <a href="fund.html" class="sos-nav-cta">Fuel the Mission</a>
   <button class="sos-hamburger" id="sos-hamburger"><span></span><span></span><span></span></button>
 </nav>
 <div class="sos-mobile-menu" id="sos-mobile-menu">
@@ -154,7 +168,7 @@
   <a href="about.html">About SOS</a>
   <a href="founders.html">Founding Stories</a>
   <a href="listen.html">Listen</a>
-  <a href="fund.html">Fund the Mission</a>
+  <a href="fund.html">Fuel the Mission</a>
 </div>
 
 <section class="page-hero">

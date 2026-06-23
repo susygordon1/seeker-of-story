@@ -4,120 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Susy Gordon · C·1020 — Seeker of Story</title>
-  <meta name="description" content="Corporate IT Director · $155K Salary → Faith-Based Media Founder. Susy Gordon's becoming story on Seeker of Story.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <style>
-:root{--cream:#F5F2ED;--cream-dark:#EDE9E2;--charcoal:#1E1E1E;--charcoal-mid:#2A2A2A;--gold:#C4972A;--gold-light:#D4A843;--gold-bright:#E8BC50;--gold-dim:#8B6914;--muted:#7A7A72;--border-light:rgba(196,151,42,0.15);--border-cream:rgba(196,151,42,0.25);}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);}
-.sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--border-cream);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
-.sos-nav-brand{text-decoration:none;}
-.sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--charcoal);}
-.sos-nav-brand-main span{color:var(--gold);font-style:italic;}
-.sos-nav-brand-sub{font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem;}
-.sos-nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
-.sos-nav-links a{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.4rem 0.85rem;transition:color 0.2s;}
-.sos-nav-links a:hover{color:var(--charcoal);}
-.sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;letter-spacing:0.2em;background:var(--gold);color:var(--charcoal);text-decoration:none;padding:0.45rem 1.25rem;transition:background 0.2s;}
-.sos-nav-cta:hover{background:var(--gold-bright);}
-.sos-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-.sos-hamburger span{display:block;width:22px;height:2px;background:var(--charcoal);}
-.sos-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border-cream);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
-.sos-mobile-menu.open{display:flex;}
-.sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border-light);}
-/* PROFILE HERO */
-.profile-hero{background:var(--charcoal);padding:100px 3rem 5rem;position:relative;overflow:hidden;}
-.profile-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(196,151,42,0.07) 0%,transparent 65%);pointer-events:none;}
-.profile-hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:4rem;align-items:start;}
-.profile-photo-col{position:relative;}
-.profile-photo{width:100%;aspect-ratio:3/4;background-size:cover;background-position:center top;background-color:var(--charcoal-mid);}
-.profile-badge{position:absolute;top:-1rem;left:-1rem;padding:0.4rem 0.9rem;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;}
-.profile-qr-block{margin-top:1.5rem;background:#fff;padding:1.25rem;text-align:center;}
-.profile-qr-label{font-size:0.52rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.85rem;}
-.profile-qr-label span{color:var(--gold);}
-.profile-qr-url{font-size:0.58rem;color:var(--muted);margin-top:0.6rem;word-break:break-all;line-height:1.5;}
-.profile-share-btn{display:block;width:100%;margin-top:0.75rem;background:var(--gold);color:var(--charcoal);border:none;padding:0.6rem;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;cursor:pointer;transition:background 0.2s;text-decoration:none;text-align:center;}
-.profile-share-btn:hover{background:var(--gold-bright);}
-/* INFO COL */
-.profile-info-col{color:var(--cream);}
-.profile-tier-badge{display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;}
-.profile-tier-letter{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;padding:0.2rem 0.7rem;border:2px solid;}
-.profile-tier-name{font-size:0.58rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;}
-.profile-num{font-size:0.6rem;font-weight:700;letter-spacing:0.3em;color:var(--gold);margin-bottom:0.75rem;}
-.profile-name{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;color:var(--cream);line-height:1.0;margin-bottom:0.5rem;}
-.profile-company{font-size:1rem;color:var(--gold-light);margin-bottom:0.35rem;}
-.profile-location{font-size:0.75rem;color:var(--muted);margin-bottom:2rem;}
-.profile-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;}
-.profile-tag{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);background:rgba(196,151,42,0.1);border:1px solid rgba(196,151,42,0.25);padding:0.3rem 0.75rem;}
-.profile-transform{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem;}
-.profile-transform-tag{background:rgba(196,151,42,0.08);border:1px solid rgba(196,151,42,0.2);color:rgba(245,242,237,0.75);font-size:0.65rem;font-weight:600;letter-spacing:0.08em;padding:0.3rem 0.75rem;}
-.profile-transform-arrow{color:var(--gold-dim);font-size:1.2rem;}
-.profile-pullquote{border-left:3px solid var(--gold);padding-left:1.5rem;margin-bottom:2rem;}
-.profile-pullquote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;line-height:1.65;color:rgba(245,242,237,0.85);}
-.profile-listen-row{display:flex;gap:0.75rem;flex-wrap:wrap;}
-.profile-listen-btn{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;padding:0.5rem 1.1rem;border:1px solid rgba(196,151,42,0.4);color:var(--cream);transition:all 0.2s;display:inline-block;}
-.profile-listen-btn:hover{border-color:var(--gold);color:var(--gold);}
-.profile-listen-btn.primary{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
-.profile-listen-btn.primary:hover{background:var(--gold-bright);}
-/* ELEVATION ARC */
-.elevation-arc{background:#161616;border-top:1px solid rgba(196,151,42,0.12);padding:3rem;}
-.elevation-arc-inner{max-width:900px;margin:0 auto;}
-.elevation-arc-title{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;text-align:center;}
-.arc-stages{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
-.arc-stage{text-align:center;padding:1.5rem 2rem;position:relative;flex:1;min-width:160px;}
-.arc-stage-letter{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;margin-bottom:0.35rem;}
-.arc-stage-label{font-size:0.55rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.35rem;}
-.arc-stage-date{font-size:0.62rem;color:var(--muted);}
-.arc-stage-desc{font-size:0.72rem;color:rgba(245,242,237,0.5);margin-top:0.35rem;line-height:1.5;}
-.arc-stage.active .arc-stage-letter{color:var(--gold-light);}
-.arc-stage.active .arc-stage-label{color:var(--cream);}
-.arc-stage.past .arc-stage-letter{color:var(--muted);}
-.arc-stage.past .arc-stage-label{color:var(--muted);}
-.arc-stage.future .arc-stage-letter{color:#333;}
-.arc-stage.future .arc-stage-label{color:#444;}
-.arc-arrow{font-size:1.5rem;color:var(--gold-dim);padding:0 0.5rem;align-self:center;}
-.arc-where-now{background:rgba(196,151,42,0.08);border:1px solid rgba(196,151,42,0.2);padding:1rem 1.5rem;margin-top:2rem;text-align:center;}
-.arc-where-now-label{font-size:0.55rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;}
-.arc-where-now-text{font-size:0.82rem;color:rgba(245,242,237,0.6);font-family:'Playfair Display',serif;font-style:italic;}
-/* STORY SECTION */
-.profile-story{background:var(--cream);padding:5rem 3rem;}
-.profile-story-inner{max-width:760px;margin:0 auto;}
-.profile-story-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-.profile-story-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.5rem);font-weight:700;color:var(--charcoal);line-height:1.15;margin-bottom:2rem;}
-.profile-story-title em{font-style:italic;color:var(--gold);}
-.profile-story-body{font-size:0.95rem;font-weight:300;line-height:2;color:#3A3A3A;}
-.profile-story-body p{margin-bottom:1.5rem;}
-/* MORE STORIES */
-.profile-more{background:var(--charcoal);padding:4rem 3rem;}
-.profile-more-inner{max-width:1100px;margin:0 auto;}
-.profile-more-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-bottom:2rem;border-bottom:1px solid rgba(196,151,42,0.15);padding-bottom:0.75rem;}
-.profile-more-title em{font-style:italic;color:var(--gold-light);}
-.profile-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(196,151,42,0.1);}
-.profile-more-card{background:#252525;padding:1.75rem;text-decoration:none;transition:background 0.2s;display:block;}
-.profile-more-card:hover{background:#2E2E2E;}
-.profile-more-tier{font-size:0.52rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;}
-.profile-more-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:0.25rem;}
-.profile-more-co{font-size:0.7rem;color:var(--gold-light);margin-bottom:0.5rem;}
-.profile-more-transform{font-size:0.68rem;color:var(--muted);line-height:1.5;}
-/* FOOTER */
-.sos-footer{background:#111;border-top:3px solid var(--gold);padding:3rem;}
-.sos-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center;}
-.sos-footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);}
-.sos-footer-brand span{font-style:italic;color:var(--gold);}
-.sos-footer-tagline{font-size:0.72rem;color:var(--muted);line-height:1.7;margin-top:0.5rem;}
-.sos-footer-statement{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--gold-light);line-height:1.6;}
-.sos-footer-social{display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;}
-.sos-footer-social a{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid rgba(196,151,42,0.2);padding:0.35rem 0.7rem;transition:all 0.2s;}
-.sos-footer-social a:hover{color:var(--gold);border-color:var(--gold);}
-.sos-footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(196,151,42,0.1);display:flex;justify-content:space-between;align-items:center;}
-.sos-footer-copy{font-size:0.58rem;letter-spacing:0.1em;color:#3A3A3A;text-transform:uppercase;}
-.sos-footer-mmm{font-size:0.58rem;color:#3A3A3A;}
-.sos-footer-mmm a{color:var(--gold);text-decoration:none;}
-@media(max-width:1024px){.sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}.profile-hero-inner{grid-template-columns:1fr;}.profile-more-grid{grid-template-columns:1fr 1fr;}.arc-stages{flex-direction:column;}}
-@media(max-width:700px){.profile-hero{padding:88px 1.5rem 3rem;}.profile-story,.elevation-arc,.profile-more{padding:3rem 1.5rem;}.sos-footer-inner{grid-template-columns:1fr;text-align:center;}.sos-footer-social{justify-content:center;}.sos-footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}.profile-more-grid{grid-template-columns:1fr;}}
-</style>
+    :root{--cream:#F5F2ED;--cream-dark:#EDE9E2;--charcoal:#0D0D0D;--charcoal-mid:#1A1A1A;--charcoal-soft:#252525;--gold:#D4A843;--gold-light:#E8BC50;--gold-dim:#8B6914;--muted:#888880;--border:rgba(212,168,67,0.2);--white:#F5F2ED;--green:#2ECC71;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:var(--charcoal);color:var(--white);overflow-x:hidden;}
+    .sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 3rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+    .sos-nav-brand{text-decoration:none;}
+    .sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);}
+    .sos-nav-brand-main span{color:var(--gold);font-style:italic;}
+    .sos-nav-brand-sub{font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem;}
+    .sos-nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
+    .sos-nav-links a{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.4rem 0.85rem;transition:color 0.2s;}
+    .sos-nav-links a:hover{color:var(--gold);}
+    .sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;background:var(--gold);color:var(--charcoal);text-decoration:none;padding:0.45rem 1.25rem;}
+    .sos-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .sos-hamburger span{display:block;width:22px;height:2px;background:var(--white);}
+    .sos-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,13,13,0.99);border-bottom:1px solid var(--border);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
+    .sos-mobile-menu.open{display:flex;}
+    .sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border);}
+
+    /* HERO */
+    .profile-wrap{padding-top:64px;}
+    .profile-hero{background:var(--charcoal-mid);display:grid;grid-template-columns:420px 1fr;min-height:calc(100vh - 64px);}
+    .profile-left{display:flex;flex-direction:column;}
+    .profile-photo{width:100%;height:480px;background-size:cover;background-position:center top;background-color:var(--charcoal-soft);flex-shrink:0;}
+    .profile-tier-strip{background:var(--gold);padding:0.6rem 1.25rem;display:flex;align-items:center;gap:0.75rem;}
+    .profile-tier-letter{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--charcoal);line-height:1;}
+    .profile-tier-info{display:flex;flex-direction:column;}
+    .profile-tier-name{font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;color:var(--charcoal);}
+    .profile-tier-tagline{font-size:0.55rem;color:rgba(0,0,0,0.6);letter-spacing:0.1em;text-transform:uppercase;}
+    .profile-num-tag{background:var(--charcoal);color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:0.8rem;letter-spacing:0.2em;padding:0.4rem 1.25rem;display:inline-block;margin-left:auto;}
+    .mentor-badge{background:rgba(46,204,113,0.12);border:1px solid rgba(46,204,113,0.3);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.6rem;}
+    .mentor-dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(46,204,113,0.6);flex-shrink:0;animation:pulse-green 2s ease-in-out infinite;}
+    @keyframes pulse-green{0%,100%{opacity:1;}50%{opacity:0.4;}}
+    .mentor-text{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);}
+    .mentor-sub{font-size:0.58rem;color:rgba(46,204,113,0.6);margin-top:0.1rem;}
+    .profile-qr{padding:1rem 1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:1rem;margin-top:auto;}
+    .profile-qr-info{flex:1;}
+    .profile-qr-label{font-size:0.48rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+    .profile-qr-url{font-size:0.58rem;color:var(--muted);margin-bottom:0.5rem;}
+    .profile-qr-btn{font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.15em;background:var(--gold);color:var(--charcoal);border:none;padding:0.35rem 0.85rem;cursor:pointer;}
+    .profile-right{padding:3rem 3.5rem;display:flex;flex-direction:column;justify-content:center;}
+    .profile-name{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;color:var(--white);line-height:0.95;margin-bottom:0.5rem;}
+    .profile-company{font-size:1rem;color:var(--gold);margin-bottom:0.25rem;}
+    .profile-location{font-size:0.75rem;color:var(--muted);margin-bottom:1.5rem;}
+    .profile-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.5rem;}
+    .profile-tag{font-size:0.55rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);padding:0.3rem 0.75rem;}
+    .profile-transform{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.75rem;}
+    .profile-transform-tag{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(245,242,237,0.7);font-size:0.65rem;font-weight:600;padding:0.3rem 0.75rem;}
+    .profile-transform-arrow{color:var(--gold-dim);font-size:1.1rem;}
+    .profile-quote{border-left:3px solid var(--gold);padding-left:1.5rem;margin-bottom:1.75rem;}
+    .profile-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.65;color:rgba(245,242,237,0.8);}
+    .profile-btns{display:flex;gap:0.75rem;flex-wrap:wrap;}
+    .profile-btn{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;padding:0.55rem 1.25rem;border:1px solid rgba(212,168,67,0.4);color:var(--white);transition:all 0.2s;display:inline-block;}
+    .profile-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .profile-btn.primary{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
+
+    /* ELEVATION ARC */
+    .arc-section{background:#111;border-top:3px solid var(--gold);padding:3rem;}
+    .arc-inner{max-width:800px;margin:0 auto;text-align:center;}
+    .arc-eyebrow{font-size:0.55rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+    .arc-stages{display:flex;align-items:center;justify-content:center;gap:0.5rem;flex-wrap:wrap;}
+    .arc-stage{text-align:center;padding:1.25rem 1.75rem;}
+    .arc-stage-letter{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;line-height:1;margin-bottom:0.25rem;}
+    .arc-stage-label{font-size:0.55rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.25rem;}
+    .arc-stage-date{font-size:0.6rem;color:var(--muted);margin-bottom:0.25rem;}
+    .arc-stage-desc{font-size:0.65rem;color:rgba(245,242,237,0.4);line-height:1.4;}
+    .arc-stage.past .arc-stage-letter{color:var(--muted);}
+    .arc-stage.past .arc-stage-label{color:var(--muted);}
+    .arc-stage.active .arc-stage-letter{color:var(--gold);}
+    .arc-stage.active .arc-stage-label{color:var(--white);}
+    .arc-stage.ecosystem .arc-stage-letter{color:var(--gold-light);}
+    .arc-stage.ecosystem .arc-stage-label{color:var(--gold-light);}
+    .arc-arrow{font-size:1.5rem;color:var(--gold-dim);align-self:center;}
+
+    /* BLUEPRINT SECTIONS */
+    .blueprint-section{background:var(--cream);padding:5rem 3rem;color:var(--charcoal);}
+    .blueprint-inner{max-width:860px;margin:0 auto;}
+    .blueprint-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:1rem;}
+    .blueprint-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--charcoal);line-height:1.1;margin-bottom:1.75rem;}
+    .blueprint-title em{font-style:italic;color:var(--gold-dim);}
+    .blueprint-body{font-size:0.95rem;font-weight:300;line-height:2;color:#3A3A3A;}
+    .blueprint-body p{margin-bottom:1.25rem;}
+    .gold-divider{height:1px;background:rgba(196,151,42,0.2);margin:4rem 0;}
+
+    /* HOW SECTION - dark */
+    .how-section{background:var(--charcoal-mid);padding:5rem 3rem;}
+    .how-inner{max-width:860px;margin:0 auto;}
+    .how-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .how-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:0.5rem;}
+    .how-title em{font-style:italic;color:var(--gold);}
+    .how-subtitle{font-size:0.85rem;color:var(--muted);margin-bottom:3rem;font-style:italic;}
+    .how-steps{display:flex;flex-direction:column;gap:0;}
+    .how-step{display:grid;grid-template-columns:60px 1fr;gap:1.5rem;padding:1.75rem 0;border-bottom:1px solid var(--border);}
+    .how-step:last-child{border-bottom:none;}
+    .how-step-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold-dim);line-height:1;padding-top:0.1rem;}
+    .how-step-title{font-weight:700;font-size:1rem;color:var(--white);margin-bottom:0.5rem;}
+    .how-step-body{font-size:0.85rem;font-weight:300;color:var(--muted);line-height:1.8;}
+
+    /* TOOLS */
+    .tools-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+    .tool-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);padding:0.35rem 0.85rem;}
+
+    /* FOOTER */
+    .sos-footer{background:#111;border-top:3px solid var(--gold);padding:3rem;}
+    .sos-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center;}
+    .sos-footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);}
+    .sos-footer-brand span{font-style:italic;color:var(--gold);}
+    .sos-footer-tagline{font-size:0.72rem;color:var(--muted);line-height:1.7;margin-top:0.5rem;}
+    .sos-footer-statement{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--gold);line-height:1.6;}
+    .sos-footer-social{display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;}
+    .sos-footer-social a{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:0.35rem 0.7rem;transition:all 0.2s;}
+    .sos-footer-social a:hover{color:var(--gold);border-color:var(--gold);}
+    .sos-footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(212,168,67,0.1);display:flex;justify-content:space-between;align-items:center;}
+    .sos-footer-copy{font-size:0.58rem;letter-spacing:0.1em;color:#3A3A3A;text-transform:uppercase;}
+    .sos-footer-mmm{font-size:0.58rem;color:#3A3A3A;}
+    .sos-footer-mmm a{color:var(--gold);text-decoration:none;}
+
+    @media(max-width:1024px){.sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}.profile-hero{grid-template-columns:1fr;}.profile-photo{height:320px;}.arc-stages{flex-direction:column;}}
+    @media(max-width:700px){.profile-right{padding:2rem 1.5rem;}.blueprint-section,.how-section{padding:3rem 1.5rem;}.how-step{grid-template-columns:40px 1fr;gap:1rem;}.sos-footer-inner{grid-template-columns:1fr;text-align:center;}.sos-footer-social{justify-content:center;}.sos-footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}}
+  </style>
 </head>
 <body>
 <nav class="sos-nav">
@@ -128,120 +136,226 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
   <ul class="sos-nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About SOS</a></li>
-    <li><a href="founders.html">All Stories</a></li>
-    <li><a href="listen.html">Listen</a></li>
-    <li><a href="fund.html">Fund the Mission</a></li>
+    <li><a href="listen.html">Seekers</a></li>
+    <li><a href="fund.html">Fuel the Mission</a></li>
   </ul>
-  <a href="fund.html" class="sos-nav-cta">Fund the Mission</a>
+  <a href="fund.html" class="sos-nav-cta">Fuel the Mission</a>
   <button class="sos-hamburger" id="sos-hamburger"><span></span><span></span><span></span></button>
 </nav>
 <div class="sos-mobile-menu" id="sos-mobile-menu">
   <a href="index.html">Home</a>
   <a href="about.html">About SOS</a>
-  <a href="founders.html">All Stories</a>
-  <a href="listen.html">Listen</a>
-  <a href="fund.html">Fund the Mission</a>
+  <a href="listen.html">Seekers</a>
+  <a href="fund.html">Fuel the Mission</a>
 </div>
 
-<section class="profile-hero">
-  <div class="profile-hero-inner">
-    <div class="profile-photo-col">
-      <div class="profile-badge" style="background:#D4A843;color:#0A0A0A;">C·1020</div>
-      <div class="profile-photo" style="background-image:url('https://img.youtube.com/vi/3yLCLKzeSNk/hqdefault.jpg');"></div>
-      <div class="profile-qr-block">
-        <div class="profile-qr-label">Share This <span>Becoming Story</span></div>
-        <canvas id="qr-canvas"></canvas>
-        <div class="profile-qr-url">seekerofstory.org/susy-gordon</div>
-        <button class="profile-share-btn" onclick="copyLink()">Copy Profile Link →</button>
+<div class="profile-wrap">
+  <div class="profile-hero">
+    <div class="profile-left">
+      <div class="profile-photo" style="background-image:url('https://img.youtube.com/vi/3yLCLKzeSNk/maxresdefault.jpg');"></div>
+      <div class="profile-tier-strip">
+        <div class="profile-tier-letter">C</div>
+        <div class="profile-tier-info">
+          <div class="profile-tier-name">Founders</div>
+          <div class="profile-tier-tagline">From Lost to Launched.</div>
+        </div>
+        <div class="profile-num-tag">C·1020</div>
       </div>
-    </div>
-    <div class="profile-info-col">
-      <div class="profile-tier-badge">
-        <div class="profile-tier-letter" style="color:#D4A843;border-color:#D4A843;">C</div>
+      <div class="mentor-badge">
+        <div class="mentor-dot"></div>
         <div>
-          <div class="profile-tier-name" style="color:#D4A843;">FOUNDERS</div>
-          <div style="font-size:0.52rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;">{"A":"The Unseen. About to be seen.","B":"Real people. Real roads. Real stories.","C":"From Lost to Launched."}.get("C","")</div>
+          <div class="mentor-text">Available to Mentor</div>
+          <div class="mentor-sub">Reach out through Seeker of Story</div>
         </div>
       </div>
-      <div class="profile-num">Asset #1020 · FOUNDERS</div>
+      <div class="profile-qr">
+        <div><canvas id="qr-canvas"></canvas></div>
+        <div class="profile-qr-info">
+          <div class="profile-qr-label">Share This Blueprint</div>
+          <div class="profile-qr-url">seekerofstory.org/susy-gordon</div>
+          <button class="profile-qr-btn" onclick="copyLink()">Copy Link →</button>
+        </div>
+      </div>
+    </div>
+    <div class="profile-right">
       <h1 class="profile-name">Susy Gordon</h1>
       <div class="profile-company">Mega Mission Media · Seeker of Story</div>
       <div class="profile-location">📍 Fort Worth, TX</div>
-      <div class="profile-tags"><span class="profile-tag">25 Years Corporate IT</span><span class="profile-tag">Faith-Based Media Founder</span><span class="profile-tag">Platform Builder</span></div>
+      <div class="profile-tags">
+        <span class="profile-tag">25 Yrs Corporate IT</span>
+        <span class="profile-tag">Media Founder</span>
+        <span class="profile-tag">Platform Builder</span>
+        <span class="profile-tag">Agile Coach</span>
+        <span class="profile-tag">Podcast Host</span>
+      </div>
       <div class="profile-transform">
-        <div class="profile-transform-tag">Corporate IT Director · $155K Salary</div>
+        <div class="profile-transform-tag">Director of Strategy · $155K Salary</div>
         <div class="profile-transform-arrow">→</div>
         <div class="profile-transform-tag">Faith-Based Media Founder</div>
       </div>
-      <div class="profile-pullquote"><p>"I didn't build this platform. I was obedient to the One who already had it built."</p></div>
-      <div class="profile-listen-row">
-        <a href="https://youtu.be/3yLCLKzeSNk" target="_blank" class="profile-listen-btn primary">▶ Watch on YouTube</a>
-        <a href="founders.html" class="profile-listen-btn">← All Stories</a>
+      <div class="profile-quote">
+        <p>"I didn't build this platform. I was obedient to the One who already had it built."</p>
+      </div>
+      <div class="profile-btns">
+        <a href="https://youtu.be/3yLCLKzeSNk" target="_blank" class="profile-btn primary">▶ Watch on YouTube</a>
+        <a href="listen.html" class="profile-btn">← All Stories</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ELEVATION ARC -->
+<section class="arc-section">
+  <div class="arc-inner">
+    <div class="arc-eyebrow">The Elevation Arc · This Platform Is the Proof</div>
+    <div class="arc-stages">
+      <div class="arc-stage ecosystem">
+        <div class="arc-stage-letter">∞</div>
+        <div class="arc-stage-label">The Ecosystem</div>
+        <div class="arc-stage-date">2026</div>
+        <div class="arc-stage-desc">Seeker of Story goes live<br>Every profile is the proof</div>
+      </div>
+      <div class="arc-arrow" style="transform:rotate(180deg);">→</div>
+      <div class="arc-stage active">
+        <div class="arc-stage-letter">C</div>
+        <div class="arc-stage-label">Founders</div>
+        <div class="arc-stage-date">June 2025</div>
+        <div class="arc-stage-desc">Left $155K<br>Answered the Call</div>
+      </div>
+      <div class="arc-arrow" style="transform:rotate(180deg);">→</div>
+      <div class="arc-stage past">
+        <div class="arc-stage-letter">B</div>
+        <div class="arc-stage-label">Highway Hustle</div>
+        <div class="arc-stage-date">2022–2025</div>
+        <div class="arc-stage-desc">Rideshare Driver<br>The Front Seat</div>
+      </div>
+      <div class="arc-arrow" style="transform:rotate(180deg);">→</div>
+      <div class="arc-stage past">
+        <div class="arc-stage-letter">A</div>
+        <div class="arc-stage-label">Home Free</div>
+        <div class="arc-stage-date">The Valley</div>
+        <div class="arc-stage-desc">Homeless<br>The Wilderness</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="elevation-arc">
-  <div class="elevation-arc-inner">
-    <div class="elevation-arc-title">The Elevation Arc · This Mission Is the Proof</div>
-    <div class="arc-stages">
-            <div class="arc-stage past">
-              <div class="arc-stage-letter" style="color:#C4972A;">B</div>
-              <div class="arc-stage-label" style="color:var(--muted);">HIGHWAY HUSTLE</div>
-              <div class="arc-stage-date">2022–2025</div>
-              <div class="arc-stage-desc">Rideshare Driver · The Front Seat · Born in Obedience</div>
-            </div><div class="arc-arrow">→</div>
-            <div class="arc-stage past">
-              <div class="arc-stage-letter" style="color:#D4A843;">C</div>
-              <div class="arc-stage-label" style="color:var(--muted);">FOUNDERS</div>
-              <div class="arc-stage-date">June 2025</div>
-              <div class="arc-stage-desc">Left $155K · Answered the Call · From Lost to Launched</div>
-            </div><div class="arc-arrow">→</div>
-            <div class="arc-stage active">
-              <div class="arc-stage-letter" style="color:#D4A843;">ECO</div>
-              <div class="arc-stage-label" style="color:var(--cream);">THE ECOSYSTEM</div>
-              <div class="arc-stage-date">2026</div>
-              <div class="arc-stage-desc">Seeker of Story goes live · Every person on this platform is the proof</div>
-            </div></div>
-  </div>
-</section>
-<section class="profile-story">
-  <div class="profile-story-inner">
-    <div class="profile-story-eyebrow">The Becoming Story · C·1020</div>
-    <h2 class="profile-story-title">Corporate IT Director · $155K Salary<br><em>→ Faith-Based Media Founder</em></h2>
-    <div class="profile-story-body">
-      <p>Susy Gordon spent 25 years climbing the corporate ladder — then lost her sister, went through addiction, and experienced homelessness. One morning on the Trinity Trail in Fort Worth, three words came. Spoken three times: Seek and find. In June 2025, she left corporate life to answer the call. She built Mega Mission Media from the front seat of a rideshare car. What started as obedience became a network. What started as a car became a studio. And what started as her own story became a platform designed to lift every seeker upward.</p>
-      <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1rem;">"I didn't build this platform. I was obedient to the One who already had it built."</p>
+<!-- WHO I WAS -->
+<section class="blueprint-section">
+  <div class="blueprint-inner">
+    <div class="blueprint-eyebrow">Who I Was · The Before</div>
+    <h2 class="blueprint-title">25 Years of Corporate.<br><em>None of it was wasted.</em></h2>
+    <div class="blueprint-body">
+      <p>My career started in high school at Mesquite ISD in television broadcasting — putting programming on the air. That was the first chapter. I just didn't know it yet.</p>
+      <p>What followed was 25 years in corporate America. Business Analyst. Project Manager. Scrum Master. Agile Transformation Coach. Director of Strategy and Delivery in Tech Consulting. I climbed. I delivered. I led teams. I managed transformations for organizations that didn't always know they needed one.</p>
+      <p>I was earning $155,000 a year. I had the titles. I had the resume. And I had a growing sense that none of it was what I was actually built for.</p>
+      <p>None of it was wasted. Every skill I built in those 25 years is in this platform right now — the project management, the agile framework, the strategy, the media production, the storytelling. God was building the toolbox the whole time. I just didn't know what He was building it for.</p>
+    </div>
+
+    <div class="gold-divider"></div>
+
+    <div class="blueprint-eyebrow">What I'm Building</div>
+    <h2 class="blueprint-title">Two platforms.<br><em>One mission.</em></h2>
+    <div class="blueprint-body">
+      <p><strong>Mega Mission Media</strong> is the production engine — a faith-based digital media company helping businesses build their presence through websites, social media, content production, video, and AI solutions. This is how the mission is funded.</p>
+      <p><strong>Seeker of Story</strong> is the impact platform — a free, searchable archive of founder blueprints and real transformation stories. No paywalls. No subscriptions. No gatekeeping. Built for the person who needs a mentor at 2 AM and can't afford a mastermind.</p>
+      <p>One earns. One gives. Together they are the ecosystem.</p>
+    </div>
+
+    <div class="gold-divider"></div>
+
+    <div class="blueprint-eyebrow">Why I'm Building It</div>
+    <h2 class="blueprint-title">I made a promise.<br><em>This is me keeping it.</em></h2>
+    <div class="blueprint-body">
+      <p>On October 31, 2023, addiction left my body instantly. No shakes. No shivers. No desires. Gone. In that moment I made a promise to God — I will tell everybody what You did in my life.</p>
+      <p>For three years I drove rideshare through Fort Worth. I gave out Baggies of Hope. I gave out Bibles and devotionals. I gave out prayers and hugs and the Word written on index cards. I was a one-on-one blueprint machine in the front seat of a car.</p>
+      <p>When I became a founder, I needed mentorship and couldn't find a real, free, ungated place to get it. LinkedIn is accolades. Masterminds cost thousands. I needed someone who had already walked my exact path — and there was no database for that.</p>
+      <p>So I built one.</p>
     </div>
   </div>
 </section>
-<section class="profile-more">
-  <div class="profile-more-inner">
-    <div class="profile-more-title">More <em>Becoming Stories</em></div>
-    <div class="profile-more-grid"><a href="profile-cowboy.html" class="profile-more-card">
-      <div class="profile-more-tier">A · HOME FREE · #1001</div>
-      <div class="profile-more-name">Cowboy</div>
-      <div class="profile-more-co">Fort Worth Streets</div>
-      <div class="profile-more-transform">Streets of Fort Worth → Seeking & Rebuilding</div>
-    </a><a href="profile-brenda.html" class="profile-more-card">
-      <div class="profile-more-tier">A · HOME FREE · #1002</div>
-      <div class="profile-more-name">Brenda</div>
-      <div class="profile-more-co">Fort Worth Streets</div>
-      <div class="profile-more-transform">Homelessness & Loss → Faith & Restoration</div>
-    </a><a href="profile-ms-june.html" class="profile-more-card">
-      <div class="profile-more-tier">B · HIGHWAY HUSTLE · #1004</div>
-      <div class="profile-more-name">Ms. June</div>
-      <div class="profile-more-co">Fort Worth, TX</div>
-      <div class="profile-more-transform">Active Addiction → Recovery & Hope</div>
-    </a></div>
+
+<!-- HOW I'M BUILDING IT -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="how-eyebrow">How I'm Building It</div>
+    <h2 class="how-title">The Blueprint.<br><em>No filters. No gatekeeping.</em></h2>
+    <p class="how-subtitle">This is the part that speaks life. Not what I built — how I built it. Take what applies. Leave what doesn't.</p>
+
+    <div class="how-steps">
+
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <div>
+          <div class="how-step-title">Fasting & Prayer — First and Always</div>
+          <div class="how-step-body">Before every major decision, every pitch, every build — I fast and I pray. Not as a ritual. As a reset. It clears the noise and sharpens the direction. Everything else on this list flows from this one.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <div>
+          <div class="how-step-title">Pick Up the Phone — Even When You Don't Know What You're Selling</div>
+          <div class="how-step-body">After my car wreck, I made 30 calls in one day. I didn't have a pitch deck. I didn't have a website. I just started connecting. Two callbacks. Two appointments. One closed deal. The attorney client who became my first case study. You don't need to know everything before you start. You just need to start.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <div>
+          <div class="how-step-title">Network — Especially Before You're Ready</div>
+          <div class="how-step-body">Get on the One Million Cups circuit. Present your idea before it's fully formed — the feedback IS the build. I've done the full DFW circuit. Every room I walked into gave me something. Even when I didn't have all the answers, showing up consistently built the credibility that comes before the clients.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">04</div>
+        <div>
+          <div class="how-step-title">Fund It With What You Have</div>
+          <div class="how-step-body">I drove rideshare while building this. My car was my studio, my office, my prayer closet, and my income source simultaneously. Don't wait for the perfect funding situation. Use what's in your hands right now. The provision comes as you move.</div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">05</div>
+        <div>
+          <div class="how-step-title">Use Every Tool Available to You</div>
+          <div class="how-step-body">I am not a developer. I am not a graphic designer. But I built this platform using every tool available — and I'm still learning every day.
+            <div class="tools-grid">
+              <span class="tool-tag">HeyGen</span>
+              <span class="tool-tag">ChatGPT</span>
+              <span class="tool-tag">Claude</span>
+              <span class="tool-tag">Gemini</span>
+              <span class="tool-tag">Squarespace</span>
+              <span class="tool-tag">GitHub</span>
+              <span class="tool-tag">Vercel</span>
+              <span class="tool-tag">YouTube Studio</span>
+              <span class="tool-tag">Podcast Production</span>
+              <span class="tool-tag">Media & Broadcasting</span>
+              <span class="tool-tag">Agile / Scrum</span>
+              <span class="tool-tag">Project Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">06</div>
+        <div>
+          <div class="how-step-title">Document Everything — Your Story Is the Product</div>
+          <div class="how-step-body">Every episode. Every passenger. Every founder conversation. Every One Million Cups presentation. Every setback. I documented it. The YouTube channel IS the platform. The stories are not the marketing — they are the mission. Whatever you're building, document the becoming. Someone needs your story more than your finished product.</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
 <footer class="sos-footer">
   <div class="sos-footer-inner">
     <div>
       <div class="sos-footer-brand">SEEKER <span>OF</span> STORY</div>
-      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.<br>Powered by Mega Mission Media.</p>
+      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.</p>
     </div>
     <div class="sos-footer-statement">"The only platform built<br>for Seekers, not followers."</div>
     <div class="sos-footer-social">
@@ -252,14 +366,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
   </div>
   <div class="sos-footer-bottom">
     <div class="sos-footer-copy">© 2026 Seeker of Story · No Paywalls. Always Free.</div>
-    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a> · 817-860-8989</div>
+    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a></div>
   </div>
 </footer>
+
 <script>
   document.getElementById('sos-hamburger').addEventListener('click',function(e){e.stopPropagation();document.getElementById('sos-mobile-menu').classList.toggle('open');});
   document.addEventListener('click',function(e){const m=document.getElementById('sos-mobile-menu'),h=document.getElementById('sos-hamburger');if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
-  QRCode.toCanvas(document.getElementById('qr-canvas'),'seekerofstory.org/susy-gordon',{width:140,margin:1,color:{dark:'#1E1E1E',light:'#FFFFFF'}});
-  function copyLink(){navigator.clipboard.writeText('https://seekerofstory.org/susy-gordon').then(()=>{const b=document.querySelector('.profile-share-btn');b.textContent='Copied! ✓';setTimeout(()=>b.textContent='Copy Profile Link →',2000);});}
+  QRCode.toCanvas(document.getElementById('qr-canvas'),'https://seekerofstory.org/susy-gordon',{width:90,margin:1,color:{dark:'#D4A843',light:'#1A1A1A'}});
+  function copyLink(){navigator.clipboard.writeText('https://seekerofstory.org/susy-gordon').then(()=>{const b=document.querySelector('.profile-qr-btn');b.textContent='Copied! ✓';setTimeout(()=>b.textContent='Copy Link →',2000);});}
 </script>
 </body>
 </html>
