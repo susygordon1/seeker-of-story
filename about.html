@@ -58,7 +58,7 @@
 
     /* PERSONAL MESSAGE */
     .personal-section{background:var(--charcoal-mid);padding:5rem 3rem;}
-    .personal-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:360px 1fr;gap:5rem;align-items:center;}
+    .personal-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:center;}
     .personal-photo-wrap{position:relative;}
     .personal-photo{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--charcoal-soft);display:block;background-size:cover;background-position:center top;}
     .personal-photo-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--gold);color:var(--charcoal);font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;padding:0.5rem 1rem;}
@@ -116,6 +116,7 @@
     @media(max-width:1024px){
       .sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}
       .personal-inner{grid-template-columns:1fr;}
+      .personal-photo-wrap{order:-1;}
       .framework-three{grid-template-columns:1fr;}
       .contrast-row,.contrast-header{grid-template-columns:1fr;}
     }
@@ -164,26 +165,22 @@
 <!-- PERSONAL MESSAGE -->
 <section class="personal-section">
   <div class="personal-inner">
-    <div class="personal-photo-wrap">
-      <div class="personal-photo" style="background-image:url('https://raw.githubusercontent.com/susygordon1/seeker-of-story/main/Susy%20Gordon.JPEG');"></div>
-      <div class="personal-photo-badge">Susy Gordon · Founder</div>
-    </div>
     <div class="personal-content">
       <div class="personal-quote-mark">"</div>
       <div class="personal-statement">
         I made a promise to God<br>that I would tell<br><em>everybody what He did.</em>
       </div>
       <div class="personal-body">
-        <p>Activation started for me in April 2023. Good Friday service — my second encounter with God. Then April 18th, my birthday — my third encounter with God. Then I started binge-watching The Chosen. What started in those weeks was a transformation I cannot fully explain. I can only testify to it.</p>
-        <p>Then came October 31, 2023. A day I will never forget. My fourth encounter with God — and the day addiction left my body instantly. No shakes. No shivers. No desires. Gone. In that moment I made a promise to God that I would tell every passenger, every person I came in contact with, exactly what He did in my life.</p>
-        <p>For three years I drove rideshare through Dallas and Fort Worth. Night shifts. Long stretches of highway. And in that front seat, something happened that I didn't expect — people started talking. Really talking. And I started sharing. My story. My overcoming. My blueprint.</p>
-        <p>I gave out Baggies of Hope — a little mesh bag with a mustard seed, a red marble, a small cross, and Matthew 17:21. I gave out Bibles. I gave out my 365-day devotional, the Freedom Journey. I took my morning word written on an index card and gave it out all day long in that car. I was activating the Word one passenger at a time.</p>
-        <p>I tried AA. I tried NA. I went to different groups looking for a place to share what God had done. I didn't fit — not because those communities aren't valuable, but because what God did in my life was instant. I was carrying a blueprint, and I needed somewhere to give it out.</p>
-        <p>Then I had a car wreck. I was forced to look within. I got up one day and started making calls — I didn't know what I was going to sell, but I was going to sell something. Thirty calls. Two callbacks. Two appointments. I closed a deal with my first attorney client. Then I got back in the car — wrecked and all — and met Devin, a TCU professor, who said: <em style="color:var(--gold);">"Susy, have you heard of One Million Cups? You need to come share your story there."</em></p>
-        <p>That car has been my sanctuary. My prayer closet. My connector. My studio. My platform. And when I became a founder and needed mentorship, I realized there was no searchable, real, ungated place to find someone who had already walked my exact path. LinkedIn is accolades and numbers. That's not what this needed to be.</p>
-        <p>God said: <em style="color:var(--gold);">I'm building something in you.</em> Seeker of Story is that something. Free for every seeker who needs it. Always.</p>
+        <p>On October 31, 2023 — a day I will never forget — addiction left my body instantly. No shakes. No shivers. No desires. Gone. In that moment I made a promise: I would tell everybody what God did in my life.</p>
+        <p>For three years I drove rideshare through Dallas and Fort Worth — giving out Baggies of Hope, Bibles, prayers, and blueprints one passenger at a time. I discovered something: everybody carries a story. Everybody carries a blueprint. And if we put them all in one place, we can elevate each other.</p>
+        <p>When I became a founder, I needed mentorship — and there was no free, real, ungated place to find it. So God said: <em style="color:var(--gold);">I'm building something in you.</em></p>
+        <p>Seeker of Story is that something. A hope platform. A blueprint archive. Free for every seeker who needs it. Always.</p>
       </div>
       <div class="personal-sig">— Susy Gordon, Founder · Mega Mission Media · Seeker of Story</div>
+    </div>
+    <div class="personal-photo-wrap">
+      <div class="personal-photo" style="background-image:url('https://raw.githubusercontent.com/susygordon1/seeker-of-story/main/Susy%20Gordon.JPEG'); background-position: center top;"></div>
+      <div class="personal-photo-badge">Susy Gordon · Founder</div>
     </div>
   </div>
 </section>
