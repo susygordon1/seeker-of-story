@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cowboy · A·1001 — Seeker of Story</title>
+  <meta name="description" content="Streets of Fort Worth → Seeking & Rebuilding. Cowboy's becoming story on Seeker of Story.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <style>
+:root{--cream:#F5F2ED;--cream-dark:#EDE9E2;--charcoal:#1E1E1E;--charcoal-mid:#2A2A2A;--gold:#C4972A;--gold-light:#D4A843;--gold-bright:#E8BC50;--gold-dim:#8B6914;--muted:#7A7A72;--border-light:rgba(196,151,42,0.15);--border-cream:rgba(196,151,42,0.25);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);}
+.sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--border-cream);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.sos-nav-brand{text-decoration:none;}
+.sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--charcoal);}
+.sos-nav-brand-main span{color:var(--gold);font-style:italic;}
+.sos-nav-brand-sub{font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem;}
+.sos-nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
+.sos-nav-links a{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.4rem 0.85rem;transition:color 0.2s;}
+.sos-nav-links a:hover{color:var(--charcoal);}
+.sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;letter-spacing:0.2em;background:var(--gold);color:var(--charcoal);text-decoration:none;padding:0.45rem 1.25rem;transition:background 0.2s;}
+.sos-nav-cta:hover{background:var(--gold-bright);}
+.sos-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.sos-hamburger span{display:block;width:22px;height:2px;background:var(--charcoal);}
+.sos-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border-cream);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
+.sos-mobile-menu.open{display:flex;}
+.sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border-light);}
+/* PROFILE HERO */
+.profile-hero{background:var(--charcoal);padding:100px 3rem 5rem;position:relative;overflow:hidden;}
+.profile-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(196,151,42,0.07) 0%,transparent 65%);pointer-events:none;}
+.profile-hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:4rem;align-items:start;}
+.profile-photo-col{position:relative;}
+.profile-photo{width:100%;aspect-ratio:3/4;background-size:cover;background-position:center top;background-color:var(--charcoal-mid);}
+.profile-badge{position:absolute;top:-1rem;left:-1rem;padding:0.4rem 0.9rem;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;}
+.profile-qr-block{margin-top:1.5rem;background:#fff;padding:1.25rem;text-align:center;}
+.profile-qr-label{font-size:0.52rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.85rem;}
+.profile-qr-label span{color:var(--gold);}
+.profile-qr-url{font-size:0.58rem;color:var(--muted);margin-top:0.6rem;word-break:break-all;line-height:1.5;}
+.profile-share-btn{display:block;width:100%;margin-top:0.75rem;background:var(--gold);color:var(--charcoal);border:none;padding:0.6rem;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;cursor:pointer;transition:background 0.2s;text-decoration:none;text-align:center;}
+.profile-share-btn:hover{background:var(--gold-bright);}
+/* INFO COL */
+.profile-info-col{color:var(--cream);}
+.profile-tier-badge{display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;}
+.profile-tier-letter{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;padding:0.2rem 0.7rem;border:2px solid;}
+.profile-tier-name{font-size:0.58rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;}
+.profile-num{font-size:0.6rem;font-weight:700;letter-spacing:0.3em;color:var(--gold);margin-bottom:0.75rem;}
+.profile-name{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;color:var(--cream);line-height:1.0;margin-bottom:0.5rem;}
+.profile-company{font-size:1rem;color:var(--gold-light);margin-bottom:0.35rem;}
+.profile-location{font-size:0.75rem;color:var(--muted);margin-bottom:2rem;}
+.profile-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;}
+.profile-tag{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);background:rgba(196,151,42,0.1);border:1px solid rgba(196,151,42,0.25);padding:0.3rem 0.75rem;}
+.profile-transform{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem;}
+.profile-transform-tag{background:rgba(196,151,42,0.08);border:1px solid rgba(196,151,42,0.2);color:rgba(245,242,237,0.75);font-size:0.65rem;font-weight:600;letter-spacing:0.08em;padding:0.3rem 0.75rem;}
+.profile-transform-arrow{color:var(--gold-dim);font-size:1.2rem;}
+.profile-pullquote{border-left:3px solid var(--gold);padding-left:1.5rem;margin-bottom:2rem;}
+.profile-pullquote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;line-height:1.65;color:rgba(245,242,237,0.85);}
+.profile-listen-row{display:flex;gap:0.75rem;flex-wrap:wrap;}
+.profile-listen-btn{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;padding:0.5rem 1.1rem;border:1px solid rgba(196,151,42,0.4);color:var(--cream);transition:all 0.2s;display:inline-block;}
+.profile-listen-btn:hover{border-color:var(--gold);color:var(--gold);}
+.profile-listen-btn.primary{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
+.profile-listen-btn.primary:hover{background:var(--gold-bright);}
+/* ELEVATION ARC */
+.elevation-arc{background:#161616;border-top:1px solid rgba(196,151,42,0.12);padding:3rem;}
+.elevation-arc-inner{max-width:900px;margin:0 auto;}
+.elevation-arc-title{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;text-align:center;}
+.arc-stages{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
+.arc-stage{text-align:center;padding:1.5rem 2rem;position:relative;flex:1;min-width:160px;}
+.arc-stage-letter{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;margin-bottom:0.35rem;}
+.arc-stage-label{font-size:0.55rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.35rem;}
+.arc-stage-date{font-size:0.62rem;color:var(--muted);}
+.arc-stage-desc{font-size:0.72rem;color:rgba(245,242,237,0.5);margin-top:0.35rem;line-height:1.5;}
+.arc-stage.active .arc-stage-letter{color:var(--gold-light);}
+.arc-stage.active .arc-stage-label{color:var(--cream);}
+.arc-stage.past .arc-stage-letter{color:var(--muted);}
+.arc-stage.past .arc-stage-label{color:var(--muted);}
+.arc-stage.future .arc-stage-letter{color:#333;}
+.arc-stage.future .arc-stage-label{color:#444;}
+.arc-arrow{font-size:1.5rem;color:var(--gold-dim);padding:0 0.5rem;align-self:center;}
+.arc-where-now{background:rgba(196,151,42,0.08);border:1px solid rgba(196,151,42,0.2);padding:1rem 1.5rem;margin-top:2rem;text-align:center;}
+.arc-where-now-label{font-size:0.55rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;}
+.arc-where-now-text{font-size:0.82rem;color:rgba(245,242,237,0.6);font-family:'Playfair Display',serif;font-style:italic;}
+/* STORY SECTION */
+.profile-story{background:var(--cream);padding:5rem 3rem;}
+.profile-story-inner{max-width:760px;margin:0 auto;}
+.profile-story-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
+.profile-story-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.5rem);font-weight:700;color:var(--charcoal);line-height:1.15;margin-bottom:2rem;}
+.profile-story-title em{font-style:italic;color:var(--gold);}
+.profile-story-body{font-size:0.95rem;font-weight:300;line-height:2;color:#3A3A3A;}
+.profile-story-body p{margin-bottom:1.5rem;}
+/* MORE STORIES */
+.profile-more{background:var(--charcoal);padding:4rem 3rem;}
+.profile-more-inner{max-width:1100px;margin:0 auto;}
+.profile-more-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin-bottom:2rem;border-bottom:1px solid rgba(196,151,42,0.15);padding-bottom:0.75rem;}
+.profile-more-title em{font-style:italic;color:var(--gold-light);}
+.profile-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(196,151,42,0.1);}
+.profile-more-card{background:#252525;padding:1.75rem;text-decoration:none;transition:background 0.2s;display:block;}
+.profile-more-card:hover{background:#2E2E2E;}
+.profile-more-tier{font-size:0.52rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;}
+.profile-more-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:0.25rem;}
+.profile-more-co{font-size:0.7rem;color:var(--gold-light);margin-bottom:0.5rem;}
+.profile-more-transform{font-size:0.68rem;color:var(--muted);line-height:1.5;}
+/* FOOTER */
+.sos-footer{background:#111;border-top:3px solid var(--gold);padding:3rem;}
+.sos-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center;}
+.sos-footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);}
+.sos-footer-brand span{font-style:italic;color:var(--gold);}
+.sos-footer-tagline{font-size:0.72rem;color:var(--muted);line-height:1.7;margin-top:0.5rem;}
+.sos-footer-statement{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--gold-light);line-height:1.6;}
+.sos-footer-social{display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;}
+.sos-footer-social a{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid rgba(196,151,42,0.2);padding:0.35rem 0.7rem;transition:all 0.2s;}
+.sos-footer-social a:hover{color:var(--gold);border-color:var(--gold);}
+.sos-footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(196,151,42,0.1);display:flex;justify-content:space-between;align-items:center;}
+.sos-footer-copy{font-size:0.58rem;letter-spacing:0.1em;color:#3A3A3A;text-transform:uppercase;}
+.sos-footer-mmm{font-size:0.58rem;color:#3A3A3A;}
+.sos-footer-mmm a{color:var(--gold);text-decoration:none;}
+@media(max-width:1024px){.sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}.profile-hero-inner{grid-template-columns:1fr;}.profile-more-grid{grid-template-columns:1fr 1fr;}.arc-stages{flex-direction:column;}}
+@media(max-width:700px){.profile-hero{padding:88px 1.5rem 3rem;}.profile-story,.elevation-arc,.profile-more{padding:3rem 1.5rem;}.sos-footer-inner{grid-template-columns:1fr;text-align:center;}.sos-footer-social{justify-content:center;}.sos-footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}.profile-more-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="sos-nav">
+  <a href="index.html" class="sos-nav-brand">
+    <span class="sos-nav-brand-main">SEEKER <span>OF</span> STORY</span>
+    <span class="sos-nav-brand-sub">Powered by Mega Mission Media</span>
+  </a>
+  <ul class="sos-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About SOS</a></li>
+    <li><a href="founders.html">All Stories</a></li>
+    <li><a href="listen.html">Listen</a></li>
+    <li><a href="fund.html">Fund the Mission</a></li>
+  </ul>
+  <a href="fund.html" class="sos-nav-cta">Fund the Mission</a>
+  <button class="sos-hamburger" id="sos-hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="sos-mobile-menu" id="sos-mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About SOS</a>
+  <a href="founders.html">All Stories</a>
+  <a href="listen.html">Listen</a>
+  <a href="fund.html">Fund the Mission</a>
+</div>
+
+<section class="profile-hero">
+  <div class="profile-hero-inner">
+    <div class="profile-photo-col">
+      <div class="profile-badge" style="background:#8B6914;color:#0A0A0A;">A·1001</div>
+      <div class="profile-photo" style="background-image:url('https://img.youtube.com/vi/UpfGk7a25-E/hqdefault.jpg');"></div>
+      <div class="profile-qr-block">
+        <div class="profile-qr-label">Share This <span>Becoming Story</span></div>
+        <canvas id="qr-canvas"></canvas>
+        <div class="profile-qr-url">seekerofstory.org/cowboy</div>
+        <button class="profile-share-btn" onclick="copyLink()">Copy Profile Link →</button>
+      </div>
+    </div>
+    <div class="profile-info-col">
+      <div class="profile-tier-badge">
+        <div class="profile-tier-letter" style="color:#8B6914;border-color:#8B6914;">A</div>
+        <div>
+          <div class="profile-tier-name" style="color:#8B6914;">HOME FREE</div>
+          <div style="font-size:0.52rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;">{"A":"The Unseen. About to be seen.","B":"Real people. Real roads. Real stories.","C":"From Lost to Launched."}.get("A","")</div>
+        </div>
+      </div>
+      <div class="profile-num">Asset #1001 · HOME FREE</div>
+      <h1 class="profile-name">Cowboy</h1>
+      <div class="profile-company">Fort Worth Streets</div>
+      <div class="profile-location">📍 Fort Worth, TX</div>
+      <div class="profile-tags"><span class="profile-tag">Father of Seven</span><span class="profile-tag">Silk Screener</span><span class="profile-tag">Survivor</span></div>
+      <div class="profile-transform">
+        <div class="profile-transform-tag">Streets of Fort Worth</div>
+        <div class="profile-transform-arrow">→</div>
+        <div class="profile-transform-tag">Seeking & Rebuilding</div>
+      </div>
+      <div class="profile-pullquote"><p>"Things that normal people take for granted... they don't understand that it could all be gone in a second."</p></div>
+      <div class="profile-listen-row">
+        <a href="https://youtu.be/UpfGk7a25-E" target="_blank" class="profile-listen-btn primary">▶ Watch on YouTube</a>
+        <a href="founders.html" class="profile-listen-btn">← All Stories</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="profile-story">
+  <div class="profile-story-inner">
+    <div class="profile-story-eyebrow">The Becoming Story · A·1001</div>
+    <h2 class="profile-story-title">Streets of Fort Worth<br><em>→ Seeking & Rebuilding</em></h2>
+    <div class="profile-story-body">
+      <p>Cowboy is a silk screener, a survivor, and proof that homelessness doesn't have one face or one story. After the death of his daughter, his mother, and his dog all within months of each other, Cowboy found himself on the streets — navigating addiction, jail, and survival in the homeless community. But underneath the pain is a man with skills, faith, and a deep desire to get back to his kids.</p>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1rem;">"Things that normal people take for granted... they don't understand that it could all be gone in a second."</p>
+    </div>
+  </div>
+</section>
+<section class="profile-more">
+  <div class="profile-more-inner">
+    <div class="profile-more-title">More <em>Becoming Stories</em></div>
+    <div class="profile-more-grid"><a href="profile-brenda.html" class="profile-more-card">
+      <div class="profile-more-tier">A · HOME FREE · #1002</div>
+      <div class="profile-more-name">Brenda</div>
+      <div class="profile-more-co">Fort Worth Streets</div>
+      <div class="profile-more-transform">Homelessness & Loss → Faith & Restoration</div>
+    </a><a href="profile-ms-june.html" class="profile-more-card">
+      <div class="profile-more-tier">B · HIGHWAY HUSTLE · #1004</div>
+      <div class="profile-more-name">Ms. June</div>
+      <div class="profile-more-co">Fort Worth, TX</div>
+      <div class="profile-more-transform">Active Addiction → Recovery & Hope</div>
+    </a><a href="profile-ellie-zuniga.html" class="profile-more-card">
+      <div class="profile-more-tier">B · HIGHWAY HUSTLE · #1007</div>
+      <div class="profile-more-name">Ellie Zuniga</div>
+      <div class="profile-more-co">Fort Worth, TX</div>
+      <div class="profile-more-transform">Brink of Death → Living Evidence & Ministry</div>
+    </a></div>
+  </div>
+</section>
+<footer class="sos-footer">
+  <div class="sos-footer-inner">
+    <div>
+      <div class="sos-footer-brand">SEEKER <span>OF</span> STORY</div>
+      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.<br>Powered by Mega Mission Media.</p>
+    </div>
+    <div class="sos-footer-statement">"The only platform built<br>for Seekers, not followers."</div>
+    <div class="sos-footer-social">
+      <a href="https://www.youtube.com/@SusyGordon89" target="_blank">YouTube</a>
+      <a href="#">Spotify</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+  <div class="sos-footer-bottom">
+    <div class="sos-footer-copy">© 2026 Seeker of Story · No Paywalls. Always Free.</div>
+    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a> · 817-860-8989</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('sos-hamburger').addEventListener('click',function(e){e.stopPropagation();document.getElementById('sos-mobile-menu').classList.toggle('open');});
+  document.addEventListener('click',function(e){const m=document.getElementById('sos-mobile-menu'),h=document.getElementById('sos-hamburger');if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
+  QRCode.toCanvas(document.getElementById('qr-canvas'),'seekerofstory.org/cowboy',{width:140,margin:1,color:{dark:'#1E1E1E',light:'#FFFFFF'}});
+  function copyLink(){navigator.clipboard.writeText('https://seekerofstory.org/cowboy').then(()=>{const b=document.querySelector('.profile-share-btn');b.textContent='Copied! ✓';setTimeout(()=>b.textContent='Copy Profile Link →',2000);});}
+</script>
+</body>
+</html>

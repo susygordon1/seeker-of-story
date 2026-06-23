@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seeker of Story — Find the mentor who walked your path</title>
+  <meta name="description" content="A free mentor-matching platform powered by real founder stories. Seek and Find. Matthew 7:7">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5F2ED;
+      --cream-dark: #EDE9E2;
+      --charcoal: #1E1E1E;
+      --charcoal-mid: #2A2A2A;
+      --gold: #C4972A;
+      --gold-light: #D4A843;
+      --gold-bright: #E8BC50;
+      --gold-dim: #8B6914;
+      --muted: #7A7A72;
+      --border-light: rgba(196,151,42,0.15);
+      --border-cream: rgba(196,151,42,0.25);
+      --white: #FFFFFF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ══ NAV ══ */
+    .sos-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border-cream);
+      padding: 0 3rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sos-nav-brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .sos-nav-brand-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+    .sos-nav-brand-main span { color: var(--gold); font-style: italic; }
+    .sos-nav-brand-sub {
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .sos-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    .sos-nav-links a {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      transition: color 0.2s;
+    }
+    .sos-nav-links a:hover,
+    .sos-nav-links a.active { color: var(--charcoal); }
+    .sos-nav-links a.active { border-bottom: 2px solid var(--gold); }
+    .sos-nav-cta {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      background: var(--gold);
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.45rem 1.25rem;
+      transition: background 0.2s;
+    }
+    .sos-nav-cta:hover { background: var(--gold-bright); }
+    .sos-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .sos-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--charcoal);
+    }
+    .sos-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border-cream);
+      z-index: 99;
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+    }
+    .sos-mobile-menu.open { display: flex; }
+    .sos-mobile-menu a {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .sos-mobile-menu a:hover { color: var(--charcoal); }
+    .sos-mobile-cta {
+      background: var(--gold) !important;
+      color: var(--charcoal) !important;
+      text-align: center;
+      margin-top: 1rem;
+      padding: 0.75rem !important;
+      font-family: 'Bebas Neue', sans-serif !important;
+      font-size: 1rem !important;
+    }
+
+    /* ══ HERO ══ */
+    .sos-hero {
+      min-height: 100vh;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sos-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center top, rgba(196,151,42,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .sos-hero-eyebrow {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .sos-hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 0.5rem;
+      max-width: 820px;
+    }
+    .sos-hero-headline em {
+      font-style: italic;
+      color: var(--gold-light);
+      display: block;
+    }
+    .sos-hero-verse {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ══ SEARCH WIDGET ══ */
+    .sos-search-box {
+      background: var(--white);
+      max-width: 680px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+    }
+    .sos-search-box-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .sos-search-fields {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .sos-search-fields label {
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .sos-search-fields input {
+      width: 100%;
+      border: 1px solid #DDD;
+      padding: 0.75rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .sos-search-fields input:focus { border-color: var(--gold); }
+    .sos-search-fields input::placeholder { color: #AAA; font-size: 0.8rem; }
+    .sos-search-arrow {
+      font-size: 1.2rem;
+      color: var(--gold);
+      padding-top: 1.2rem;
+      text-align: center;
+    }
+    .sos-search-btn {
+      width: 100%;
+      background: var(--gold);
+      color: var(--charcoal);
+      border: none;
+      padding: 1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .sos-search-btn:hover { background: var(--gold-bright); }
+
+    /* Search results */
+    .sos-search-results {
+      margin-top: 1rem;
+      display: none;
+    }
+    .sos-search-results.active { display: block; }
+    .sos-search-result-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border-cream);
+      margin-bottom: 0.5rem;
+      background: var(--cream);
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .sos-search-result-item:hover { border-color: var(--gold); }
+    .sos-result-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      min-width: 36px;
+    }
+    .sos-result-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+    .sos-result-co {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+    .sos-result-match {
+      margin-left: auto;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border-cream);
+      padding: 0.25rem 0.6rem;
+    }
+
+    /* ══ GOODWILL PRINCIPLE ══ */
+    .sos-goodwill {
+      background: var(--charcoal);
+      padding: 5rem 3rem;
+      color: var(--cream);
+      text-align: center;
+    }
+    .sos-section-eyebrow {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .sos-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .sos-section-title em { font-style: italic; color: var(--gold-light); }
+    .sos-section-body {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(245,242,237,0.7);
+      max-width: 600px;
+      margin: 0 auto 3.5rem;
+    }
+    .sos-three-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(196,151,42,0.15);
+      max-width: 900px;
+      margin: 0 auto 3rem;
+    }
+    .sos-col-card {
+      background: #252525;
+      padding: 2.5rem 2rem;
+      text-align: left;
+    }
+    .sos-col-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 3rem;
+      color: var(--gold-dim);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .sos-col-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+    .sos-col-body {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .sos-goodwill-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(245,242,237,0.55);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ══ MISSION SECTION ══ */
+    .sos-mission {
+      background: var(--cream-dark);
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+    .sos-mission-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .sos-mission-headline em { font-style: italic; color: var(--gold); }
+    .sos-mission-body {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+    .sos-btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      padding: 0.75rem 2rem;
+      transition: background 0.2s;
+    }
+    .sos-btn-primary:hover { background: var(--gold-bright); }
+    .sos-btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--charcoal);
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      padding: 0.75rem 2rem;
+      border: 1px solid rgba(30,30,30,0.25);
+      margin-left: 1rem;
+      transition: all 0.2s;
+    }
+    .sos-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ══ FOUNDING STORIES PREVIEW ══ */
+    .sos-founders-preview {
+      background: var(--cream);
+      padding: 5rem 3rem;
+    }
+    .sos-founders-preview-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .sos-founders-preview-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .sos-founders-preview-title em { font-style: italic; color: var(--gold); }
+    .sos-view-all {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .sos-view-all:hover { color: var(--gold-dim); }
+    .sos-founders-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .sos-founder-card {
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      transition: border-color 0.2s, transform 0.2s;
+      display: block;
+      background: var(--white);
+    }
+    .sos-founder-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .sos-founder-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      background: var(--charcoal-mid);
+      display: block;
+      background-size: cover;
+      background-position: center top;
+    }
+    .sos-founder-info {
+      padding: 1.25rem;
+    }
+    .sos-founder-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+    .sos-founder-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+    .sos-founder-co {
+      font-size: 0.72rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .sos-founder-transform {
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .sos-founder-cta {
+      display: block;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* ══ STATS BAND ══ */
+    .sos-stats {
+      background: var(--charcoal);
+      padding: 3.5rem 3rem;
+    }
+    .sos-stats-eyebrow {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .sos-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid rgba(196,151,42,0.15);
+    }
+    .sos-stat {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(196,151,42,0.15);
+    }
+    .sos-stat:last-child { border-right: none; }
+    .sos-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .sos-stat-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .sos-stat-source {
+      font-size: 0.52rem;
+      color: #444;
+      margin-top: 0.25rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ══ FOOTER ══ */
+    .sos-footer {
+      background: #111;
+      border-top: 3px solid var(--gold);
+      padding: 3rem;
+    }
+    .sos-footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .sos-footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+    .sos-footer-brand span { font-style: italic; color: var(--gold); }
+    .sos-footer-tagline {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 0.5rem;
+    }
+    .sos-footer-statement {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+    .sos-footer-social {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .sos-footer-social a {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid rgba(196,151,42,0.2);
+      padding: 0.35rem 0.7rem;
+      transition: all 0.2s;
+    }
+    .sos-footer-social a:hover { color: var(--gold); border-color: var(--gold); }
+    .sos-footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(196,151,42,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sos-footer-copy {
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: #3A3A3A;
+      text-transform: uppercase;
+    }
+    .sos-footer-mmm {
+      font-size: 0.58rem;
+      color: #3A3A3A;
+      letter-spacing: 0.08em;
+    }
+    .sos-footer-mmm a { color: var(--gold); text-decoration: none; }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 1024px) {
+      .sos-nav { padding: 0 1.5rem; }
+      .sos-nav-links, .sos-nav-cta { display: none; }
+      .sos-hamburger { display: flex; }
+      .sos-founders-grid { grid-template-columns: repeat(2, 1fr); }
+      .sos-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .sos-stat { border-bottom: 1px solid rgba(196,151,42,0.15); }
+    }
+    @media (max-width: 700px) {
+      .sos-hero { padding: 100px 1.5rem 3rem; }
+      .sos-search-fields { grid-template-columns: 1fr; }
+      .sos-search-arrow { display: none; }
+      .sos-three-cols { grid-template-columns: 1fr; }
+      .sos-founders-grid { grid-template-columns: 1fr; }
+      .sos-stats-grid { grid-template-columns: 1fr 1fr; }
+      .sos-footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .sos-footer-social { justify-content: center; }
+      .sos-footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .sos-founders-preview { padding: 3rem 1.5rem; }
+      .sos-goodwill, .sos-mission { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="sos-nav">
+  <a href="index.html" class="sos-nav-brand">
+    <span class="sos-nav-brand-main">SEEKER <span>OF</span> STORY</span>
+    <span class="sos-nav-brand-sub">Powered by Mega Mission Media</span>
+  </a>
+  <ul class="sos-nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About SOS</a></li>
+    <li><a href="founders.html">Founding Stories</a></li>
+    <li><a href="listen.html">Listen</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="fund.html">Fund the Mission</a></li>
+  </ul>
+  <a href="fund.html" class="sos-nav-cta">Fund the Mission</a>
+  <button class="sos-hamburger" id="sos-hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="sos-mobile-menu" id="sos-mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About SOS</a>
+  <a href="founders.html">Founding Stories</a>
+  <a href="listen.html">Listen</a>
+  <a href="blog.html">Blog</a>
+  <a href="fund.html" class="sos-mobile-cta">Fund the Mission</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="sos-hero">
+  <div class="sos-hero-eyebrow">SeekerofStory.org · Mega Mission</div>
+  <h1 class="sos-hero-headline">
+    Find the mentor who<br>
+    <em>walked your path</em>
+  </h1>
+  <div class="sos-hero-verse">Matthew 7:7 — Seek and You Shall Find</div>
+
+  <!-- SEARCH -->
+  <div class="sos-search-box">
+    <div class="sos-search-box-label">Search the Becoming Database</div>
+    <div class="sos-search-fields">
+      <div>
+        <label>I Used To Be… (optional)</label>
+        <input type="text" id="search-from" placeholder="e.g. Teacher, Nurse, IT Consultant">
+      </div>
+      <div class="sos-search-arrow">→</div>
+      <div>
+        <label>I Want To Become…</label>
+        <input type="text" id="search-to" placeholder="e.g. Attorney, Tour Guide, Podcaster">
+      </div>
+    </div>
+    <button class="sos-search-btn" onclick="runSearch()">Search the Becoming Database →</button>
+    <div class="sos-search-results" id="search-results"></div>
+  </div>
+</section>
+
+<!-- ══ GOODWILL PRINCIPLE ══ -->
+<section class="sos-goodwill">
+  <div class="sos-section-eyebrow">Our Mission</div>
+  <h2 class="sos-section-title">Why <em>Seeker of Story</em> Exists</h2>
+  <p class="sos-section-body">When you're in transition, unemployed, burned out, or standing at the edge of a leap, you can't afford high, overrated, astronomical monthly subscriptions. But somewhere out there is a founder who already walked your exact path — and is ready to become your mentor.</p>
+
+  <div class="sos-three-cols">
+    <div class="sos-col-card">
+      <div class="sos-col-num">01</div>
+      <div class="sos-col-title">Founders Give</div>
+      <div class="sos-col-body">Founders give because they're finally in a position to give freely. They share who they were, what they're building, why they're building it, and the lessons that shaped the journey.</div>
+    </div>
+    <div class="sos-col-card">
+      <div class="sos-col-num">02</div>
+      <div class="sos-col-title">SOS Becomes the Bridge</div>
+      <div class="sos-col-body">It carries stories, blueprints, wisdom, and lived experience from people willing to share what they've learned so someone else doesn't have to walk alone.</div>
+    </div>
+    <div class="sos-col-card">
+      <div class="sos-col-num">03</div>
+      <div class="sos-col-title">The Seeker Finds Hope</div>
+      <div class="sos-col-body">Anyone in transition can search the Becoming Database freely. No monthly subscriptions. No gatekeeping.</div>
+    </div>
+  </div>
+
+  <div class="sos-section-eyebrow" style="margin-bottom:1.5rem;">The Model</div>
+  <h2 class="sos-section-title">Built on <em>The Goodwill Principle</em></h2>
+  <p class="sos-goodwill-quote">"This isn't about accolades or revenue sharing. It's about a founder unknowingly becoming a voice of hope to someone. There is life and death in the power of the tongue, and the founder who shares their story has already spoken life."</p>
+</section>
+
+<!-- ══ FOUNDING STORIES PREVIEW ══ -->
+<section class="sos-founders-preview">
+  <div class="sos-founders-preview-header">
+    <h2 class="sos-founders-preview-title">Meet the <em>Founding Stories</em></h2>
+    <a href="founders.html" class="sos-view-all">View All →</a>
+  </div>
+  <div class="sos-founders-grid" id="founders-grid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- ══ STATS BAND ══ -->
+<section class="sos-stats">
+  <div class="sos-stats-eyebrow">Why This Work Matters — U.S. Labor Statistics</div>
+  <div class="sos-stats-grid">
+    <div class="sos-stat">
+      <div class="sos-stat-num">6.6M</div>
+      <div class="sos-stat-label">Americans actively unemployed</div>
+      <div class="sos-stat-source">BLS, 2024</div>
+    </div>
+    <div class="sos-stat">
+      <div class="sos-stat-num">5.5 mo</div>
+      <div class="sos-stat-label">Average job search duration</div>
+      <div class="sos-stat-source">BLS, 2024</div>
+    </div>
+    <div class="sos-stat">
+      <div class="sos-stat-num">85%</div>
+      <div class="sos-stat-label">Jobs filled through networking</div>
+      <div class="sos-stat-source">LinkedIn, 2022</div>
+    </div>
+    <div class="sos-stat">
+      <div class="sos-stat-num">70%</div>
+      <div class="sos-stat-label">Job listings never publicly posted</div>
+      <div class="sos-stat-source">HBR, 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MISSION CTA ══ -->
+<section class="sos-mission">
+  <div class="sos-section-eyebrow">Keep Mentorship Free. Always.</div>
+  <h2 class="sos-mission-headline">
+    Seekers receive free.<br>Founders give freely.<br><em>Supporters keep the bridge standing.</em>
+  </h2>
+  <p class="sos-mission-body">Seeker of Story runs on The Goodwill Principle — seekers never pay. But building the bridge costs real resources. Your gift helps us reach more founders, publish more stories, and match more mentors across DFW.</p>
+  <a href="fund.html" class="sos-btn-primary">Fund the Mission →</a>
+  <a href="about.html" class="sos-btn-ghost">Our Story →</a>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="sos-footer">
+  <div class="sos-footer-inner">
+    <div>
+      <div class="sos-footer-brand">SEEKER <span>OF</span> STORY</div>
+      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.<br>Powered by Mega Mission Media.</p>
+    </div>
+    <div class="sos-footer-statement">"The only platform built<br>for Seekers, not followers."</div>
+    <div class="sos-footer-social">
+      <a href="https://www.youtube.com/@SusyGordon89" target="_blank">YouTube</a>
+      <a href="#" target="_blank">Spotify</a>
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">Facebook</a>
+    </div>
+  </div>
+  <div class="sos-footer-bottom">
+    <div class="sos-footer-copy">© 2026 Seeker of Story · Fort Worth, TX · No Paywalls. Always Free.</div>
+    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a> · 817-860-8989</div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile menu
+  document.getElementById('sos-hamburger').addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('sos-mobile-menu').classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    const m = document.getElementById('sos-mobile-menu');
+    const h = document.getElementById('sos-hamburger');
+    if (!m.contains(e.target) && !h.contains(e.target)) m.classList.remove('open');
+  });
+
+  // ── Founder data
+  const founders = [
+    { id: "susy-gordon", number: "001", name: "Susy Gordon", company: "Mega Mission Media · Seeker of Story", location: "Fort Worth, TX", photo: "https://img.youtube.com/vi/3yLCLKzeSNk/hqdefault.jpg", transform: "Corporate IT Director → Faith-Based Media Founder", tags: ["Media", "Tech Consulting"] },
+    { id: "carrie-carter", number: "002", name: "Carrie Carter", company: "Cowtown Tour Company", location: "Fort Worth, TX", photo: "https://img.youtube.com/vi/7kancj2at4s/hqdefault.jpg", transform: "Travel Tech Executive → Tour Company Founder", tags: ["Hospitality", "Travel Tech"] },
+    { id: "yoel-zehaie", number: "003", name: "Yoel Zehaie", company: "Zehaie Law", location: "Arlington, TX", photo: "https://img.youtube.com/vi/iUCYARj7i9U/hqdefault.jpg", transform: "Law School Graduate → Law Firm Founder", tags: ["Legal"] },
+    { id: "lena-killion", number: "004", name: "Lena Killion", company: "MLK Pre Arrangements", location: "Fort Worth, TX", photo: "https://img.youtube.com/vi/nANNiY8SsfE/hqdefault.jpg", transform: "Aerospace Sales → Funeral Pre-Planning Entrepreneur", tags: ["Health", "Sales"] }
+  ];
+
+  // Render founder cards
+  const grid = document.getElementById('founders-grid');
+  founders.forEach(f => {
+    grid.innerHTML += `
+      <a href="profile-${f.id}.html" class="sos-founder-card">
+        <div class="sos-founder-photo" style="background-image:url('${f.photo}'); height: 240px;"></div>
+        <div class="sos-founder-info">
+          <div class="sos-founder-num">Founding Story #${f.number}</div>
+          <div class="sos-founder-name">${f.name}</div>
+          <div class="sos-founder-co">${f.company}</div>
+          <div class="sos-founder-transform">${f.transform}</div>
+          <div class="sos-founder-cta">View Becoming Story →</div>
+        </div>
+      </a>`;
+  });
+
+  // ── Search
+  function runSearch() {
+    const from = document.getElementById('search-from').value.trim().toLowerCase();
+    const to = document.getElementById('search-to').value.trim().toLowerCase();
+    const resultsEl = document.getElementById('search-results');
+
+    if (!to && !from) {
+      resultsEl.innerHTML = '<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">Enter what you want to become to search.</p>';
+      resultsEl.classList.add('active');
+      return;
+    }
+
+    const keywords = (from + ' ' + to).toLowerCase();
+    const matches = founders.filter(f => {
+      const haystack = (f.name + ' ' + f.company + ' ' + f.transform + ' ' + f.tags.join(' ')).toLowerCase();
+      return keywords.split(' ').some(w => w.length > 2 && haystack.includes(w));
+    });
+
+    if (matches.length === 0) {
+      resultsEl.innerHTML = `<p style="text-align:center;color:#888;font-size:0.8rem;padding:1rem 0;">No exact matches yet — <a href="founders.html" style="color:var(--gold);">browse all founding stories →</a></p>`;
+    } else {
+      resultsEl.innerHTML = matches.map(f => `
+        <a href="profile-${f.id}.html" class="sos-search-result-item">
+          <div class="sos-result-num">#${f.number}</div>
+          <div>
+            <div class="sos-result-name">${f.name}</div>
+            <div class="sos-result-co">${f.company} · ${f.location}</div>
+          </div>
+          <div class="sos-result-match">Match Found</div>
+        </a>`).join('');
+    }
+    resultsEl.classList.add('active');
+  }
+
+  // Enter key search
+  ['search-from','search-to'].forEach(id => {
+    document.getElementById(id).addEventListener('keypress', e => { if (e.key === 'Enter') runSearch(); });
+  });
+</script>
+</body>
+</html>
