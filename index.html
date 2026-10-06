@@ -58,14 +58,15 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
 /* SEARCH */
 .search-section{background:var(--black);padding:56px 40px 48px}
 .search-label{text-align:center;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:28px;font-weight:600}
-.search-card{max-width:660px;margin:0 auto;background:var(--white);border:2px solid var(--black);box-shadow:0 4px 20px rgba(0,0,0,0.12)}
-.search-row{display:flex;align-items:stretch}
-.search-field{flex:1;padding:18px 24px;display:flex;flex-direction:column;gap:4px}
-.search-field label{font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:700}
-.search-field input{border:none;outline:none;font-size:15px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--black);background:transparent;padding:0}
-.search-field input::placeholder{color:#C0B4A0}
-.search-sep{display:flex;align-items:center;padding:0 8px;color:var(--gold);font-size:20px;border-left:1px solid #E8E0D0;border-right:1px solid #E8E0D0}
-.search-submit{background:var(--gold);color:var(--black);border:none;width:100%;padding:18px 24px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:700;cursor:pointer;text-align:center;transition:background 0.2s}
+.search-card{max-width:700px;margin:0 auto;background:var(--white);border:none;box-shadow:0 4px 32px rgba(0,0,0,0.18);padding:32px 40px 0;}
+.search-row{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;}
+.search-field{flex:1;padding:14px 20px;display:flex;flex-direction:column;gap:6px}
+.search-field label{font-size:9px;letter-spacing:2px;color:var(--text-mid);text-transform:uppercase;font-weight:600}
+.search-field input{border:1px solid #C8BCA8;outline:none;font-size:15px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--black);background:#FAFAF7;padding:10px 14px;transition:border-color 0.2s;}
+.search-field input:focus{border-color:var(--gold);}
+.search-field input::placeholder{color:#B0A090}
+.search-sep{display:flex;align-items:center;padding:0 4px;color:var(--gold);font-size:20px;margin-top:32px;}
+.search-submit{background:var(--gold);color:var(--black);border:none;width:calc(100% + 80px);margin:0 -40px;display:block;padding:18px 24px;font-size:12px;letter-spacing:4px;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:700;cursor:pointer;text-align:center;transition:background 0.2s;margin-top:0;}
 .search-submit:hover{background:var(--gold-light)}
 
 /* TIERS */
@@ -187,7 +188,7 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
 
 <!-- SEARCH -->
 <section class="search-section" style="padding-top:40px;">
-  <div class="search-label">Search the Blueprint Database</div>
+  <div class="search-label">The Blueprint Database</div>
   <div class="search-card">
     <div class="search-row">
       <div class="search-field">
@@ -200,7 +201,7 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
         <input type="text" placeholder="e.g. Attorney, Tour Guide, Founder" />
       </div>
     </div>
-    <button class="search-submit">Search the Blueprint Database →</button>
+    <button class="search-submit">Search →</button>
   </div>
 </section>
 
