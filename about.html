@@ -1,267 +1,684 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About SOS — Seeker of Story</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream:#F5F2ED; --charcoal:#0D0D0D; --charcoal-mid:#1A1A1A; --charcoal-soft:#252525;
-      --gold:#D4A843; --gold-light:#E8BC50; --gold-dim:#8B6914; --gold-dark:#A8842A;
-      --muted:#888880; --border:rgba(212,168,67,0.2); --white:#F5F2ED;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'DM Sans',sans-serif;background:var(--charcoal);color:var(--white);overflow-x:hidden;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About SOS — Seeker of Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE7DC;
+    --cream-border: #DDD5C0;
+    --black: #1A1A18;
+    --black-soft: #222018;
+    --black-footer: #111110;
+    --gold: #C8900A;
+    --gold-light: #E8A820;
+    --gold-pale: #F5E8C0;
+    --teal: #1D9E75;
+    --teal-dark: #0F6E56;
+    --teal-light: #E1F5EE;
+    --teal-mid: #5DCAA5;
+    --white: #FFFFFF;
+    --text-muted: #8A7E6E;
+    --text-mid: #6A6258;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { background: var(--cream); font-family: 'Barlow', sans-serif; color: var(--black); }
 
-    /* NAV */
-    .sos-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
-    .sos-nav-brand{text-decoration:none;}
-    .sos-nav-brand-main{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);}
-    .sos-nav-brand-main span{color:var(--gold);font-style:italic;}
-    .sos-nav-brand-sub{font-size:0.52rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem;}
-    .sos-nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
-    .sos-nav-links a{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.4rem 0.85rem;transition:color 0.2s;}
-    .sos-nav-links a:hover,.sos-nav-links a.active{color:var(--gold);}
-    .sos-nav-cta{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;background:var(--gold);color:var(--charcoal);text-decoration:none;padding:0.45rem 1.25rem;transition:background 0.2s;}
-    .sos-nav-cta:hover{background:var(--gold-light);}
-    .sos-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-    .sos-hamburger span{display:block;width:22px;height:2px;background:var(--white);}
-    .sos-mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(13,13,13,0.99);border-bottom:1px solid var(--border);z-index:99;flex-direction:column;padding:1.5rem 2rem;}
-    .sos-mobile-menu.open{display:flex;}
-    .sos-mobile-menu a{font-size:0.78rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border);transition:color 0.2s;}
-    .sos-mobile-menu a:hover{color:var(--gold);}
+  /* ── NAV ── */
+  .nav {
+    background: var(--black);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #2E2E28;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .nav-logo span { color: var(--gold); font-style: italic; }
+  .nav-logo small {
+    font-family: 'Barlow', sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #555048;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-links a {
+    color: #888070;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--cream); }
 
-    /* GOLD DIVIDER */
-    .gold-divider{height:3px;background:var(--gold);width:100%;}
-    .gold-divider-thin{height:1px;background:rgba(212,168,67,0.25);width:100%;}
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    padding: 80px 40px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--teal), var(--gold), transparent);
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--teal-mid);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .hero-headline em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .hero-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 24px auto;
+  }
+  .hero-rule-line { height: 1px; width: 80px; background: var(--gold); opacity: 0.5; }
+  .hero-rule-diamond { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+  .hero-verse {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
 
-    /* HERO */
-    .page-hero{background:var(--charcoal);padding:110px 3rem 5rem;text-align:center;position:relative;overflow:hidden;}
-    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,168,67,0.08) 0%,transparent 60%);pointer-events:none;}
-    .page-hero-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-    .page-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:700;color:var(--white);line-height:1.0;margin-bottom:1.25rem;}
-    .page-hero-title em{font-style:italic;color:var(--gold);}
-    .page-hero-body{font-size:1rem;font-weight:300;color:rgba(245,242,237,0.65);max-width:620px;margin:0 auto;line-height:1.85;}
-    .page-hero-body em{color:var(--gold);font-style:italic;}
+  /* ── SEARCH ── */
+  .search-section {
+    background: var(--cream);
+    padding: 48px 40px;
+    border-bottom: 1px solid var(--cream-border);
+  }
+  .search-label {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+  .search-box {
+    max-width: 640px;
+    margin: 0 auto 16px;
+    background: var(--white);
+    display: flex;
+    align-items: stretch;
+    border: none;
+  }
+  .search-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 20px;
+  }
+  .search-field label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .search-field input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--black);
+    background: transparent;
+    font-style: italic;
+  }
+  .search-field input::placeholder { color: #B0A090; }
+  .search-divider { width: 1px; background: var(--cream-border); margin: 12px 0; }
+  .search-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    color: var(--gold);
+    font-size: 18px;
+  }
+  .search-btn {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 0 28px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .search-hint {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+  .search-hint span { color: var(--teal); }
 
-    /* SECTION BASE */
-    .sos-section{padding:5rem 3rem;}
-    .sos-section-inner{max-width:1000px;margin:0 auto;}
-    .sos-section-inner-narrow{max-width:760px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem;}
-    .sos-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-    .sos-section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;}
-    .sos-section-title em{font-style:italic;color:var(--gold);}
-    .sos-body{font-size:0.95rem;font-weight:300;line-height:2;color:rgba(245,242,237,0.75);}
-    .sos-body p{margin-bottom:1.5rem;}
+  /* ── TIERS ── */
+  .tiers-section {
+    background: var(--cream-dark);
+    padding: 56px 40px;
+    border-bottom: 1px solid var(--cream-border);
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--teal);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .section-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--text-mid);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 36px;
+  }
+  .tiers-stack { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 3px; }
+  .tier-bar {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: filter 0.2s;
+    position: relative;
+  }
+  .tier-bar:hover { filter: brightness(1.08); }
+  .tier-c { background: #7A5C10; }
+  .tier-b { background: #9A7214; }
+  .tier-a { background: #C8900A; }
+  .tier-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.25);
+    margin-right: 20px;
+    line-height: 1;
+    min-width: 28px;
+  }
+  .tier-content { flex: 1; }
+  .tier-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+  .tier-desc { font-size: 12px; color: rgba(0,0,0,0.55); font-weight: 400; }
+  .tier-arrow-icon { color: rgba(0,0,0,0.35); font-size: 18px; }
+  .tiers-footer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+    margin-top: 24px;
+  }
 
-    /* PERSONAL MESSAGE */
-    .personal-section{background:var(--charcoal-mid);padding:5rem 3rem;}
-    .personal-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:center;}
-    .personal-photo-wrap{position:relative;}
-    .personal-photo{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--charcoal-soft);display:block;background-size:cover;background-position:center top;}
-    .personal-photo-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--gold);color:var(--charcoal);font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.2em;padding:0.5rem 1rem;}
-    .personal-content{}
-    .personal-quote-mark{font-family:'Playfair Display',serif;font-size:6rem;color:var(--gold-dim);line-height:0.5;margin-bottom:1.5rem;opacity:0.4;}
-    .personal-statement{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:2rem;}
-    .personal-statement em{font-style:italic;color:var(--gold);}
-    .personal-body{font-size:0.92rem;font-weight:300;line-height:1.95;color:rgba(245,242,237,0.7);margin-bottom:2rem;}
-    .personal-body p{margin-bottom:1.25rem;}
-    .personal-sig{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--gold);border-top:1px solid var(--border);padding-top:1.25rem;margin-top:1rem;}
+  /* ── FEATURED ── */
+  .featured-section { padding: 56px 40px; background: var(--cream); }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black);
+  }
+  .view-all-link {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--teal);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 2px;
+  }
+  .section-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+  }
+  .tier-section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    margin-top: 36px;
+  }
+  .tier-section-label:first-of-type { margin-top: 0; }
+  .tier-badge {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--black);
+    background: var(--gold);
+    padding: 4px 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .tier-badge-teal {
+    background: var(--teal);
+    color: white;
+  }
+  .tier-section-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+  }
+  .tier-section-sub { font-size: 12px; color: var(--text-muted); margin-left: auto; font-style: italic; }
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+    margin-bottom: 12px;
+  }
+  .story-card {
+    background: var(--cream-dark);
+    padding: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+  .story-card:hover { background: #E0D9CE; }
+  .story-num {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .story-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .story-arc {
+    font-size: 12px;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .story-arc span { color: var(--text-muted); }
+  .story-cta {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .story-card-placeholder {
+    background: var(--cream-dark);
+    padding: 22px;
+    opacity: 0.4;
+    border: 1px dashed var(--cream-border);
+  }
+  .placeholder-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .tier-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 0;
+    padding-bottom: 0;
+  }
+  .tier-divider-line { flex: 1; height: 1px; background: var(--cream-border); }
+  .tier-divider-text {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--teal);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
 
-    /* WHY SECTION */
-    .why-section{background:var(--charcoal);padding:5rem 3rem;}
+  /* ── MISSION ── */
+  .mission-section {
+    background: var(--black);
+    padding: 72px 40px;
+    text-align: center;
+    position: relative;
+  }
+  .mission-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--teal), var(--gold), var(--teal), transparent);
+  }
+  .mission-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--teal-mid);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .mission-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .mission-headline em { color: var(--gold); font-style: italic; }
+  .mission-body {
+    font-size: 15px;
+    color: #666058;
+    max-width: 500px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  .mission-body a { color: var(--teal-mid); text-decoration: none; }
+  .mission-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 14px 28px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid #3A3830;
+    padding: 14px 28px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal-mid); }
 
-    /* FRAMEWORK */
-    .framework-section{background:var(--charcoal-mid);padding:5rem 3rem;}
-    .framework-three{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,168,67,0.12);margin:2.5rem 0;}
-    .framework-card{background:var(--charcoal-soft);padding:2.5rem 2rem;}
-    .framework-num{font-family:'Playfair Display',serif;font-style:italic;font-size:3rem;color:var(--gold-dim);line-height:1;margin-bottom:1rem;}
-    .framework-title{font-weight:700;font-size:1rem;color:var(--white);margin-bottom:0.75rem;}
-    .framework-body{font-size:0.82rem;font-weight:300;color:var(--muted);line-height:1.75;}
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--black-footer);
+    padding: 48px 40px 24px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: start;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .footer-logo span { color: var(--gold); font-style: italic; }
+  .footer-info {
+    font-size: 12px;
+    color: #3A3830;
+    line-height: 2;
+  }
+  .footer-info a { color: var(--teal-mid); text-decoration: none; }
+  .footer-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #555048;
+    line-height: 1.6;
+    text-align: center;
+    border-left: 2px solid var(--gold);
+    padding-left: 16px;
+    text-align: left;
+  }
+  .footer-social { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .social-btn {
+    background: transparent;
+    border: 1px solid #2E2E28;
+    color: #555048;
+    padding: 7px 16px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-btn:hover { border-color: var(--teal); color: var(--teal-mid); }
+  .footer-bottom {
+    border-top: 1px solid #1E1E1A;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-copy { font-size: 10px; color: #2E2E28; letter-spacing: 1px; text-transform: uppercase; }
 
-    /* CONTRAST TABLE */
-    .contrast-wrap{margin-top:3rem;}
-    .contrast-header{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:1px;}
-    .contrast-col-header{padding:0.75rem 1.5rem;font-size:0.58rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;}
-    .contrast-col-header.old{background:#1A1A1A;color:var(--muted);}
-    .contrast-col-header.new{background:rgba(212,168,67,0.15);color:var(--gold);}
-    .contrast-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:1px;}
-    .contrast-cell{padding:1.25rem 1.5rem;}
-    .contrast-cell.old{background:#161616;font-style:italic;color:rgba(245,242,237,0.35);font-size:0.85rem;font-family:'Playfair Display',serif;line-height:1.5;}
-    .contrast-cell.new{background:rgba(212,168,67,0.06);color:var(--white);font-weight:600;font-size:0.85rem;line-height:1.5;}
-    .contrast-cell.new::before{content:'✦ ';color:var(--gold);font-size:0.7rem;}
-
-    /* SCROLLS */
-    .scrolls-section{background:var(--charcoal);padding:5rem 3rem;}
-    .scrolls-rule{font-size:0.58rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;margin-top:3rem;}
-    .scrolls-rule-body{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:rgba(245,242,237,0.75);line-height:1.75;max-width:680px;border-left:3px solid var(--gold);padding-left:1.5rem;}
-
-    /* FOOTER */
-    .sos-footer{background:#111;border-top:3px solid var(--gold);padding:3rem;}
-    .sos-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:center;}
-    .sos-footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);}
-    .sos-footer-brand span{font-style:italic;color:var(--gold);}
-    .sos-footer-tagline{font-size:0.72rem;color:var(--muted);line-height:1.7;margin-top:0.5rem;}
-    .sos-footer-statement{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--gold);line-height:1.6;}
-    .sos-footer-social{display:flex;gap:0.75rem;justify-content:flex-end;flex-wrap:wrap;}
-    .sos-footer-social a{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:0.35rem 0.7rem;transition:all 0.2s;}
-    .sos-footer-social a:hover{color:var(--gold);border-color:var(--gold);}
-    .sos-footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(212,168,67,0.1);display:flex;justify-content:space-between;align-items:center;}
-    .sos-footer-copy{font-size:0.58rem;letter-spacing:0.1em;color:#3A3A3A;text-transform:uppercase;}
-    .sos-footer-mmm{font-size:0.58rem;color:#3A3A3A;}
-    .sos-footer-mmm a{color:var(--gold);text-decoration:none;}
-
-    @media(max-width:1024px){
-      .sos-nav{padding:0 1.5rem;}.sos-nav-links,.sos-nav-cta{display:none;}.sos-hamburger{display:flex;}
-      .personal-inner{grid-template-columns:1fr;}
-      .personal-photo-wrap{order:-1;}
-      .framework-three{grid-template-columns:1fr;}
-      .contrast-row,.contrast-header{grid-template-columns:1fr;}
-    }
-    @media(max-width:700px){
-      .page-hero,.sos-section,.personal-section,.why-section,.framework-section,.scrolls-section{padding:3rem 1.5rem;}
-      .sos-footer-inner{grid-template-columns:1fr;text-align:center;}
-      .sos-footer-social{justify-content:center;}
-      .sos-footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;}
-    }
-
-    /* DROPDOWN */
-    .sos-has-dropdown{position:relative;}
-    .sos-drop-btn{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:0.4rem 0.85rem;display:flex;align-items:center;gap:0.3rem;font-family:'DM Sans',sans-serif;transition:color 0.2s;}
-    .sos-drop-btn:hover{color:var(--gold);}
-    .sos-drop-arrow{font-size:0.5rem;transition:transform 0.2s;}
-    .sos-has-dropdown:hover .sos-drop-arrow,.sos-has-dropdown.open .sos-drop-arrow{transform:rotate(180deg);}
-    .sos-dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:#111;border:1px solid rgba(212,168,67,0.2);z-index:300;flex-direction:column;}
-    .sos-has-dropdown:hover .sos-dropdown,.sos-has-dropdown.open .sos-dropdown{display:flex;}
-    .sos-dropdown a{display:flex;flex-direction:column;padding:0.85rem 1.25rem;border-bottom:1px solid rgba(212,168,67,0.08);text-decoration:none;transition:background 0.15s;}
-    .sos-dropdown a:last-child{border-bottom:none;}
-    .sos-dropdown a:hover{background:#1A1A1A;}
-    .sos-drop-tier{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
-    .sos-drop-name{font-size:0.78rem;color:var(--white);font-weight:400;}
-  </style>
+  /* ── MOBILE ── */
+  @media (max-width: 640px) {
+    .nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-cta { font-size: 9px; padding: 8px 12px; }
+    .hero { padding: 56px 20px 48px; }
+    .search-section { padding: 36px 20px; }
+    .search-box { flex-direction: column; }
+    .search-field { padding: 12px 16px; }
+    .search-divider { display: none; }
+    .search-arrow { display: none; }
+    .search-btn { padding: 16px; width: 100%; text-align: center; }
+    .tiers-section { padding: 40px 20px; }
+    .tier-bar { padding: 16px 18px; }
+    .tier-name { font-size: 16px; }
+    .featured-section { padding: 40px 20px; }
+    .stories-grid { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+    .tier-section-sub { display: none; }
+    .mission-section { padding: 56px 20px; }
+    .footer { padding: 40px 20px 20px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-social { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
-
-<nav class="sos-nav">
-  <a href="index.html" class="sos-nav-brand">
-    <span class="sos-nav-brand-main">SEEKER <span>OF</span> STORY</span>
-    <span class="sos-nav-brand-sub">Powered by Mega Mission Media</span>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    SEEKER <span>OF</span> STORY
+    <small>Powered by Mega Mission Media</small>
   </a>
-  <ul class="sos-nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About SOS</a></li>
-    <li><a href="listen.html">Listen</a></li>
-    <li><a href="fund.html">Fuel the Mission</a></li>
-  </ul>
-  <a href="fund.html" class="sos-nav-cta">Fuel the Mission</a>
-  <button class="sos-hamburger" id="sos-hamburger"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" style="color:var(--gold);">About SOS</a>
+    <a href="listen.html">Listen</a>
+    <a href="fuel.html">Fuel the Mission</a>
+  </div>
+  <a href="fuel.html" class="nav-cta">Fuel the Mission</a>
+  <div class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
-<div class="sos-mobile-menu" id="sos-mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About SOS</a>
-  <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#D4A843;padding:0.85rem 0 0.35rem;border-bottom:1px solid rgba(212,168,67,0.15);">✦ Seekers</div>
-  <a href="listen.html#founders" style="padding-left:1rem;">C · Founders</a>
-  <a href="listen.html#highway" style="padding-left:1rem;">B · Highway Hustle</a>
-  <a href="listen.html#homefree" style="padding-left:1rem;">A · Home Free</a>
-  <a href="fund.html" style="background:var(--gold);color:var(--charcoal);text-align:center;margin-top:1rem;padding:0.75rem;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;">Fuel the Mission</a>
-</div>
 
-<!-- HERO -->
-<div class="gold-divider"></div>
-<section class="page-hero">
-  <div class="page-hero-eyebrow">Our Mission</div>
-  <h1 class="page-hero-title">Why <em>Seeker of Story</em> Exists</h1>
-  <p class="page-hero-body">When you're in transition, unemployed, burned out, or standing at the edge of a leap — you can't afford high, overrated, astronomical monthly subscriptions. But somewhere out there is a founder who already walked <em>your exact path</em> — and is ready to share the blueprint.</p>
+<section class="hero">
+  <div class="hero-eyebrow">About SOS</div>
+  <h1 class="hero-headline">Why <em>Seeker of Story</em> Exists</h1>
+  <div class="hero-rule">
+    <div class="hero-rule-line"></div>
+    <div class="hero-rule-diamond"></div>
+    <div class="hero-rule-line"></div>
+  </div>
+  <div class="hero-verse">When you're in transition — the blueprint already exists</div>
 </section>
-<div class="gold-divider"></div>
 
-<!-- PERSONAL MESSAGE -->
-<section class="personal-section">
-  <div class="personal-inner">
-    <div class="personal-content">
-      <div class="personal-quote-mark">"</div>
-      <div class="personal-statement">
-        I made a promise to God<br>that I would tell<br><em>everybody what He did.</em>
-      </div>
-      <div class="personal-body">
-        <p>On October 31, 2023 — a day I will never forget — addiction left my body instantly. No shakes. No shivers. No desires. Gone. In that moment I made a promise: I would tell everybody what God did in my life.</p>
-        <p>For three years I drove rideshare through Dallas and Fort Worth — giving out Baggies of Hope, Bibles, prayers, and blueprints one passenger at a time. I discovered something: everybody carries a story. Everybody carries a blueprint. And if we put them all in one place, we can elevate each other.</p>
-        <p>When I became a founder, I needed mentorship — and there was no free, real, ungated place to find it. So God said: <em style="color:var(--gold);">I'm building something in you.</em></p>
-        <p>Seeker of Story is that something. A hope platform. A blueprint archive. Free for every seeker who needs it. Always.</p>
-      </div>
-      <div class="personal-sig">— Susy Gordon, Founder · Mega Mission Media · Seeker of Story</div>
+<section class="search-section" style="padding:56px 40px;">
+  <div style="max-width:680px;margin:0 auto;">
+    <div class="section-eyebrow" style="text-align:left;margin-bottom:12px;">Our Mission</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:20px;">When you're in transition, unemployed, burned out, or standing at the edge of a leap — you can't afford high, overrated, astronomical monthly subscriptions.</h2>
+    <p style="font-size:16px;color:var(--text-mid);line-height:1.9;margin-bottom:16px;">But somewhere out there is a founder who already walked <em style="color:var(--teal-dark);font-family:'Cormorant Garamond',serif;">your exact path</em> — and is ready to share the blueprint.</p>
+    <p style="font-size:16px;color:var(--text-mid);line-height:1.9;">Seeker of Story is the bridge. Free. Permanent. Searchable. Built from the front seat of a car, one honest conversation at a time.</p>
+  </div>
+</section>
+
+<section style="background:var(--cream-dark);padding:56px 40px;border-top:1px solid var(--cream-border);border-bottom:1px solid var(--cream-border);">
+  <div style="max-width:680px;margin:0 auto;">
+    <div class="section-eyebrow" style="text-align:left;margin-bottom:12px;">The Problem We're Solving</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--black);margin-bottom:20px;">The Blueprint Has Always <em style="color:var(--gold);font-style:italic;">Existed</em></h2>
+    <p style="font-size:16px;color:var(--text-mid);line-height:1.9;margin-bottom:16px;">There are people in this world who have already done what you are trying to do. They've made the mistakes. They've found the path. They've built the thing from nothing. And they are willing — even desperate — to share what they know.</p>
+    <p style="font-size:16px;color:var(--text-mid);line-height:1.9;margin-bottom:16px;">And then there are seekers. People in transition, in burnout, in the wilderness of a career change or a life collapse — who are spending money they don't have on masterminds, subscriptions, and courses that teach theory instead of testimony.</p>
+    <p style="font-size:16px;color:var(--black);line-height:1.9;font-weight:600;">We are not providing motivation. We are providing the <em style="color:var(--teal-dark);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;">map.</em></p>
+  </div>
+</section>
+
+<section style="background:var(--cream);padding:56px 40px;">
+  <div style="max-width:680px;margin:0 auto;">
+    <div class="section-eyebrow" style="text-align:left;margin-bottom:12px;">The Library of Scrolls</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:20px;">A Modern-Day <em style="color:var(--gold);font-style:italic;">Archive of Testimony</em></h2>
+    <p style="font-size:16px;color:var(--text-mid);line-height:1.9;margin-bottom:16px;">Every profile on this platform is cataloged as a modern scroll — a living record of transformation. Not a resume. Not a LinkedIn profile. A becoming story. The raw, real, unfiltered account of what it took to get from lost to launched.</p>
+    <p style="font-size:16px;color:var(--text-mid);line-height:1.9;margin-bottom:32px;">These scrolls are permanent. They are searchable. And they are free — because the person who needs them at their lowest moment should never have to pay to find hope.</p>
+    <div style="background:var(--cream-dark);border-left:3px solid var(--teal);padding:24px 28px;margin-bottom:32px;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--text-mid);font-style:italic;line-height:1.7;">Think of it like 1 Million Cups — but instead of pitching a business, you're sharing your testimony. The room asks questions. The story speaks life. And every word becomes a permanent blueprint for the next seeker who needs it.</p>
     </div>
-    <div class="personal-photo-wrap">
-      <div class="personal-photo" style="background-image:url('https://raw.githubusercontent.com/susygordon1/seeker-of-story/main/Susy%20Gordon.JPEG'); background-position: center top;"></div>
-      <div class="personal-photo-badge">Susy Gordon · Founder</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="listen.html" class="btn-gold">Browse the Stories →</a>
+      <a href="fuel.html" class="btn-ghost" style="color:var(--black);border-color:var(--cream-border);">Fuel the Mission →</a>
     </div>
   </div>
 </section>
-<div class="gold-divider"></div>
 
-<!-- WHY IT EXISTS -->
-<section class="why-section">
-  <div class="sos-section-inner-narrow">
-    <div class="sos-eyebrow">The Problem We're Solving</div>
-    <h2 class="sos-section-title">The Blueprint Has Always <em>Existed</em></h2>
-    <div class="sos-body">
-      <p>There are people in this world who have already done what you are trying to do. They've made the mistakes. They've found the path. They've built the thing from nothing. And they are willing — even desperate — to share what they know.</p>
-      <p>And then there are seekers. People in transition, in burnout, in the wilderness of a career change or a life collapse — who are spending money they don't have on masterminds, subscriptions, and courses that teach theory instead of testimony.</p>
-      <p>Seeker of Story is the bridge. A free, permanent, searchable archive of real founder blueprints — built from the front seat of a car, one honest conversation at a time.</p>
-      <p>We are not providing motivation. We are providing the <em style="color:var(--gold);">map.</em></p>
-    </div>
+<section class="mission-section">
+  <div class="mission-eyebrow">The Vision</div>
+  <h2 class="mission-headline">A place to come.<br>Bear witness. Receive.<br><em>Ask questions. Worship.</em></h2>
+  <p class="mission-body">This platform is the foundation for a brick-and-mortar testimony space — where anyone can walk through the door, share their story, and find their people. Funded by community. Built by obedience. Sustained by story.</p>
+  <div class="mission-btns">
+    <a href="fuel.html" class="btn-gold">Fuel the Mission →</a>
+    <a href="listen.html" class="btn-ghost">Find Your Blueprint →</a>
   </div>
 </section>
-<div class="gold-divider"></div>
-
-<!-- LIBRARY OF SCROLLS -->
-<section class="scrolls-section">
-  <div class="sos-section-inner-narrow">
-    <div class="sos-eyebrow">The Library of Scrolls</div>
-    <h2 class="sos-section-title">A Modern-Day <em>Archive of Testimony</em></h2>
-    <div class="sos-body">
-      <p>Every profile on this platform is cataloged as a modern scroll — a living record of transformation. Not a resume. Not a LinkedIn profile. A becoming story. The raw, real, unfiltered account of what it took to get from lost to launched.</p>
-      <p>These scrolls are permanent. They are searchable. And they are free — because the person who needs them at their lowest moment should never have to pay to find hope.</p>
-    </div>
-    <div class="scrolls-rule">The Rule of Alignment</div>
-    <div class="scrolls-rule-body">Every story on this platform must anchor the modern-day breakthrough to a truth that transcends it. The journey and the testimony become one. The scroll is not just a story — it is evidence of something larger at work.</div>
-  </div>
-</section>
-<div class="gold-divider"></div>
 
 <!-- FOOTER -->
-<footer class="sos-footer">
-  <div class="sos-footer-inner">
+<footer class="footer">
+  <div class="footer-top">
     <div>
-      <div class="sos-footer-brand">SEEKER <span>OF</span> STORY</div>
-      <p class="sos-footer-tagline">Fort Worth, TX · Matthew 7:7<br>No paywalls. Always free.<br>Powered by Mega Mission Media.</p>
+      <div class="footer-logo">SEEKER <span>OF</span> STORY</div>
+      <div class="footer-info">
+        Fort Worth, TX · Matthew 7:7<br>
+        No paywalls. Always free.<br>
+        <a href="tel:8178608989">817-860-8989</a> · <a href="https://seekerofstory.org">SeekerofStory.org</a>
+      </div>
     </div>
-    <div class="sos-footer-statement">"The only platform built<br>for Seekers, not followers."</div>
-    <div class="sos-footer-social">
-      <a href="https://www.youtube.com/@SusyGordon89" target="_blank">YouTube</a>
-      <a href="#">Spotify</a>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
+    <div class="footer-quote">
+      "The only platform built<br>for Seekers, not followers."
+    </div>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/@SusyGordon89" class="social-btn" target="_blank">YouTube</a>
     </div>
   </div>
-  <div class="sos-footer-bottom">
-    <div class="sos-footer-copy">© 2026 Seeker of Story · Fort Worth, TX · No Paywalls. Always Free.</div>
-    <div class="sos-footer-mmm">Powered by <a href="https://megamissionmedia.com" target="_blank">Mega Mission Media</a> · 817-860-8989</div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Seeker of Story · Fort Worth, TX · No Paywalls. Always Free.</div>
   </div>
 </footer>
-
-<script>
-  document.getElementById('sos-hamburger').addEventListener('click',function(e){e.stopPropagation();document.getElementById('sos-mobile-menu').classList.toggle('open');});
-  // Seekers dropdown
-  const dropBtn = document.querySelector('.sos-drop-btn');
-  const dropParent = document.querySelector('.sos-has-dropdown');
-  if(dropBtn){
-    dropBtn.addEventListener('click',function(e){e.stopPropagation();dropParent.classList.toggle('open');});
-    document.addEventListener('click',function(e){if(dropParent&&!dropParent.contains(e.target))dropParent.classList.remove('open');});
-  }
-  document.addEventListener('click',function(e){const m=document.getElementById('sos-mobile-menu'),h=document.getElementById('sos-hamburger');if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
-</script>
 </body>
 </html>
