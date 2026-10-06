@@ -4,636 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Seeker of Story — Seek & Find Your Blueprint</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #F5F0E8;
-    --cream-dark: #EDE7DC;
-    --cream-border: #DDD5C0;
-    --black: #1A1A18;
-    --black-soft: #222018;
-    --black-footer: #111110;
-    --gold: #C8900A;
-    --gold-light: #E8A820;
-    --gold-pale: #F5E8C0;
-    --teal: #1D9E75;
-    --teal-dark: #0F6E56;
-    --teal-light: #E1F5EE;
-    --teal-mid: #5DCAA5;
-    --white: #FFFFFF;
-    --text-muted: #8A7E6E;
-    --text-mid: #6A6258;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 16px; }
-  body { background: var(--cream); font-family: 'Barlow', sans-serif; color: var(--black); }
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EDE7DC;
+  --cream-border: #DDD5C0;
+  --black: #1A1A18;
+  --black-soft: #222018;
+  --black-footer: #111110;
+  --gold: #C8900A;
+  --gold-light: #E8B820;
+  --teal: #1D9E75;
+  --teal-dark: #0F6E56;
+  --teal-mid: #5DCAA5;
+  --teal-light: #E1F5EE;
+  --white: #FFFFFF;
+  --text-muted: #8A7E6E;
+  --text-mid: #6A6258;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--black)}
 
-  /* ── NAV ── */
-  .nav {
-    background: var(--black);
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #2E2E28;
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--cream);
-    letter-spacing: 2px;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-  }
-  .nav-logo span { color: var(--gold); font-style: italic; }
-  .nav-logo small {
-    font-family: 'Barlow', sans-serif;
-    font-size: 8px;
-    letter-spacing: 3px;
-    color: #555048;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-  .nav-links a {
-    color: #888070;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    background: var(--gold);
-    color: var(--black);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 9px 18px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--cream); }
+/* NAV */
+.nav{background:var(--black);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100;border-bottom:1px solid #2A2A22}
+.nav-logo img{height:52px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:#888070;font-size:12px;letter-spacing:2.5px;text-decoration:none;text-transform:uppercase;font-weight:600;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--black);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;font-weight:700;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;text-decoration:none;display:inline-block;transition:background 0.2s}
+.nav-cta:hover{background:var(--gold-light)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--cream)}
+.mobile-menu{display:none;position:absolute;top:68px;left:0;right:0;background:var(--black);padding:20px;flex-direction:column;gap:16px;z-index:99;border-top:1px solid #2A2A22}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#888070;font-size:12px;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:600;padding:8px 0;border-bottom:1px solid #2A2A22}
+.mobile-menu a:last-child{border-bottom:none}
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--black);
-    padding: 80px 40px 64px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--teal), var(--gold), transparent);
-  }
-  .hero-eyebrow {
-    font-size: 10px;
-    letter-spacing: 5px;
-    color: var(--teal-mid);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    font-weight: 500;
-  }
-  .hero-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 7vw, 72px);
-    font-weight: 900;
-    color: var(--cream);
-    line-height: 1.05;
-    margin-bottom: 8px;
-  }
-  .hero-headline em {
-    color: var(--gold);
-    font-style: italic;
-  }
-  .hero-rule {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin: 24px auto;
-  }
-  .hero-rule-line { height: 1px; width: 80px; background: var(--gold); opacity: 0.5; }
-  .hero-rule-diamond { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
-  .hero-verse {
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    opacity: 0.8;
-  }
+/* HERO */
+.hero{background:var(--black);padding:80px 40px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--teal),var(--gold),transparent)}
+.hero-eyebrow{font-size:11px;letter-spacing:5px;color:var(--teal-mid);text-transform:uppercase;margin-bottom:28px;font-weight:500}
+.hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,82px);font-weight:700;color:var(--cream);line-height:1.05;margin-bottom:16px}
+.hero-headline em{color:var(--gold);font-style:italic}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:16px;margin:28px auto}
+.hero-rule-line{height:1px;width:80px;background:var(--gold);opacity:0.5}
+.hero-rule-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.hero-tagline{font-size:13px;letter-spacing:2px;color:#888070;text-transform:uppercase;font-weight:400;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px}
 
-  /* ── SEARCH ── */
-  .search-section {
-    background: var(--cream);
-    padding: 48px 40px;
-    border-bottom: 1px solid var(--cream-border);
-  }
-  .search-label {
-    text-align: center;
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 28px;
-    font-weight: 500;
-  }
-  .search-box {
-    max-width: 640px;
-    margin: 0 auto 16px;
-    background: var(--white);
-    display: flex;
-    align-items: stretch;
-    border: none;
-  }
-  .search-field {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 14px 20px;
-  }
-  .search-field label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-    font-weight: 600;
-  }
-  .search-field input {
-    border: none;
-    outline: none;
-    font-size: 14px;
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--black);
-    background: transparent;
-    font-style: italic;
-  }
-  .search-field input::placeholder { color: #B0A090; }
-  .search-divider { width: 1px; background: var(--cream-border); margin: 12px 0; }
-  .search-arrow {
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    color: var(--gold);
-    font-size: 18px;
-  }
-  .search-btn {
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    padding: 0 28px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Barlow', sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .search-hint {
-    text-align: center;
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-  }
-  .search-hint span { color: var(--teal); }
+/* SEARCH */
+.search-section{background:var(--cream);padding:56px 40px 48px}
+.search-label{text-align:center;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:28px;font-weight:600}
+.search-card{max-width:660px;margin:0 auto;background:var(--white);border:1px solid #E0D8C8}
+.search-row{display:flex;align-items:stretch}
+.search-field{flex:1;padding:18px 24px;display:flex;flex-direction:column;gap:4px}
+.search-field label{font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.search-field input{border:none;outline:none;font-size:15px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--black);background:transparent;padding:0}
+.search-field input::placeholder{color:#C0B4A0}
+.search-sep{display:flex;align-items:center;padding:0 8px;color:var(--gold);font-size:20px;border-left:1px solid #E8E0D0;border-right:1px solid #E8E0D0}
+.search-submit{background:var(--gold);color:var(--black);border:none;width:100%;padding:18px 24px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:700;cursor:pointer;text-align:center;transition:background 0.2s}
+.search-submit:hover{background:var(--gold-light)}
 
-  /* ── TIERS ── */
-  .tiers-section {
-    background: var(--cream-dark);
-    padding: 56px 40px;
-    border-bottom: 1px solid var(--cream-border);
-  }
-  .section-eyebrow {
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--teal);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  .section-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    color: var(--text-mid);
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 36px;
-  }
-  .tiers-stack { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 3px; }
-  .tier-bar {
-    display: flex;
-    align-items: center;
-    padding: 20px 24px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: filter 0.2s;
-    position: relative;
-  }
-  .tier-bar:hover { filter: brightness(1.08); }
-  .tier-c { background: #7A5C10; }
-  .tier-b { background: #9A7214; }
-  .tier-a { background: #C8900A; }
-  .tier-letter {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 900;
-    color: rgba(0,0,0,0.25);
-    margin-right: 20px;
-    line-height: 1;
-    min-width: 28px;
-  }
-  .tier-content { flex: 1; }
-  .tier-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--black);
-    margin-bottom: 2px;
-  }
-  .tier-desc { font-size: 12px; color: rgba(0,0,0,0.55); font-weight: 400; }
-  .tier-arrow-icon { color: rgba(0,0,0,0.35); font-size: 18px; }
-  .tiers-footer {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    color: var(--text-muted);
-    text-align: center;
-    font-style: italic;
-    margin-top: 24px;
-  }
+/* TIERS */
+.tiers-section{background:var(--cream-dark);padding:56px 40px;border-top:1px solid var(--cream-border);border-bottom:1px solid var(--cream-border)}
+.section-eyebrow{font-size:11px;letter-spacing:4px;color:var(--teal);text-transform:uppercase;text-align:center;margin-bottom:8px;font-weight:600}
+.section-tagline{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--text-mid);text-align:center;font-style:italic;margin-bottom:36px}
+.tiers-stack{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
+.tier-bar{display:flex;align-items:center;padding:20px 28px;cursor:pointer;text-decoration:none;transition:filter 0.2s;gap:16px}
+.tier-bar:hover{filter:brightness(1.08)}
+.tier-teal-dark{background:var(--teal-dark)}
+.tier-teal-mid{background:var(--teal)}
+.tier-teal-light{background:var(--teal-mid)}
+.tier-label{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.7);text-transform:uppercase;font-weight:600;white-space:nowrap;min-width:140px}
+.tier-label strong{color:#fff;display:block;font-size:15px;font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:0;text-transform:none;margin-top:2px}
+.tier-desc{flex:1;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.5}
+.tier-arrows{display:flex;flex-direction:column;align-items:center;gap:2px}
+.arrow-bounce{font-size:20px;color:rgba(255,255,255,0.9);animation:bounce 1.4s infinite}
+.arrow-bounce:nth-child(2){animation-delay:0.2s}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.arrow-up{animation-name:bounceUp}
+@keyframes bounceUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.tiers-footer{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--text-muted);text-align:center;font-style:italic;margin-top:24px}
 
-  /* ── FEATURED ── */
-  .featured-section { padding: 56px 40px; background: var(--cream); }
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--black);
-  }
-  .view-all-link {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--teal);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px solid var(--teal);
-    padding-bottom: 2px;
-  }
-  .section-sub {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 28px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 16px;
-  }
-  .tier-section-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    margin-top: 36px;
-  }
-  .tier-section-label:first-of-type { margin-top: 0; }
-  .tier-badge {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--black);
-    background: var(--gold);
-    padding: 4px 10px;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  .tier-badge-teal {
-    background: var(--teal);
-    color: white;
-  }
-  .tier-section-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--black);
-  }
-  .tier-section-sub { font-size: 12px; color: var(--text-muted); margin-left: auto; font-style: italic; }
-  .stories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2px;
-    margin-bottom: 12px;
-  }
-  .story-card {
-    background: var(--cream-dark);
-    padding: 22px;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-    display: block;
-  }
-  .story-card:hover { background: #E0D9CE; }
-  .story-num {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-  .story-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: var(--black);
-    margin-bottom: 6px;
-  }
-  .story-arc {
-    font-size: 12px;
-    color: var(--teal-dark);
-    margin-bottom: 10px;
-    font-weight: 500;
-  }
-  .story-arc span { color: var(--text-muted); }
-  .story-cta {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .story-card-placeholder {
-    background: var(--cream-dark);
-    padding: 22px;
-    opacity: 0.4;
-    border: 1px dashed var(--cream-border);
-  }
-  .placeholder-label {
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 20px;
-  }
-  .tier-divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 28px 0 0;
-    padding-bottom: 0;
-  }
-  .tier-divider-line { flex: 1; height: 1px; background: var(--cream-border); }
-  .tier-divider-text {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--teal);
-    text-transform: uppercase;
-    font-weight: 600;
-  }
+/* FEATURED */
+.featured-section{padding:56px 40px;background:var(--cream)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--black);margin-bottom:4px}
+.section-sub{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text-muted);margin-bottom:40px;font-style:italic}
+.tier-group{margin-bottom:48px}
+.tier-group-header{margin-bottom:16px}
+.tier-group-badge{display:inline-block;font-size:9px;letter-spacing:3px;color:var(--black);background:var(--gold);padding:5px 12px;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.tier-group-badge-teal{background:var(--teal);color:white}
+.tier-group-badge-dark{background:var(--black);color:var(--gold);border:1px solid var(--gold)}
+.tier-group-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--black);line-height:1.2}
+.tier-group-sub{font-size:13px;color:var(--text-muted);font-style:italic;margin-top:2px}
+.stories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;margin-bottom:12px}
+.story-card{background:var(--cream-dark);padding:22px 24px;cursor:pointer;transition:background 0.2s;text-decoration:none;display:block}
+.story-card:hover{background:#E2DAD0}
+.story-num{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:600}
+.story-name{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--black);margin-bottom:6px;font-weight:700}
+.story-arc{font-size:12px;color:var(--teal-dark);margin-bottom:14px;font-weight:500;line-height:1.5}
+.story-arc span{color:var(--text-muted)}
+.story-cta{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:600}
+.story-placeholder{background:var(--cream-dark);padding:22px 24px;border:1px dashed var(--cream-border);display:flex;align-items:center;justify-content:center;min-height:100px;opacity:0.5}
+.story-placeholder span{font-size:10px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase}
+.view-all{display:inline-block;font-size:10px;letter-spacing:2px;color:var(--teal);text-transform:uppercase;text-decoration:none;font-weight:600;border-bottom:1px solid var(--teal);padding-bottom:2px}
+.tier-divider{display:flex;align-items:center;gap:16px;margin:0 0 48px}
+.tier-divider-line{flex:1;height:1px;background:var(--cream-border)}
+.tier-divider-text{font-size:9px;letter-spacing:3px;color:var(--teal);text-transform:uppercase;font-weight:600;white-space:nowrap}
 
-  /* ── MISSION ── */
-  .mission-section {
-    background: var(--black);
-    padding: 72px 40px;
-    text-align: center;
-    position: relative;
-  }
-  .mission-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--teal), var(--gold), var(--teal), transparent);
-  }
-  .mission-eyebrow {
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--teal-mid);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    font-weight: 500;
-  }
-  .mission-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 700;
-    color: var(--cream);
-    line-height: 1.2;
-    margin-bottom: 24px;
-  }
-  .mission-headline em { color: var(--gold); font-style: italic; }
-  .mission-body {
-    font-size: 15px;
-    color: #666058;
-    max-width: 500px;
-    margin: 0 auto 36px;
-    line-height: 1.8;
-  }
-  .mission-body a { color: var(--teal-mid); text-decoration: none; }
-  .mission-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .btn-gold {
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    padding: 14px 28px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Barlow', sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .btn-ghost {
-    background: transparent;
-    color: var(--cream);
-    border: 1px solid #3A3830;
-    padding: 14px 28px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Barlow', sans-serif;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: border-color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--teal); color: var(--teal-mid); }
+/* FOOTER */
+.footer{background:var(--black-footer);padding:48px 40px 24px}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:36px;align-items:start}
+.footer-logo img{height:48px;width:auto;margin-bottom:12px}
+.footer-info{font-size:12px;color:#3A3830;line-height:2}
+.footer-info a{color:var(--teal-mid);text-decoration:none}
+.footer-quote{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:#555048;line-height:1.7;border-left:2px solid var(--gold);padding-left:16px}
+.footer-social{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.social-btn{background:transparent;border:1px solid #2E2E28;color:#555048;padding:8px 18px;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Montserrat',sans-serif;text-decoration:none;display:inline-block;transition:border-color 0.2s,color 0.2s}
+.social-btn:hover{border-color:var(--teal);color:var(--teal-mid)}
+.footer-bottom{border-top:1px solid #1E1E1A;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:10px;color:#2E2E28;letter-spacing:1px;text-transform:uppercase}
 
-  /* ── FOOTER ── */
-  .footer {
-    background: var(--black-footer);
-    padding: 48px 40px 24px;
-  }
-  .footer-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-    align-items: start;
-  }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--cream);
-    margin-bottom: 8px;
-  }
-  .footer-logo span { color: var(--gold); font-style: italic; }
-  .footer-info {
-    font-size: 12px;
-    color: #3A3830;
-    line-height: 2;
-  }
-  .footer-info a { color: var(--teal-mid); text-decoration: none; }
-  .footer-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    font-style: italic;
-    color: #555048;
-    line-height: 1.6;
-    text-align: center;
-    border-left: 2px solid var(--gold);
-    padding-left: 16px;
-    text-align: left;
-  }
-  .footer-social { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
-  .social-btn {
-    background: transparent;
-    border: 1px solid #2E2E28;
-    color: #555048;
-    padding: 7px 16px;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
-    text-decoration: none;
-    display: inline-block;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .social-btn:hover { border-color: var(--teal); color: var(--teal-mid); }
-  .footer-bottom {
-    border-top: 1px solid #1E1E1A;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .footer-copy { font-size: 10px; color: #2E2E28; letter-spacing: 1px; text-transform: uppercase; }
-
-  /* ── MOBILE ── */
-  @media (max-width: 640px) {
-    .nav { padding: 0 20px; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-    .nav-cta { font-size: 9px; padding: 8px 12px; }
-    .hero { padding: 56px 20px 48px; }
-    .search-section { padding: 36px 20px; }
-    .search-box { flex-direction: column; }
-    .search-field { padding: 12px 16px; }
-    .search-divider { display: none; }
-    .search-arrow { display: none; }
-    .search-btn { padding: 16px; width: 100%; text-align: center; }
-    .tiers-section { padding: 40px 20px; }
-    .tier-bar { padding: 16px 18px; }
-    .tier-name { font-size: 16px; }
-    .featured-section { padding: 40px 20px; }
-    .stories-grid { grid-template-columns: 1fr; }
-    .section-header { flex-direction: column; align-items: flex-start; }
-    .tier-section-sub { display: none; }
-    .mission-section { padding: 56px 20px; }
-    .footer { padding: 40px 20px 20px; }
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
-    .footer-social { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-  }
+/* MOBILE */
+@media(max-width:640px){
+  .nav{padding:0 20px;position:relative}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .nav-cta{display:none}
+  .hero{padding:56px 20px 56px}
+  .search-section{padding:40px 20px}
+  .search-row{flex-direction:column}
+  .search-sep{display:none}
+  .search-field{border-bottom:1px solid #E8E0D0}
+  .tiers-section{padding:40px 20px}
+  .tier-bar{padding:16px 20px}
+  .tier-label{min-width:auto}
+  .featured-section{padding:40px 20px}
+  .stories-grid{grid-template-columns:1fr}
+  .footer{padding:40px 20px 20px}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .footer-social{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .footer-bottom{flex-direction:column}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">
-    SEEKER <span>OF</span> STORY
-    <small>Powered by Mega Mission Media</small>
-  </a>
+  <a href="index.html"><img src="sos-logo.png" alt="Seeker of Story — Seek & Find" class="nav-logo" style="height:52px;width:auto;display:block"></a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
+    <a href="index.html" style="color:var(--gold)">Home</a>
     <a href="about.html">About SOS</a>
     <a href="listen.html">Listen</a>
     <a href="fuel.html">Fuel the Mission</a>
   </div>
   <a href="fuel.html" class="nav-cta">Fuel the Mission</a>
-  <div class="nav-hamburger" aria-label="Menu">
+  <div class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About SOS</a>
+  <a href="listen.html">Listen</a>
+  <a href="fuel.html">Fuel the Mission</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Matthew 7:7 · Fort Worth, TX</div>
-  <h1 class="hero-headline">
-    Seek and Find<br><em>Your Blueprint</em>
-  </h1>
+  <div class="hero-eyebrow">Matthew 7:7</div>
+  <h1 class="hero-headline">Seek and Find<br><em>Your Blueprint</em></h1>
   <div class="hero-rule">
     <div class="hero-rule-line"></div>
     <div class="hero-rule-diamond"></div>
     <div class="hero-rule-line"></div>
   </div>
-  <div class="hero-verse">Matthew 7:7 — Ask and it will be given · Seek and you will find</div>
+  <div class="hero-tagline">The only platform built for Seekers, not followers.</div>
 </section>
 
 <!-- SEARCH -->
 <section class="search-section">
   <div class="search-label">Search the Becoming Database</div>
-  <div class="search-box">
-    <div class="search-field">
-      <label>I Used To Be… (Optional)</label>
-      <input type="text" placeholder="e.g. Teacher, Nurse, IT Consultant" />
+  <div class="search-card">
+    <div class="search-row">
+      <div class="search-field">
+        <label>I Used To Be… (Optional)</label>
+        <input type="text" placeholder="e.g. Teacher, Nurse, IT Consultant" />
+      </div>
+      <div class="search-sep">→</div>
+      <div class="search-field">
+        <label>I Want To Become…</label>
+        <input type="text" placeholder="e.g. Attorney, Tour Guide, Founder" />
+      </div>
     </div>
-    <div class="search-divider"></div>
-    <div class="search-arrow">→</div>
-    <div class="search-field">
-      <label>I Want To Become…</label>
-      <input type="text" placeholder="e.g. Attorney, Tour Guide, Founder" />
-    </div>
-    <button class="search-btn">Search the Becoming Database →</button>
+    <button class="search-submit">Search the Becoming Database →</button>
   </div>
-  <div class="search-hint">No paywall · <span>Always free</span> · Every story speaks life to the one below it</div>
 </section>
 
 <!-- TIERS -->
@@ -641,29 +208,29 @@
   <div class="section-eyebrow">Original Programming</div>
   <div class="section-tagline">Every level speaks life to the one below it.</div>
   <div class="tiers-stack">
-    <a href="founders.html" class="tier-bar tier-c">
-      <div class="tier-letter">C</div>
-      <div class="tier-content">
-        <div class="tier-name">Founders</div>
-        <div class="tier-desc">From Lost to Launched. They speak life downward to every level.</div>
+    <a href="listen.html#founders" class="tier-bar tier-teal-dark">
+      <div class="tier-label">C. <strong>Founders</strong></div>
+      <div class="tier-desc">From Lost to Launched. They speak life downward to every level.</div>
+      <div class="tier-arrows">
+        <span class="arrow-bounce">↓</span>
+        <span class="arrow-bounce">↓</span>
       </div>
-      <div class="tier-arrow-icon">↑</div>
     </a>
-    <a href="highway.html" class="tier-bar tier-b">
-      <div class="tier-letter">B</div>
-      <div class="tier-content">
-        <div class="tier-name">Highway Hustle</div>
-        <div class="tier-desc">Real people. Real roads. Real stories. In motion, in testimony.</div>
+    <a href="listen.html#highway" class="tier-bar tier-teal-mid">
+      <div class="tier-label">B. <strong>Highway Hustle</strong></div>
+      <div class="tier-desc">Real people. Real roads. Real stories. In motion, in testimony.</div>
+      <div class="tier-arrows">
+        <span class="arrow-bounce arrow-up">↑</span>
+        <span class="arrow-bounce arrow-up">↑</span>
       </div>
-      <div class="tier-arrow-icon">↑</div>
     </a>
-    <a href="homefree.html" class="tier-bar tier-a">
-      <div class="tier-letter">A</div>
-      <div class="tier-content">
-        <div class="tier-name">Home Free</div>
-        <div class="tier-desc">The Unseen. About to be seen. Every story above speaks life here.</div>
+    <a href="listen.html#homefree" class="tier-bar tier-teal-light">
+      <div class="tier-label">A. <strong>Home Free</strong></div>
+      <div class="tier-desc">The Unseen. About to be seen. Every story above speaks life here.</div>
+      <div class="tier-arrows">
+        <span class="arrow-bounce arrow-up">↑</span>
+        <span class="arrow-bounce arrow-up">↑</span>
       </div>
-      <div class="tier-arrow-icon">↑</div>
     </a>
   </div>
   <div class="tiers-footer">Everyone is in motion. Nobody stays still. The platform lifts every seeker upward.</div>
@@ -671,38 +238,38 @@
 
 <!-- FEATURED STORIES -->
 <section class="featured-section">
-  <div class="section-header">
-    <h2 class="section-title">Featured Stories</h2>
-  </div>
-  <p class="section-sub">Real people. Real roads. Real transformation. Every story on this platform is free — always.</p>
+  <h2 class="section-title">Featured Stories</h2>
+  <p class="section-sub">Real people. Real roads. Real transformation. Every story is free — always.</p>
 
-  <!-- C · FOUNDERS -->
-  <div class="tier-section-label">
-    <div class="tier-badge">C · Founders</div>
-    <div class="tier-section-name">From Lost to Launched</div>
-    <div class="tier-section-sub">The Keynote. Built from nothing.</div>
+  <!-- C FOUNDERS -->
+  <div class="tier-group">
+    <div class="tier-group-header">
+      <div class="tier-group-badge">C · Founders</div>
+      <div class="tier-group-name">From Lost to Launched</div>
+      <div class="tier-group-sub">The Keynote. Built from nothing.</div>
+    </div>
+    <div class="stories-grid">
+      <a href="profile-susy-gordon.html" class="story-card">
+        <div class="story-num">C · 1020 · Founding Story</div>
+        <div class="story-name">Susy Gordon</div>
+        <div class="story-arc">Corporate IT Director <span>→</span> Faith-Based Media Founder</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+      <a href="profile-carrie-carter.html" class="story-card">
+        <div class="story-num">C · 1021 · Founding Story</div>
+        <div class="story-name">Carrie Carter</div>
+        <div class="story-arc">Travel Tech Executive <span>→</span> Cowtown Tour Company</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+      <a href="profile-lena-killion.html" class="story-card">
+        <div class="story-num">C · 1019 · Founding Story</div>
+        <div class="story-name">Lena Killion</div>
+        <div class="story-arc">Aerospace Sales <span>→</span> Funeral Pre-Planning Entrepreneur</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+    </div>
+    <a href="listen.html#founders" class="view-all">View All Founder Blueprints →</a>
   </div>
-  <div class="stories-grid">
-    <a href="profile-susy-gordon.html" class="story-card">
-      <div class="story-num">C · 1020 · Founding Story</div>
-      <div class="story-name">Susy Gordon</div>
-      <div class="story-arc">Corporate IT Director <span>→</span> Faith-Based Media Founder</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-    <a href="profile-carrie-carter.html" class="story-card">
-      <div class="story-num">C · 1021 · Founding Story</div>
-      <div class="story-name">Carrie Carter</div>
-      <div class="story-arc">Travel Tech Executive <span>→</span> Cowtown Tour Company</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-    <a href="profile-lena-killion.html" class="story-card">
-      <div class="story-num">C · 1019 · Founding Story</div>
-      <div class="story-name">Lena Killion</div>
-      <div class="story-arc">Aerospace Sales <span>→</span> Funeral Pre-Planning Entrepreneur</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-  </div>
-  <a href="founders.html" class="view-all-link">View All Founder Blueprints →</a>
 
   <div class="tier-divider">
     <div class="tier-divider-line"></div>
@@ -710,33 +277,35 @@
     <div class="tier-divider-line"></div>
   </div>
 
-  <!-- B · HIGHWAY HUSTLE -->
-  <div class="tier-section-label">
-    <div class="tier-badge tier-badge-teal">B · Highway Hustle</div>
-    <div class="tier-section-name">Real Roads. Real Stories.</div>
-    <div class="tier-section-sub">In Motion. In Testimony.</div>
+  <!-- B HIGHWAY HUSTLE -->
+  <div class="tier-group">
+    <div class="tier-group-header">
+      <div class="tier-group-badge tier-group-badge-teal">B · Highway Hustle</div>
+      <div class="tier-group-name">Real Roads. Real Stories.</div>
+      <div class="tier-group-sub">In Motion. In Testimony.</div>
+    </div>
+    <div class="stories-grid">
+      <a href="profile-rodney.html" class="story-card">
+        <div class="story-num">B · 1017 · Highway Hustle</div>
+        <div class="story-name">Rodney</div>
+        <div class="story-arc">17 → Prison → Free at 33 <span>→</span> Called to Mentor</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+      <a href="profile-latoya-french.html" class="story-card">
+        <div class="story-num">B · 1014 · Highway Hustle</div>
+        <div class="story-name">Latoya French</div>
+        <div class="story-arc">A · Home Free → B · Highway Hustle <span>·</span> Elevation in Progress</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+      <a href="profile-jesse-jeremy.html" class="story-card">
+        <div class="story-num">B · 1013 · Highway Hustle</div>
+        <div class="story-name">Jesse &amp; Jeremy</div>
+        <div class="story-arc">Addiction &amp; Darkness <span>→</span> Sobriety &amp; Purpose</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+    </div>
+    <a href="listen.html#highway" class="view-all">View All Highway Hustle Stories →</a>
   </div>
-  <div class="stories-grid">
-    <a href="profile-rodney.html" class="story-card">
-      <div class="story-num">B · 1017 · Highway Hustle</div>
-      <div class="story-name">Rodney</div>
-      <div class="story-arc">17 → Prison → Free at 33 <span>→</span> Called to Mentor</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-    <a href="profile-latoya-french.html" class="story-card">
-      <div class="story-num">B · 1014 · Highway Hustle</div>
-      <div class="story-name">Latoya French</div>
-      <div class="story-arc">A · Home Free → B · Highway Hustle <span>·</span> Elevation in Progress</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-    <a href="profile-jesse-jeremy.html" class="story-card">
-      <div class="story-num">B · 1013 · Highway Hustle</div>
-      <div class="story-name">Jesse &amp; Jeremy</div>
-      <div class="story-arc">Addiction &amp; Darkness <span>→</span> Sobriety &amp; Purpose</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-  </div>
-  <a href="listen.html" class="view-all-link">View All Highway Hustle Stories →</a>
 
   <div class="tier-divider">
     <div class="tier-divider-line"></div>
@@ -744,49 +313,30 @@
     <div class="tier-divider-line"></div>
   </div>
 
-  <!-- A · HOME FREE -->
-  <div class="tier-section-label">
-    <div class="tier-badge" style="background:#1A1A18;color:var(--gold);border:1px solid var(--gold);">A · Home Free</div>
-    <div class="tier-section-name">The Unseen · About to be Seen</div>
-    <div class="tier-section-sub">Every story above speaks life here.</div>
-  </div>
-  <div class="stories-grid">
-    <a href="profile-cowboy.html" class="story-card">
-      <div class="story-num">A · 1001 · Home Free</div>
-      <div class="story-name">Cowboy</div>
-      <div class="story-arc">Streets of Fort Worth <span>→</span> Seeking &amp; Rebuilding</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-    <a href="profile-brenda.html" class="story-card">
-      <div class="story-num">A · 1002 · Home Free</div>
-      <div class="story-name">Brenda</div>
-      <div class="story-arc">Homeless on her 47th Birthday <span>→</span> Faith &amp; Restoration</div>
-      <div class="story-cta">Watch Free →</div>
-    </a>
-    <div class="story-card-placeholder">
-      <div class="placeholder-label">Coming Soon</div>
+  <!-- A HOME FREE -->
+  <div class="tier-group">
+    <div class="tier-group-header">
+      <div class="tier-group-badge tier-group-badge-dark">A · Home Free</div>
+      <div class="tier-group-name">The Unseen · About to be Seen</div>
+      <div class="tier-group-sub">Every story above speaks life here. Always free.</div>
     </div>
-    <div class="story-card-placeholder">
-      <div class="placeholder-label">Coming Soon</div>
+    <div class="stories-grid">
+      <a href="profile-cowboy.html" class="story-card">
+        <div class="story-num">A · 1001 · Home Free</div>
+        <div class="story-name">Cowboy</div>
+        <div class="story-arc">Streets of Fort Worth <span>→</span> Seeking &amp; Rebuilding</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+      <a href="profile-brenda.html" class="story-card">
+        <div class="story-num">A · 1002 · Home Free</div>
+        <div class="story-name">Brenda</div>
+        <div class="story-arc">Homeless on her 47th Birthday <span>→</span> Faith &amp; Restoration</div>
+        <div class="story-cta">Click to Watch →</div>
+      </a>
+      <div class="story-placeholder"><span>Coming Soon</span></div>
+      <div class="story-placeholder"><span>Coming Soon</span></div>
     </div>
-  </div>
-  <a href="homefree.html" class="view-all-link">View All Home Free Stories →</a>
-</section>
-
-<!-- MISSION -->
-<section class="mission-section">
-  <div class="mission-eyebrow">Keep These Blueprints Free. Always.</div>
-  <h2 class="mission-headline">
-    Seekers receive free.<br>
-    Founders give freely.<br>
-    <em>Supporters keep the bridge standing.</em>
-  </h2>
-  <p class="mission-body">
-    Seeker of Story runs on <a href="fuel.html">The Goodwill Principle</a>. Building the bridge costs real resources. Your gift helps us reach more founders, publish more blueprints, and match more seekers across DFW.
-  </p>
-  <div class="mission-btns">
-    <a href="fuel.html" class="btn-gold">Fuel the Mission →</a>
-    <a href="about.html" class="btn-ghost">Our Story →</a>
+    <a href="listen.html#homefree" class="view-all">View All Home Free Stories →</a>
   </div>
 </section>
 
@@ -794,7 +344,7 @@
 <footer class="footer">
   <div class="footer-top">
     <div>
-      <div class="footer-logo">SEEKER <span>OF</span> STORY</div>
+      <img src="sos-logo.png" alt="Seeker of Story" style="height:44px;width:auto;margin-bottom:12px;display:block">
       <div class="footer-info">
         Fort Worth, TX · Matthew 7:7<br>
         No paywalls. Always free.<br>
