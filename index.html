@@ -58,7 +58,7 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
 /* SEARCH */
 .search-section{background:var(--cream);padding:56px 40px 48px}
 .search-label{text-align:center;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:28px;font-weight:600}
-.search-card{max-width:660px;margin:0 auto;background:var(--white);border:1px solid #E0D8C8}
+.search-card{max-width:660px;margin:0 auto;background:var(--white);border:2px solid var(--black);box-shadow:0 4px 20px rgba(0,0,0,0.12)}
 .search-row{display:flex;align-items:stretch}
 .search-field{flex:1;padding:18px 24px;display:flex;flex-direction:column;gap:4px}
 .search-field label{font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;font-weight:700}
@@ -75,12 +75,12 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
 .tiers-stack{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
 .tier-bar{display:flex;align-items:center;padding:20px 28px;cursor:pointer;text-decoration:none;transition:filter 0.2s;gap:16px}
 .tier-bar:hover{filter:brightness(1.08)}
-.tier-teal-dark{background:var(--teal-dark)}
-.tier-teal-mid{background:var(--teal)}
-.tier-teal-light{background:var(--teal-mid)}
-.tier-label{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.7);text-transform:uppercase;font-weight:600;white-space:nowrap;min-width:140px}
-.tier-label strong{color:#fff;display:block;font-size:15px;font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:0;text-transform:none;margin-top:2px}
-.tier-desc{flex:1;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.5}
+.tier-teal-dark{background:var(--black);border-left:5px solid var(--gold)}
+.tier-teal-mid{background:var(--black-soft);border-left:5px solid var(--teal)}
+.tier-teal-light{background:#2A2A22;border-left:5px solid var(--gold)}
+.tier-label{font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;white-space:nowrap;min-width:auto}
+.tier-label strong{display:none}
+.tier-desc{display:none}
 .tier-arrows{display:flex;flex-direction:column;align-items:center;gap:2px}
 .arrow-bounce{font-size:20px;color:rgba(255,255,255,0.9);animation:bounce 1.4s infinite}
 .arrow-bounce:nth-child(2){animation-delay:0.2s}
@@ -187,7 +187,7 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
 
 <!-- SEARCH -->
 <section class="search-section" style="padding-top:40px;">
-  <div class="search-label">Search the Becoming Database</div>
+  <div class="search-label">Search the Blueprint Database</div>
   <div class="search-card">
     <div class="search-row">
       <div class="search-field">
@@ -200,7 +200,7 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
         <input type="text" placeholder="e.g. Attorney, Tour Guide, Founder" />
       </div>
     </div>
-    <button class="search-submit">Search the Becoming Database →</button>
+    <button class="search-submit">Search the Blueprint Database →</button>
   </div>
 </section>
 
@@ -209,28 +209,37 @@ body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--bla
   <div class="section-eyebrow">Original Programming</div>
   <div class="section-tagline">Every level speaks life to the one below it.</div>
   <div class="tiers-stack">
-    <a href="listen.html#founders" class="tier-bar tier-teal-dark">
-      <div class="tier-label">C. <strong>Founders</strong></div>
-      <div class="tier-desc">From Lost to Launched. They speak life downward to every level.</div>
-      <div class="tier-arrows">
-        <span class="arrow-bounce">↓</span>
-        <span class="arrow-bounce">↓</span>
+    <a href="listen.html#founders" class="tier-bar tier-teal-dark" style="justify-content:space-between;align-items:center;padding:18px 24px;">
+      <div class="tier-arrows" style="display:flex;gap:4px;">
+        <span class="arrow-bounce" style="color:var(--gold);">↓</span>
+        <span class="arrow-bounce" style="color:var(--gold);animation-delay:0.15s;">↓</span>
+      </div>
+      <div style="font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;text-align:center;">C. Founders</div>
+      <div class="tier-arrows" style="display:flex;gap:4px;">
+        <span class="arrow-bounce" style="color:var(--gold);animation-delay:0.3s;">↓</span>
+        <span class="arrow-bounce" style="color:var(--gold);animation-delay:0.45s;">↓</span>
       </div>
     </a>
-    <a href="listen.html#highway" class="tier-bar tier-teal-mid">
-      <div class="tier-label">B. <strong>Highway Hustle</strong></div>
-      <div class="tier-desc">Real people. Real roads. Real stories. In motion, in testimony.</div>
-      <div class="tier-arrows">
-        <span class="arrow-bounce arrow-up">↑</span>
-        <span class="arrow-bounce arrow-up">↑</span>
+    <a href="listen.html#highway" class="tier-bar tier-teal-mid" style="justify-content:space-between;align-items:center;padding:18px 24px;">
+      <div class="tier-arrows" style="display:flex;gap:4px;">
+        <span class="arrow-bounce arrow-up" style="color:var(--teal-mid);">↑</span>
+        <span class="arrow-bounce arrow-up" style="color:var(--teal-mid);animation-delay:0.15s;">↑</span>
+      </div>
+      <div style="font-size:13px;letter-spacing:3px;color:var(--cream);text-transform:uppercase;font-weight:700;text-align:center;">B. Highway Hustle</div>
+      <div class="tier-arrows" style="display:flex;gap:4px;">
+        <span class="arrow-bounce arrow-up" style="color:var(--teal-mid);animation-delay:0.3s;">↑</span>
+        <span class="arrow-bounce arrow-up" style="color:var(--teal-mid);animation-delay:0.45s;">↑</span>
       </div>
     </a>
-    <a href="listen.html#homefree" class="tier-bar tier-teal-light">
-      <div class="tier-label">A. <strong>Home Free</strong></div>
-      <div class="tier-desc">The Unseen. About to be seen. Every story above speaks life here.</div>
-      <div class="tier-arrows">
-        <span class="arrow-bounce arrow-up">↑</span>
-        <span class="arrow-bounce arrow-up">↑</span>
+    <a href="listen.html#homefree" class="tier-bar tier-teal-light" style="justify-content:space-between;align-items:center;padding:18px 24px;">
+      <div class="tier-arrows" style="display:flex;gap:4px;">
+        <span class="arrow-bounce arrow-up" style="color:var(--gold);">↑</span>
+        <span class="arrow-bounce arrow-up" style="color:var(--gold);animation-delay:0.15s;">↑</span>
+      </div>
+      <div style="font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;text-align:center;">A. Home Free</div>
+      <div class="tier-arrows" style="display:flex;gap:4px;">
+        <span class="arrow-bounce arrow-up" style="color:var(--gold);animation-delay:0.3s;">↑</span>
+        <span class="arrow-bounce arrow-up" style="color:var(--gold);animation-delay:0.45s;">↑</span>
       </div>
     </a>
   </div>
